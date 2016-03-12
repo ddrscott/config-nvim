@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/Raimondi/delimitMate'
 Plug 'https://github.com/Shougo/deoplete.nvim'
+Plug 'https://github.com/airblade/vim-gitgutter.git'
 Plug 'https://github.com/altercation/vim-colors-solarized'
 Plug 'https://github.com/benekastah/neomake'
 Plug 'https://github.com/kana/vim-textobj-user.git'
@@ -22,10 +23,14 @@ Plug 'https://github.com/tpope/vim-vinegar'
 Plug 'https://github.com/vim-airline/vim-airline'
 Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/vim-ruby/vim-ruby'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 call plug#end()
 
 filetype indent plugin on
 syntax enable
+
+" set term title to current file
+autocmd BufEnter * let &titlestring=expand("%:t") | set title
 
 set background=dark
 let g:solarized_termtrans=1
@@ -39,6 +44,13 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='solarized'
 let g:vim_markdown_fenced_languages=['c++=cpp', 'viml=vim', 'bash=sh', 'ini=dosini', 'rb=ruby']
 
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+
+" Fuzzy Finder
+set rtp+=~/.fzf
+
+" Custom FileType settings
 autocmd FileType ruby set tags=.tags.ruby,.tags.gem,gem.tags,gems.tags,tags
 autocmd FileType javascript set tags=.tags.jsx,tags
 autocmd! BufWritePost * Neomake
@@ -61,6 +73,7 @@ set splitright
 set textwidth=80
 set linebreak     " break at whitespace
 set nolist        " list disables linebreak
+set nowrap
 autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 
 set autoindent smartindent tabstop=2 shiftwidth=2 softtabstop=2 expandtab
@@ -72,15 +85,17 @@ autocmd FileType hs set autoindent smartindent tabstop=4 shiftwidth=4  noexpandt
 nnoremap " " <Nop>
 let mapleader=" "
 
-" :W same as :w
-command! W w
+" Fix my common typos
+command! W w    " write it
 
 map <Leader>w :set wrap!<CR>
 map <Leader>n :NERDTreeToggle<CR>
+noremap <silent> <Leader>t :FZF<CR>
 noremap <silent> <f5> :set paste!<CR>
 nnoremap <C-]> g<C-]>
 nnoremap ; :
 nnoremap <silent> <Leader>h :set hlsearch!<CR>
+nnoremap <silent> <Leader>5 :let @* = expand("%")<CR>:echo "copied: " . expand("%")<CR>
 
 " Buffer Stuff
 nnoremap <silent> <C-p> :bprevious<CR>
