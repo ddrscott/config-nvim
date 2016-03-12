@@ -19,6 +19,7 @@ Plug 'https://github.com/tpope/vim-rails'
 Plug 'https://github.com/tpope/vim-repeat'
 Plug 'https://github.com/tpope/vim-sensible'
 Plug 'https://github.com/tpope/vim-surround'
+Plug 'https://github.com/tpope/vim-unimpaired.git'
 Plug 'https://github.com/tpope/vim-vinegar'
 Plug 'https://github.com/vim-airline/vim-airline'
 Plug 'https://github.com/vim-airline/vim-airline-themes'
@@ -54,6 +55,7 @@ set rtp+=~/.fzf
 autocmd FileType ruby set tags=.tags.ruby,.tags.gem,gem.tags,gems.tags,tags
 autocmd FileType javascript set tags=.tags.jsx,tags
 autocmd! BufWritePost * Neomake
+autocmd QuickFixCmdPost *grep* cwindow
 
 set number
 set virtualedit=block
