@@ -99,6 +99,8 @@ nnoremap <C-]> g<C-]>
 nnoremap ; :
 nnoremap <silent> <Leader>h :set hlsearch!<CR>
 nnoremap <silent> <Leader>5 :let @* = expand("%")<CR>:echo "copied: " . expand("%")<CR>
+nnoremap <Up> gk
+nnoremap <Down> gj
 
 " Buffer Stuff
 nnoremap <silent> <C-p> :bprevious<CR>
