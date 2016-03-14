@@ -101,8 +101,9 @@ nnoremap <Up> gk
 nnoremap <Down> gj
 
 " Buffer Stuff
-nnoremap <silent> <Leader>bB :bprevious<CR>
-nnoremap <silent> <Leader>bb :bnext<CR>
+nnoremap <silent> <Leader>bp :bprevious<CR>
+nnoremap <silent> <Leader>bn :bnext<CR>
+nnoremap <silent> <Leader>bb :b#<CR>
 nnoremap <silent> <Leader>bx <C-o>:bdelete #<CR>
 
 " Multicursor
