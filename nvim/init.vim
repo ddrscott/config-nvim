@@ -91,13 +91,11 @@ let mapleader=" "
 " Fix my common typos
 command! W w    " write it
 
-map <Leader>w :set wrap!<CR>
 map <Leader>n :NERDTreeToggle<CR>
 noremap <silent> <Leader>ff :FZF<CR>
 noremap <silent> <f5> :set paste!<CR>
 nnoremap <C-]> g<C-]>
 nnoremap ; :
-nnoremap <silent> <Leader>h :set hlsearch!<CR>
 nnoremap <silent> <Leader>5 :let @* = expand("%")<CR>:echo "copied: " . expand("%")<CR>
 nnoremap <Up> gk
 nnoremap <Down> gj
