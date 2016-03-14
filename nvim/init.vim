@@ -53,7 +53,7 @@ let g:deoplete#sources = {}
 let g:deoplete#sources._ = ['buffer','tag']
 
 " Fuzzy Finder
-set rtp+=~/.fzf
+set runtimepath+=~/.fzf
 
 " Custom FileType settings
 autocmd FileType ruby set tags=.tags.ruby,.tags.gem,gem.tags,gems.tags,tags;/
