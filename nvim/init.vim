@@ -103,9 +103,9 @@ nnoremap <Up> gk
 nnoremap <Down> gj
 
 " Buffer Stuff
-nnoremap <silent> <C-p> :bprevious<CR>
-nnoremap <silent> <C-n> :bnext<CR>
-nnoremap <silent> <C-x> <C-o>:bdelete #<CR>
+nnoremap <silent> <Leader>bB :bprevious<CR>
+nnoremap <silent> <Leader>bb :bnext<CR>
+nnoremap <silent> <Leader>bx <C-o>:bdelete #<CR>
 
 " Multicursor
 let g:multi_cursor_start_key='<Leader>m'
