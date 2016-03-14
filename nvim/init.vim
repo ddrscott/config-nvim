@@ -53,7 +53,7 @@ let g:deoplete#enable_at_startup = 1
 set rtp+=~/.fzf
 
 " Custom FileType settings
-autocmd FileType ruby set tags=.tags.ruby,.tags.gem,gem.tags,gems.tags,tags
+autocmd FileType ruby set tags=.tags.ruby,.tags.gem,gem.tags,gems.tags,tags;/
 autocmd FileType javascript set tags=.tags.jsx,tags
 autocmd! BufWritePost * Neomake
 autocmd QuickFixCmdPost *grep* cwindow
