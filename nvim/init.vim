@@ -26,6 +26,7 @@ Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/vim-ruby/vim-ruby'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'https://github.com/zeekay/vimtips.git'
+Plug 'https://github.com/osyo-manga/vim-monster.git'
 call plug#end()
 
 filetype indent plugin on
@@ -48,6 +49,8 @@ let g:vim_markdown_fenced_languages=['c++=cpp', 'viml=vim', 'bash=sh', 'ini=dosi
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources = {}
+let g:deoplete#sources._ = ['buffer','tag']
 
 " Fuzzy Finder
 set rtp+=~/.fzf
@@ -89,12 +92,19 @@ nnoremap " " <Nop>
 let mapleader=" "
 
 " Fix my common typos
-command! W w    " write it
+command! W w   " write it
+
+inoremap <C-@> <C-n>
+inoremap jj <ESC>
+inoremap <C-a> <C-o>^
+inoremap <C-e> <C-o>$
 
 map <Leader>n :NERDTreeToggle<CR>
 noremap <silent> <Leader>ff :FZF<CR>
 noremap <silent> <f5> :set paste!<CR>
 nnoremap <C-]> g<C-]>
+nnoremap <Leader>] <C-]>
+nnoremap <Leader>} <C-w>}
 nnoremap ; :
 nnoremap <silent> <Leader>5 :let @* = expand("%")<CR>:echo "copied: " . expand("%")<CR>
 nnoremap <Up> gk
