@@ -116,6 +116,9 @@ nnoremap <silent> <Leader>bn :bnext<CR>
 nnoremap <silent> <Leader>bb :b#<CR>
 nnoremap <silent> <Leader>bx <C-o>:bdelete #<CR>
 
+" Grep Stuff
+noremap <silent> <Leader>gw :grep '\b<C-r><C-w>\b'<CR>
+
 " Multicursor
 let g:multi_cursor_start_key='<Leader>m'
 
