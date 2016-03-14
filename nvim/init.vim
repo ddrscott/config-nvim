@@ -93,7 +93,7 @@ command! W w    " write it
 
 map <Leader>w :set wrap!<CR>
 map <Leader>n :NERDTreeToggle<CR>
-noremap <silent> <Leader>t :FZF<CR>
+noremap <silent> <Leader>ff :FZF<CR>
 noremap <silent> <f5> :set paste!<CR>
 nnoremap <C-]> g<C-]>
 nnoremap ; :
