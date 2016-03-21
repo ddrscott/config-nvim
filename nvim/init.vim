@@ -128,9 +128,15 @@ nnoremap <silent> <Leader>5 :let @* = expand("%")<CR>:echo "copied: " . expand("
 nnoremap <Up> gk
 nnoremap <Down> gj
 
+" Disable annoying key defaults
+nnoremap <F1> <nop>
+nnoremap Q <nop>
+nnoremap K <nop>
+nnoremap Y y$
+
 " Buffer Stuff
-nnoremap <silent> <Leader>bp :bprevious<CR>
-nnoremap <silent> <Leader>bn :bnext<CR>
+nnoremap <silent> <C-p> :bprevious<CR>
+nnoremap <silent> <C-n> :bnext<CR>
 nnoremap <silent> <Leader>bb :b#<CR>
 nnoremap <silent> <C-x> :b#<CR>:bdelete #<CR>
 
