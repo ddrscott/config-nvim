@@ -48,6 +48,12 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='solarized'
 let g:vim_markdown_fenced_languages=['c++=cpp', 'viml=vim', 'bash=sh', 'ini=dosini', 'rb=ruby']
 
+" NeoVim
+if has('nvim')
+  let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+  tnoremap <Esc><Esc> <C-\><C-n>
+endif
+
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources = {}
