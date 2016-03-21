@@ -70,7 +70,7 @@ let g:fzf_action = {
 autocmd FileType ruby set tags=.tags.ruby,.tags.gem,gem.tags,gems.tags,tags;/
 autocmd FileType javascript set tags=.tags.jsx,tags
 autocmd! BufWritePost * Neomake
-autocmd QuickFixCmdPost *grep* cwindow
+autocmd QuickFixCmdPost *grep* cwindow     " open search results immediately
 
 set number
 set virtualedit=block
