@@ -120,6 +120,7 @@ noremap <silent> <Leader>ff :FZF<CR>
 noremap <silent> <Leader>b :Buffers<CR>
 noremap <silent> <f5> :set paste!<CR>
 nnoremap <C-]> g<C-]>
+nnoremap <C-w><C-w> <C-w><C-p>
 nnoremap <Leader>] <C-]>
 nnoremap <Leader>} <C-w>}
 nnoremap ; :
