@@ -25,6 +25,7 @@ Plug 'https://github.com/vim-airline/vim-airline'
 Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/vim-ruby/vim-ruby'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'https://github.com/zeekay/vimtips.git'
 Plug 'https://github.com/osyo-manga/vim-monster.git'
 call plug#end()
@@ -54,6 +55,10 @@ let g:deoplete#sources._ = ['buffer','tag']
 
 " Fuzzy Finder
 set runtimepath+=~/.fzf
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit' }
 
 " Custom FileType settings
 autocmd FileType ruby set tags=.tags.ruby,.tags.gem,gem.tags,gems.tags,tags;/
@@ -101,6 +106,7 @@ inoremap <C-e> <C-o>$
 
 map <Leader>n :NERDTreeToggle<CR>
 noremap <silent> <Leader>ff :FZF<CR>
+noremap <silent> <Leader>b :Buffers<CR>
 noremap <silent> <f5> :set paste!<CR>
 nnoremap <C-]> g<C-]>
 nnoremap <Leader>] <C-]>
@@ -114,10 +120,15 @@ nnoremap <Down> gj
 nnoremap <silent> <Leader>bp :bprevious<CR>
 nnoremap <silent> <Leader>bn :bnext<CR>
 nnoremap <silent> <Leader>bb :b#<CR>
-nnoremap <silent> <Leader>bx <C-o>:bdelete #<CR>
+nnoremap <silent> <C-x> :b#<CR>:bdelete #<CR>
+
+command! FZFMru call fzf#run({'source': v:oldfiles, 'sink': 'e', 'options': '-m -x +s', 'down': '40%'}) 
+nnoremap <silent> <Leader>fh :Hist<CR>
+nnoremap <silent> <Leader>fm :Marks<CR>
+nnoremap <silent> <Leader>fb :Buffers<CR>
 
 " Grep Stuff
-noremap <silent> <Leader>gw :grep '\b<C-r><C-w>\b'<CR>
+noremap <silent> <Leader>gw :Ag '\b<CWORD>\b'<CR>
 
 " Multicursor
 let g:multi_cursor_start_key='<Leader>m'
@@ -137,8 +148,8 @@ set wildignore+=*/bower_components
 " System clipboard
 set clipboard+=unnamedplus
 
-" The Silver Searcher
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-endif
+" " The Silver Searcher
+" if executable('ag')
+"   " Use ag over grep
+"   set grepprg=ag\ --nogroup\ --nocolor
+" endif
