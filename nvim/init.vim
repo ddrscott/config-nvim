@@ -71,6 +71,7 @@ autocmd FileType ruby set tags=.tags.ruby,.tags.gem,gem.tags,gems.tags,tags;/
 autocmd FileType javascript set tags=.tags.jsx,tags
 autocmd! BufWritePost * Neomake
 autocmd QuickFixCmdPost *grep* cwindow     " open search results immediately
+autocmd VimResized * let &previewheight=(winheight(0) * 1/3)
 
 set number
 set virtualedit=block
