@@ -96,6 +96,10 @@ set textwidth=80
 set linebreak     " break at whitespace
 set nolist        " list disables linebreak
 set nowrap
+set nolazyredraw
+set breakindent
+set breakindentopt=sbr 
+set showbreak=↪>\  " ↪ space
 autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 
 set autoindent smartindent tabstop=2 shiftwidth=2 softtabstop=2 expandtab
@@ -117,6 +121,7 @@ inoremap <C-e> <C-o>$
 
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
+
 map <Leader>n :NERDTreeToggle<CR>
 noremap <silent> <Leader>ff :FZF<CR>
 noremap <silent> <Leader>b :Buffers<CR>
