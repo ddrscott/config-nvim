@@ -115,6 +115,8 @@ inoremap jj <ESC>
 inoremap <C-a> <C-o>^
 inoremap <C-e> <C-o>$
 
+map <ScrollWheelUp> <C-Y>
+map <ScrollWheelDown> <C-E>
 map <Leader>n :NERDTreeToggle<CR>
 noremap <silent> <Leader>ff :FZF<CR>
 noremap <silent> <Leader>b :Buffers<CR>
