@@ -28,6 +28,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'https://github.com/zeekay/vimtips.git'
 Plug 'https://github.com/osyo-manga/vim-monster.git'
+Plug 'https://github.com/rust-lang/rust.vim.git'
 call plug#end()
 
 filetype indent plugin on
