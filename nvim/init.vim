@@ -149,7 +149,7 @@ nnoremap Y y$
 nnoremap <silent> <C-p> :bprevious<CR>
 nnoremap <silent> <C-n> :bnext<CR>
 nnoremap <silent> <Leader>bb :b#<CR>
-nnoremap <silent> <C-x> :b#<CR>:bdelete #<CR>
+nnoremap <silent> <C-x> <C-o>:bdelete #<CR>
 
 command! FZFMru call fzf#run({'source': v:oldfiles, 'sink': 'e', 'options': '-m -x +s', 'down': '40%'}) 
 nnoremap <silent> <Leader>fh :Hist<CR>
