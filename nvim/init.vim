@@ -29,6 +29,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'https://github.com/zeekay/vimtips.git'
 Plug 'https://github.com/osyo-manga/vim-monster.git'
 Plug 'https://github.com/rust-lang/rust.vim.git'
+Plug 'https://github.com/pangloss/vim-javascript'
+Plug 'https://github.com/mxw/vim-jsx'
 call plug#end()
 
 filetype indent plugin on
@@ -68,6 +70,9 @@ let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
+
+" JSX highlighting in *.js file
+let g:jsx_ext_required = 0
 
 " Custom FileType settings
 autocmd FileType ruby set tags=.tags.ruby,.tags.gem,gem.tags,gems.tags,tags;/
