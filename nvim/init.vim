@@ -38,7 +38,7 @@ syntax enable
 autocmd BufEnter * let &titlestring=expand("%:t") | set title
 
 set background=dark
-let g:solarized_termtrans=1
+let g:solarized_termtrans=0
 let g:solarized_termcolors=16
 colorscheme solarized
 
