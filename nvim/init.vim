@@ -100,8 +100,8 @@ set splitbelow
 set splitright
 set winheight=10
 set winminheight=10
-set winwidth=40
-set winminwidth=15
+set winwidth=60
+set winminwidth=30
 
 
 " text wrapping
