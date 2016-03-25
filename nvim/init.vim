@@ -37,7 +37,8 @@ filetype indent plugin on
 syntax enable
 
 " set term title to current file
-autocmd BufEnter * let &titlestring=expand("%:t") | set title
+autocmd BufEnter * let &titlestring=expand("%:t") | set title | set number
+autocmd BufLeave * set nonumber
 
 set background=dark
 let g:solarized_termtrans=0
