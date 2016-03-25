@@ -185,8 +185,8 @@ set wildignore+=*/bower_components
 " System clipboard
 set clipboard+=unnamedplus
 
-" " The Silver Searcher
-" if executable('ag')
-"   " Use ag over grep
-"   set grepprg=ag\ --nogroup\ --nocolor
-" endif
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+endif
