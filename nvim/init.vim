@@ -38,10 +38,8 @@ call plug#end()
 filetype indent plugin on
 syntax enable
 
-set nonumber  " default to no number, BufEnter will turn it back on
 " set term title to current file
-autocmd BufEnter * let &titlestring=expand("%:t") | set title | set number
-autocmd BufLeave * set nonumber
+autocmd BufEnter * let &titlestring=expand("%:t") | set title
 
 set background=dark
 let g:solarized_termtrans=0
@@ -137,11 +135,11 @@ inoremap <C-e> <C-o>$
 
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
-
+This is a t est
 map <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>tt :Tagbar<CR>
 nnoremap <Leader>ta :TagbarOpenAutoClose<CR>
-nnoremap <Leader><Space> Mzt 
+nnoremap <Leader><Space> <C-d>
 noremap <silent> <Leader>ff :FZF<CR>
 noremap <silent> <Leader>b :Buffers<CR>
 noremap <silent> <f5> :set paste!<CR>
