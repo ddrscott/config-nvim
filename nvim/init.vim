@@ -123,7 +123,7 @@ autocmd FileType go set autoindent smartindent tabstop=4 shiftwidth=4  noexpandt
 autocmd FileType hs set autoindent smartindent tabstop=4 shiftwidth=4  noexpandtab
 
 " Reset Leader
-nnoremap " " <Nop>
+nnoremap <Space> <Nop>
 let mapleader=" "
 
 " Fix my common typos
