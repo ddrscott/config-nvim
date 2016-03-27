@@ -33,6 +33,7 @@ Plug 'https://github.com/pangloss/vim-javascript'
 Plug 'https://github.com/mxw/vim-jsx'
 Plug 'https://github.com/jeetsukumaran/vim-indentwise'
 Plug 'https://github.com/majutsushi/tagbar.git'
+Plug 'https://github.com/kshenoy/vim-signature.git'
 call plug#end()
 
 filetype indent plugin on
@@ -135,7 +136,6 @@ inoremap <C-e> <C-o>$
 
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
-This is a t est
 map <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>tt :Tagbar<CR>
 nnoremap <Leader>ta :TagbarOpenAutoClose<CR>
