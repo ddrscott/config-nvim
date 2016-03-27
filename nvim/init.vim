@@ -141,6 +141,7 @@ map <ScrollWheelDown> <C-E>
 map <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>tt :Tagbar<CR>
 nnoremap <Leader>ta :TagbarOpenAutoClose<CR>
+nnoremap <Leader><Space> Mzt 
 noremap <silent> <Leader>ff :FZF<CR>
 noremap <silent> <Leader>b :Buffers<CR>
 noremap <silent> <f5> :set paste!<CR>
