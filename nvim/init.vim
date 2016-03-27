@@ -31,11 +31,13 @@ Plug 'https://github.com/osyo-manga/vim-monster.git'
 Plug 'https://github.com/rust-lang/rust.vim.git'
 Plug 'https://github.com/pangloss/vim-javascript'
 Plug 'https://github.com/mxw/vim-jsx'
+Plug 'https://github.com/jeetsukumaran/vim-indentwise'
 call plug#end()
 
 filetype indent plugin on
 syntax enable
 
+set nonumber  " default to no number, BufEnter will turn it back on
 " set term title to current file
 autocmd BufEnter * let &titlestring=expand("%:t") | set title | set number
 autocmd BufLeave * set nonumber
@@ -101,7 +103,7 @@ set splitright
 set winheight=10
 set winminheight=10
 set winwidth=60
-set winminwidth=30
+set winminwidth=15
 
 
 " text wrapping
