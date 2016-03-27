@@ -32,6 +32,7 @@ Plug 'https://github.com/rust-lang/rust.vim.git'
 Plug 'https://github.com/pangloss/vim-javascript'
 Plug 'https://github.com/mxw/vim-jsx'
 Plug 'https://github.com/jeetsukumaran/vim-indentwise'
+Plug 'https://github.com/majutsushi/tagbar.git'
 call plug#end()
 
 filetype indent plugin on
@@ -138,6 +139,8 @@ map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
 
 map <Leader>n :NERDTreeToggle<CR>
+nnoremap <Leader>tt :Tagbar<CR>
+nnoremap <Leader>ta :TagbarOpenAutoClose<CR>
 noremap <silent> <Leader>ff :FZF<CR>
 noremap <silent> <Leader>b :Buffers<CR>
 noremap <silent> <f5> :set paste!<CR>
