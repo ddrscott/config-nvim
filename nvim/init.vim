@@ -101,6 +101,8 @@ set incsearch
 set fillchars=diff:⣿,vert:\|
 set splitbelow
 set splitright
+" Don't try to highlight lines longer than X
+set synmaxcol=1000
 set winheight=10
 set winminheight=10
 set winwidth=60
