@@ -36,6 +36,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 call plug#end()
 
+scriptencoding utf-8
+set encoding=utf-8
+
 filetype indent plugin on
 syntax enable
 
@@ -99,6 +102,7 @@ set incsearch
 
 " Look and Feel {{{ 
 set fillchars=diff:⣿,vert:\|
+set listchars=nbsp:·,trail:⌴,precedes:«,extends:»,tab:⇥\ 
 set splitbelow
 set splitright
 " Don't try to highlight lines longer than X
