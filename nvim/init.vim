@@ -152,8 +152,15 @@ noremap <silent> <Leader>b :Buffers<CR>
 noremap <silent> <f5> :set paste!<CR>
 nnoremap <C-]> g<C-]>
 nnoremap <C-w><C-w> <C-w><C-p>
-nnoremap <Leader>] <C-]>
-nnoremap <Leader>} <C-w>}
+
+" Visual Selection Helpers {{{
+" reselect last change
+nnoremap <Leader>V V`]
+nnoremap <Leader>v v`]
+" Select (charwise) the contents of the current line, excluding indentation.
+nnoremap vv ^vg_
+" }}}
+
 nnoremap ; :
 nnoremap <silent> <Leader>5 :let @* = expand("%")<CR>:echo "copied: " . expand("%")<CR>
 nnoremap <Up> gk
