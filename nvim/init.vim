@@ -97,14 +97,15 @@ set hidden
 
 set incsearch
 
-" more natural window splits
+" Look and Feel {{{ 
+set fillchars=diff:⣿,vert:\|
 set splitbelow
 set splitright
 set winheight=10
 set winminheight=10
 set winwidth=60
 set winminwidth=15
-
+" }}}
 
 " text wrapping
 set textwidth=80
