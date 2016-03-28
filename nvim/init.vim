@@ -158,6 +158,8 @@ nnoremap ; :
 nnoremap <silent> <Leader>5 :let @* = expand("%")<CR>:echo "copied: " . expand("%")<CR>
 nnoremap <Up> gk
 nnoremap <Down> gj
+nnoremap } }zz
+nnoremap { {zz
 
 " Disable annoying key defaults
 nnoremap <F1> <nop>
