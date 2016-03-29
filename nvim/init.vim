@@ -186,7 +186,7 @@ nnoremap <silent> <Leader>fm :Marks<CR>
 nnoremap <silent> <Leader>fb :Buffers<CR>
 
 " Grep Stuff
-noremap <silent> <Leader>gw :Ag '\b<CWORD>\b'<CR>
+noremap <silent> <Leader>gw :grep '\b<C-r><C-w>\b'<CR>
 
 " Multicursor
 let g:multi_cursor_start_key='<Leader>m'
