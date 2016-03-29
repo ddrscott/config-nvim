@@ -34,6 +34,7 @@ Plug 'https://github.com/vim-ruby/vim-ruby'
 Plug 'https://github.com/zeekay/vimtips.git'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'https://github.com/terryma/vim-expand-region'
 call plug#end()
 
 scriptencoding utf-8
@@ -232,5 +233,10 @@ augroup line_return
         \     execute 'normal! g`"zvzz' |
         \ endif
 augroup END
+" }}}
+
+" Expand Region {{{
+vmap - <Plug>(expand_region_shrink)
+vmap = <Plug>(expand_region_expand)
 " }}}
 
