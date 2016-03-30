@@ -113,7 +113,7 @@ set splitright
 set synmaxcol=1000
 set winheight=10
 set winminheight=10
-set winwidth=60
+set winwidth=78
 set winminwidth=15
 
 " no background on vertical split
@@ -133,9 +133,7 @@ set showbreak=↪>\  " ↪ space
 autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 
 set autoindent smartindent tabstop=2 shiftwidth=2 softtabstop=2 expandtab
-autocmd FileType java set autoindent smartindent tabstop=4 shiftwidth=4  noexpandtab
-autocmd FileType go set autoindent smartindent tabstop=4 shiftwidth=4  noexpandtab
-autocmd FileType hs set autoindent smartindent tabstop=4 shiftwidth=4  noexpandtab
+autocmd FileType java,go,hs set autoindent smartindent tabstop=4 shiftwidth=4  noexpandtab
 
 " Reset Leader
 nnoremap <Space> <Nop>
