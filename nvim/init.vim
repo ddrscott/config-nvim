@@ -268,6 +268,10 @@ map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 " }}}
 
+" Fold mappings
+nmap <Leader>zi :set foldmethod=indent<CR>
+nmap <Leader>zs :set foldmethod=syntax<CR>
+nmap <Leader>zm :set foldmethod=manual<CR>
 
 " Better foldtext {{{
 " http://www.gregsexton.org/2011/03/improving-the-text-displayed-in-a-fold/
