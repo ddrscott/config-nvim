@@ -105,7 +105,7 @@ set hidden
 set incsearch
 
 " Look and Feel {{{ 
-set fillchars=diff:⣿,vert:\|
+set fillchars=diff:⣿,vert:\│
 set listchars=nbsp:·,trail:⌴,precedes:«,extends:»,tab:⇥\ 
 set splitbelow
 set splitright
@@ -115,6 +115,10 @@ set winheight=10
 set winminheight=10
 set winwidth=60
 set winminwidth=15
+
+" no background on vertical split
+highlight VertSplit cterm=bold ctermfg=11 ctermbg=NONE
+" 
 " }}}
 
 " text wrapping
