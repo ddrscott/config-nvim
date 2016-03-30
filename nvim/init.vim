@@ -35,6 +35,7 @@ Plug 'https://github.com/zeekay/vimtips.git'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'https://github.com/terryma/vim-expand-region'
+Plug 'https://github.com/haya14busa/incsearch.vim'
 call plug#end()
 
 scriptencoding utf-8
@@ -92,9 +93,11 @@ autocmd QuickFixCmdPost *grep* cwindow     " open search results immediately
 autocmd VimResized * let &previewheight=(winheight(0) * 1/3)
 
 set number
+set relativenumber
 set virtualedit=block
 set directory=~/tmp
 set showcmd
+set foldmethod=manual
 
 " allow unsaved buffers to be hidden
 set hidden
@@ -213,6 +216,11 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 endif
 
+" Abbreviations {{{
+iab deb debugger; // eslint-disable-line
+" }}}
+
+
 " Cursorline {{{
 " Only show cursorline in the current window and in normal mode.
 augroup cline
@@ -239,4 +247,44 @@ augroup END
 vmap - <Plug>(expand_region_shrink)
 vmap = <Plug>(expand_region_expand)
 " }}}
+
+" Inc Search {{{
+set hlsearch
+let g:incsearch#auto_nohlsearch = 1
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
+" }}}
+
+
+" Better foldtext {{{
+" http://www.gregsexton.org/2011/03/improving-the-text-displayed-in-a-fold/
+function! CustomFoldText()
+  "get first non-blank line
+  let fs = v:foldstart
+  while getline(fs) =~ '^\s*$' | let fs = nextnonblank(fs + 1)
+  endwhile
+  if fs > v:foldend
+    let line = getline(v:foldstart)
+  else
+    let line = substitute(getline(fs), '\t', repeat(' ', &tabstop), 'g')
+  endif
+  let w = winwidth(0) - &foldcolumn - (&number ? 8 : 0)
+  let foldSize = 1 + v:foldend - v:foldstart
+  let foldSizeStr = " " . foldSize . " lines "
+  let foldLevelStr = repeat("+--", v:foldlevel)
+  let lineCount = line("$")
+  let foldPercentage = printf("[%.1f", (foldSize*1.0)/lineCount*100) . "%] "
+  let expansionString = repeat(".", w - strwidth(foldSizeStr.line.foldLevelStr.foldPercentage))
+  return line . expansionString . foldSizeStr . foldPercentage . foldLevelStr
+endfunction
+set foldtext=CustomFoldText()
+" }}}
+
 
