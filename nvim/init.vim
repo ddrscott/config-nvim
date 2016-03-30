@@ -196,10 +196,12 @@ nnoremap <silent> <Leader>fb :Buffers<CR>
 " Grep Stuff
 noremap <silent> <Leader>gw :grep '\b<C-r><C-w>\b'<CR>
 
-" Multicursor
+" Multicursor {{{
 let g:multi_cursor_start_key='<Leader>m'
+" }}}
 
-" Word index stuff
+" Wildmenu completion {{{
+set wildmenu
 set wildmode=longest,list:longest
 set wildignore+=tmp/ios,tmp/android,app/assets/images,public/assets,vendor/assets,bin/classes
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
@@ -210,6 +212,7 @@ set wildignore+=*.class
 set wildignore+=*/node_modules/*
 set wildignore+=*/*.min.js*
 set wildignore+=*/bower_components
+" }}}
 
 " System clipboard
 set clipboard+=unnamedplus
