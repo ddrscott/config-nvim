@@ -286,13 +286,14 @@ function! CustomFoldText()
   let w = winwidth(0) - &foldcolumn - (&number ? 8 : 0)
   let foldSize = 1 + v:foldend - v:foldstart
   let foldSizeStr = " " . foldSize . " lines "
-  let foldLevelStr = repeat("+--", v:foldlevel)
+  " let foldLevelStr = repeat(">", v:foldlevel)
+  let foldLevelStr = "" . v:foldlevel
   let lineCount = line("$")
   let foldPercentage = printf("[%.1f", (foldSize*1.0)/lineCount*100) . "%] "
-  let expansionString = repeat(".", w - strwidth(foldSizeStr.line.foldLevelStr.foldPercentage))
+  let expansionString = repeat(" ", w - strwidth(foldSizeStr.line.foldLevelStr.foldPercentage))
   return line . expansionString . foldSizeStr . foldPercentage . foldLevelStr
 endfunction
 set foldtext=CustomFoldText()
+highlight Folded  cterm=underline ctermfg=12 ctermbg=0
 " }}}
-
 
