@@ -1,0 +1,7 @@
+ImageMagick/
+asciinema/
+configstore/
+gtk-2.0/
+htop/
+nvm/.*
+nvim/.*
