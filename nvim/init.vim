@@ -169,7 +169,6 @@ nnoremap <Leader>v v`]
 nnoremap vv ^vg_
 " }}}
 
-nnoremap ; :
 nnoremap <silent> <Leader>5 :let @* = expand("%")<CR>:echo "copied: " . expand("%")<CR>
 nnoremap <Up> gk
 nnoremap <Down> gj
