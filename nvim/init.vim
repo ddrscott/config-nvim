@@ -1,4 +1,5 @@
 " Plugins {{{
+" Plugin manager provided by: https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/Raimondi/delimitMate'
 Plug 'https://github.com/Shougo/deoplete.nvim'
