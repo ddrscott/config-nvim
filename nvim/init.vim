@@ -217,6 +217,7 @@ noremap <silent> <Leader>gw :grep '\b<C-r><C-w>\b'<CR>
 " Quick Editing {{{
 nnoremap <Leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <Leader>sv :source $MYVIMRC<cr>
+nnoremap <Leader>en :Files ~/notes<cr>
 " }}}
 
 " Multicursor {{{
@@ -237,7 +238,7 @@ set wildignore+=*/*.min.js*
 set wildignore+=*/bower_components
 " }}}
 
-" The Silver Searcher  {{{
+" The Silver Searcher {{{
 if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
