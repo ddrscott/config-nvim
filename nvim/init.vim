@@ -160,7 +160,7 @@ let mapleader=" "
 command! W w   " write it
 
 inoremap <C-@> <C-n>
-inoremap jj <ESC>
+inoremap kj <ESC>
 inoremap <C-a> <C-o>^
 inoremap <C-e> <C-o>$
 
@@ -185,11 +185,13 @@ nnoremap <Leader>v v`]
 nnoremap vv ^vg_
 " }}}
 
-nnoremap <silent> <Leader>5 :let @* = expand("%")<CR>:echo "copied: " . expand("%")<CR>
+nnoremap <silent> <Leader>5 :let @* = expand("%")<CR>:echom "copied: " . expand("%")<CR>
 nnoremap <Up> gk
 nnoremap <Down> gj
 nnoremap } }zz
 nnoremap { {zz
+nnoremap zj zjzz
+nnoremap zk zkzz
 
 " Disable annoying key defaults
 nnoremap <F1> <nop>
@@ -286,7 +288,7 @@ map g# <Plug>(incsearch-nohl-g#)
 " Fold mappings
 nmap <Leader>zi :set foldmethod=indent<CR>
 nmap <Leader>zs :set foldmethod=syntax<CR>
-nmap <Leader>zk:set foldmethod=marker<CR>
+nmap <Leader>zk :set foldmethod=marker<CR>
 nmap <Leader>zm :set foldmethod=manual<CR>
 
 " http://www.gregsexton.org/2011/03/improving-the-text-displayed-in-a-fold/
