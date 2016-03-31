@@ -1,3 +1,4 @@
+" Plugins {{{
 call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/Raimondi/delimitMate'
 Plug 'https://github.com/Shougo/deoplete.nvim'
@@ -37,74 +38,36 @@ Plug 'junegunn/fzf.vim'
 Plug 'https://github.com/terryma/vim-expand-region'
 Plug 'https://github.com/haya14busa/incsearch.vim'
 call plug#end()
+" }}}
 
+" Basics Settings {{{
 scriptencoding utf-8
 set encoding=utf-8
 
 filetype indent plugin on
 syntax enable
 
-" set term title to current file
-autocmd BufEnter * let &titlestring=expand("%:t") | set title
+set directory=~/tmp
+set foldmethod=manual
+set incsearch
+set number
+set relativenumber
+set showcmd
+set virtualedit=block
 
+" System clipboard
+set clipboard+=unnamedplus
+
+" allow unsaved buffers to be hidden
+set hidden
+" }}}
+
+" Look and Feel {{{
 set background=dark
 let g:solarized_termtrans=0
 let g:solarized_termcolors=16
 colorscheme solarized
 
-" Airline
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline#extensions#quickfix#quickfix_text = 'Quickfix'
-let g:airline#extensions#quickfix#location_text = 'Location'
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_powerline_fonts = 1
-let g:airline_theme='solarized'
-let g:vim_markdown_fenced_languages=['c++=cpp', 'viml=vim', 'bash=sh', 'ini=dosini', 'rb=ruby']
-
-" NeoVim
-if has('nvim')
-  let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-  tnoremap <Esc><Esc> <C-\><C-n>
-endif
-
-" Deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources = {}
-let g:deoplete#sources._ = ['buffer','tag']
-
-" Fuzzy Finder
-set runtimepath+=~/.fzf
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-s': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
-" JSX highlighting in *.js file
-let g:jsx_ext_required = 0
-
-" Custom FileType settings
-autocmd FileType ruby set tags=.tags.ruby,.tags.gem,gem.tags,gems.tags,tags;/
-autocmd FileType javascript set tags=.tags.jsx,tags
-autocmd! BufWritePost * Neomake
-autocmd QuickFixCmdPost *grep* cwindow     " open search results immediately
-autocmd VimResized * let &previewheight=(winheight(0) * 1/3)
-
-set number
-set relativenumber
-set virtualedit=block
-set directory=~/tmp
-set showcmd
-set foldmethod=manual
-
-" allow unsaved buffers to be hidden
-set hidden
-
-set incsearch
-
-" Look and Feel {{{ 
 set fillchars=diff:⣿,vert:\│
 set listchars=nbsp:·,trail:⌴,precedes:«,extends:»,tab:⇥\ 
 set splitbelow
@@ -118,8 +81,6 @@ set winminwidth=15
 
 " no background on vertical split
 highlight VertSplit cterm=bold ctermfg=11 ctermbg=NONE
-" 
-" }}}
 
 " text wrapping
 set textwidth=80
@@ -130,11 +91,67 @@ set nolazyredraw
 set breakindent
 set breakindentopt=sbr 
 set showbreak=↪>\  " ↪ space
-autocmd BufRead,BufNewFile *.md setlocal textwidth=80
-
 set autoindent smartindent tabstop=2 shiftwidth=2 softtabstop=2 expandtab
-autocmd FileType java,go,hs set autoindent smartindent tabstop=4 shiftwidth=4  noexpandtab
 
+" JSX highlighting in *.js file
+let g:jsx_ext_required = 0
+" }}}
+
+" Airline {{{
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#quickfix#quickfix_text = 'Quickfix'
+let g:airline#extensions#quickfix#location_text = 'Location'
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_powerline_fonts = 1
+let g:airline_theme='solarized'
+let g:vim_markdown_fenced_languages=['c++=cpp', 'viml=vim', 'bash=sh', 'ini=dosini', 'rb=ruby']
+" }}}
+
+" NeoVim {{{
+if has('nvim')
+  let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+  tnoremap <Esc><Esc> <C-\><C-n>
+endif
+" }}}
+
+" Deoplete {{{
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources = {}
+let g:deoplete#sources._ = ['buffer','tag']
+" }}}
+
+" Fuzzy Finder {{{
+set runtimepath+=~/.fzf
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit' }
+" }}}
+
+" Autocmds Settings  {{{
+augroup basics_autocmd
+  au!
+  autocmd FileType ruby set tags=.tags.ruby,.tags.gem,gem.tags,gems.tags,tags;/
+  autocmd FileType javascript set tags=.tags.jsx,tags
+  autocmd FileType markdown,vim setlocal textwidth=80
+  autocmd FileType java,go,hs set autoindent smartindent tabstop=4 shiftwidth=4  noexpandtab
+
+  " set term title to current file
+  autocmd BufEnter * let &titlestring=expand("%:t") | set title
+
+  " Use Neomake for syntax checking
+  autocmd BufWritePost * Neomake
+
+  " open search results immediately
+  autocmd QuickFixCmdPost *grep* cwindow
+  autocmd VimResized * let &previewheight=(winheight(0) * 1/3)
+augroup END
+" }}}
+
+" Key Mappings {{{
 " Reset Leader
 nnoremap <Space> <Nop>
 let mapleader=" "
@@ -158,6 +175,7 @@ noremap <silent> <Leader>b :Buffers<CR>
 noremap <silent> <f5> :set paste!<CR>
 nnoremap <C-]> g<C-]>
 nnoremap <C-w><C-w> <C-w><C-p>
+nnoremap <C-w>\ :vertical resize 80<CR> 
 
 " Visual Selection Helpers {{{
 " reselect last change
@@ -192,6 +210,7 @@ nnoremap <silent> <Leader>fb :Buffers<CR>
 
 " Grep Stuff
 noremap <silent> <Leader>gw :grep '\b<C-r><C-w>\b'<CR>
+" }}}
 
 " Multicursor {{{
 let g:multi_cursor_start_key='<Leader>m'
@@ -211,19 +230,16 @@ set wildignore+=*/*.min.js*
 set wildignore+=*/bower_components
 " }}}
 
-" System clipboard
-set clipboard+=unnamedplus
-
-" The Silver Searcher
+" The Silver Searcher  {{{
 if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
 endif
+" }}}
 
 " Abbreviations {{{
 iab deb debugger; // eslint-disable-line
 " }}}
-
 
 " Cursorline {{{
 " Only show cursorline in the current window and in normal mode.
@@ -233,7 +249,6 @@ augroup cline
     au WinEnter,InsertLeave * set cursorline
 augroup END
 " }}}
-
 
 " Line Return {{{
 " Make sure Vim returns to the same line when you reopen a file.
@@ -248,8 +263,9 @@ augroup END
 " }}}
 
 " Expand Region {{{
-vmap - <Plug>(expand_region_shrink)
-vmap = <Plug>(expand_region_expand)
+" The plugin defaults to '_' and '+'
+" vnoremap _ <Plug>(expand_region_shrink)
+" vnoremap + <Plug>(expand_region_expand)
 " }}}
 
 " Inc Search {{{
@@ -266,12 +282,13 @@ map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 " }}}
 
+" Foldtext and Mappings {{{
 " Fold mappings
 nmap <Leader>zi :set foldmethod=indent<CR>
 nmap <Leader>zs :set foldmethod=syntax<CR>
+nmap <Leader>zk:set foldmethod=marker<CR>
 nmap <Leader>zm :set foldmethod=manual<CR>
 
-" Better foldtext {{{
 " http://www.gregsexton.org/2011/03/improving-the-text-displayed-in-a-fold/
 function! CustomFoldText()
   "get first non-blank line
