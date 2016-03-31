@@ -214,6 +214,11 @@ nnoremap <silent> <Leader>fb :Buffers<CR>
 noremap <silent> <Leader>gw :grep '\b<C-r><C-w>\b'<CR>
 " }}}
 
+" Quick Editing {{{
+nnoremap <Leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <Leader>sv :source $MYVIMRC<cr>
+" }}}
+
 " Multicursor {{{
 let g:multi_cursor_start_key='<Leader>m'
 " }}}
