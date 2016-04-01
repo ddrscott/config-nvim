@@ -69,7 +69,8 @@ let g:solarized_termtrans=0
 let g:solarized_termcolors=16
 colorscheme solarized
 
-set fillchars=diff:⣿,vert:\│
+" set fillchars=diff:⣿,vert:\│
+set fillchars=diff:.,vert:\|
 set listchars=nbsp:·,trail:⌴,precedes:«,extends:»,tab:⇥\ 
 set splitbelow
 set splitright
@@ -171,7 +172,7 @@ map <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>tt :Tagbar<CR>
 nnoremap <Leader>ta :TagbarOpenAutoClose<CR>
 nnoremap <Leader><Space> <C-d>
-noremap <silent> <Leader>ff :FZF<CR>
+noremap <silent> <Leader>ff :Files<CR>
 noremap <silent> <Leader>b :Buffers<CR>
 noremap <silent> <f5> :set paste!<CR>
 nnoremap <C-]> g<C-]>
@@ -200,6 +201,11 @@ nnoremap Q <nop>
 nnoremap K <nop>
 nnoremap Y y$
 
+" Faster :ex commands
+nnoremap <C-s> :write<CR>
+inoremap <C-s> <ESC>:write<CR>
+nnoremap <C-q> :quit<CR>
+
 " Buffer Stuff
 nnoremap <silent> <C-p> :bprevious<CR>
 nnoremap <silent> <C-n> :bnext<CR>
@@ -217,7 +223,7 @@ noremap <silent> <Leader>gw :grep '\b<C-r><C-w>\b'<CR>
 
 " Quick Editing {{{
 nnoremap <Leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <Leader>sv :source $MYVIMRC<cr>
+nnoremap <silent> <Leader>sv :source $MYVIMRC<cr>
 nnoremap <Leader>en :Files ~/notes<cr>
 " }}}
 
