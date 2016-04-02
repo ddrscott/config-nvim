@@ -43,7 +43,6 @@ call plug#end()
 
 " Basics Settings {{{
 scriptencoding utf-8
-set encoding=utf-8
 
 filetype indent plugin on
 syntax enable
@@ -219,13 +218,13 @@ nnoremap <silent> <Leader>fm :Marks<CR>
 nnoremap <silent> <Leader>fb :Buffers<CR>
 
 " Grep Stuff
-noremap <silent> <Leader>gw :grep '\b<C-r><C-w>\b'<CR>
+nnoremap <silent> <Leader>gw :execute "grep! -R " . shellescape(expand("<CWORD>")) . " ."<CR>:copen<CR>
 " }}}
 
 " Quick Editing {{{
-nnoremap <Leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <silent> <Leader>sv :source $MYVIMRC<cr>
-nnoremap <Leader>en :Files ~/notes<cr>
+command! Evimrc vsplit $MYVIMRC
+command! Source source $MYVIMRC
+command! Notes Files ~/notes
 " }}}
 
 " Multicursor {{{
@@ -249,7 +248,7 @@ set wildignore+=*/bower_components
 " The Silver Searcher {{{
 if executable('ag')
   " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
+  set grepprg=ag\ --vimgrep
 endif
 " }}}
 
