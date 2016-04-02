@@ -49,7 +49,8 @@ filetype indent plugin on
 syntax enable
 
 set directory=~/tmp
-set foldmethod=manual
+set foldmethod=syntax
+set foldlevelstart=1
 set incsearch
 set nonumber
 set relativenumber
