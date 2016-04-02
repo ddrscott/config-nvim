@@ -51,7 +51,7 @@ syntax enable
 set directory=~/tmp
 set foldmethod=manual
 set incsearch
-set number
+set nonumber
 set relativenumber
 set showcmd
 set virtualedit=block
