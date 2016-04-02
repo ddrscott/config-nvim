@@ -172,9 +172,7 @@ map <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>tt :Tagbar<CR>
 nnoremap <Leader>ta :TagbarOpenAutoClose<CR>
 nnoremap <Leader><Space> <C-d>
-noremap <silent> <Leader>ff :Files<CR>
-noremap <silent> <Leader>b :Buffers<CR>
-noremap <silent> <f5> :set paste!<CR>
+nnoremap <silent> <f5> :set paste!<CR>
 nnoremap <C-]> g<C-]>
 nnoremap <C-w><C-w> <C-w><C-p>
 nnoremap <C-w>\ :vertical resize 80<CR> 
@@ -185,6 +183,7 @@ nnoremap <Leader>V V`]
 nnoremap <Leader>v v`]
 " Select (charwise) the contents of the current line, excluding indentation.
 nnoremap vv ^vg_
+nnoremap VV V`]
 " }}}
 
 nnoremap <silent> <Leader>5 :let @* = expand("%")<CR>:echom "copied: " . expand("%")<CR>
@@ -212,7 +211,8 @@ nnoremap <silent> <C-n> :bnext<CR>
 nnoremap <silent> <Leader>bb :b#<CR>
 nnoremap <silent> <C-x> <C-o>:bdelete #<CR>
 
-command! FZFMru call fzf#run({'source': v:oldfiles, 'sink': 'e', 'options': '-m -x +s', 'down': '40%'}) 
+nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <Leader>ff :Files<CR>
 nnoremap <silent> <Leader>fh :Hist<CR>
 nnoremap <silent> <Leader>fm :Marks<CR>
 nnoremap <silent> <Leader>fb :Buffers<CR>
