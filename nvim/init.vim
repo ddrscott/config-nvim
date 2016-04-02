@@ -218,7 +218,7 @@ nnoremap <silent> <Leader>fm :Marks<CR>
 nnoremap <silent> <Leader>fb :Buffers<CR>
 
 " Grep Stuff
-nnoremap <silent> <Leader>gw :execute "grep! -R " . shellescape(expand("<CWORD>")) . " ."<CR>:copen<CR>
+nnoremap <silent> <Leader>gw :execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<CR>:copen<CR>
 " }}}
 
 " Quick Editing {{{
@@ -327,6 +327,6 @@ function! CustomFoldText()
 endfunction
 set foldtext=CustomFoldText()
 set foldcolumn=1
-highlight Folded  cterm=NONE ctermfg=10 ctermbg=0
+highlight Folded  cterm=underline ctermfg=10 ctermbg=0
 " }}}
 
