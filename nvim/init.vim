@@ -227,6 +227,11 @@ command! Source source $MYVIMRC
 command! Notes Files ~/notes
 " }}}
 
+" Emac Editing {{{
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+" }}}
+
 " Multicursor {{{
 let g:multi_cursor_start_key='<Leader>m'
 " }}}
