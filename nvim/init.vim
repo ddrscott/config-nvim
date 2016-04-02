@@ -326,6 +326,7 @@ function! CustomFoldText()
   return line . expansionString . foldSizeStr . foldPercentage . foldLevelStr
 endfunction
 set foldtext=CustomFoldText()
-highlight Folded  cterm=underline ctermfg=12 ctermbg=0
+set foldcolumn=1
+highlight Folded  cterm=NONE ctermfg=10 ctermbg=0
 " }}}
 
