@@ -94,9 +94,6 @@ set breakindent
 set breakindentopt=sbr
 set showbreak=↪>\  " ↪ space
 set autoindent smartindent tabstop=2 shiftwidth=2 softtabstop=2 expandtab
-
-" JSX highlighting in *.js file
-let g:jsx_ext_required = 0
 " }}}
 
 " Airline {{{
@@ -347,5 +344,25 @@ augroup END
 augroup fugitive_stuff
   au!
   autocmd BufEnter fugitive* setlocal nofoldenable 
+augroup END
+" }}}
+
+" Neomake Stuff {{{
+augroup neomake_stuff
+  au!
+  " It must be required or filetype gets set to javascript.jxs
+  " which breaks how neomake detects the linter.
+  let g:jsx_ext_required = 1
+  let g:neomake_javascript_enabled_makers = ['eslint']
+  let g:neomake_jsx_enabled_makers = ['eslint']
+augroup END
+
+" Git Gutter {{{
+augroup gitgutter_stuff
+  nmap [h <Plug>GitGutterPrevHunk
+  nmap ]h <Plug>GitGutterNextHunk
+  nmap <Leader>hs <Plug>GitGutterStageHunk
+  nmap <Leader>hr <Plug>GitGutterRevertHunk
+  nmap <Leader>hp <Plug>GitGutterPreviewHunk
 augroup END
 " }}}
