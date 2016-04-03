@@ -49,7 +49,7 @@ syntax enable
 
 set directory=~/tmp
 set foldmethod=syntax
-set foldlevelstart=1
+set foldlevelstart=99
 set incsearch
 set nonumber
 set relativenumber
