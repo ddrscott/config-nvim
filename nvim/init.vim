@@ -218,7 +218,7 @@ nnoremap <silent> <Leader>fm :Marks<CR>
 nnoremap <silent> <Leader>fb :Buffers<CR>
 
 " Grep Stuff
-nnoremap <silent> <Leader>gw :execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<CR>:copen<CR>
+nnoremap <silent> <Leader>gw :execute "grep! " . shellescape(expand("<cWORD>"))<CR>:copen<CR>
 " }}}
 
 " Quick Editing {{{
@@ -249,6 +249,10 @@ set wildignore+=*/bower_components
 if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --vimgrep
+        \\ --ignore='*.js.map'
+        \\ --ignore='*.csv'
+        \\ --ignore='ui/public/client'
+        \\ --ignore='cassettes/'
 endif
 " }}}
 
