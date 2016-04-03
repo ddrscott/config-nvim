@@ -147,6 +147,7 @@ augroup basics_autocmd
   " open search results immediately
   autocmd QuickFixCmdPost *grep* cwindow
   autocmd VimResized * let &previewheight=(winheight(0) * 1/3)
+  autocmd BufEnter init.vim setlocal foldmethod=marker
 augroup END
 " }}}
 
