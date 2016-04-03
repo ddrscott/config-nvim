@@ -45,7 +45,7 @@ call plug#end()
 scriptencoding utf-8
 
 filetype indent plugin on
-syntax enable
+syntax sync fromstart
 
 set directory=~/tmp
 set foldmethod=syntax
