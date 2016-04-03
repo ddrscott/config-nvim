@@ -160,6 +160,8 @@ let mapleader=" "
 
 " Fix my common typos
 command! W w   " write it
+nnoremap ; :
+nnoremap <C-;> ;
 
 inoremap <C-@> <C-n>
 inoremap kj <ESC>
@@ -338,5 +340,12 @@ highlight Folded  cterm=underline ctermfg=10 ctermbg=0
 augroup quickfix_stuff
   au!
   autocmd BufReadPost quickfix  setlocal norelativenumber number
+augroup END
+" }}}
+
+" Fugitive Stuff {{{
+augroup fugitive_stuff
+  au!
+  autocmd BufEnter fugitive* setlocal nofoldenable 
 augroup END
 " }}}
