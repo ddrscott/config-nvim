@@ -104,7 +104,7 @@ let g:airline#extensions#quickfix#quickfix_text = 'Quickfix'
 let g:airline#extensions#quickfix#location_text = 'Location'
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 let g:airline_theme='solarized'
 let g:vim_markdown_fenced_languages=['c++=cpp', 'viml=vim', 'bash=sh', 'ini=dosini', 'rb=ruby']
 " }}}
@@ -352,7 +352,7 @@ augroup END
 " Fugitive Stuff {{{
 augroup fugitive_stuff
   au!
-  autocmd BufEnter fugitive* setlocal nofoldenable 
+  autocmd BufEnter fugitive* setlocal nofoldenable
 augroup END
 " }}}
 
