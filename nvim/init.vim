@@ -307,6 +307,9 @@ nmap <Leader>zi :set foldmethod=indent<CR>
 nmap <Leader>zs :set foldmethod=syntax<CR>
 nmap <Leader>zk :set foldmethod=marker<CR>
 nmap <Leader>zm :set foldmethod=manual<CR>
+for i in [0,1,2,3,4,5,6,7,8,9]
+  execute 'nmap <Leader>z' . i . ' :set foldlevel=' . i . '<CR>'
+endfor
 
 " http://www.gregsexton.org/2011/03/improving-the-text-displayed-in-a-fold/
 function! CustomFoldText()
