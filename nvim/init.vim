@@ -71,7 +71,7 @@ colorscheme solarized
 
 " set fillchars=diff:⣿,vert:\│
 set fillchars=diff:.,vert:\|
-set listchars=nbsp:·,trail:⌴,precedes:«,extends:»,tab:⇥\ 
+set listchars=nbsp:·,trail:⌴,precedes:«,extends:»,tab:⇥\
 set splitbelow
 set splitright
 " Don't try to highlight lines longer than X
@@ -91,7 +91,7 @@ set nolist        " list disables linebreak
 set nowrap
 set nolazyredraw
 set breakindent
-set breakindentopt=sbr 
+set breakindentopt=sbr
 set showbreak=↪>\  " ↪ space
 set autoindent smartindent tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
@@ -175,7 +175,7 @@ nnoremap <Leader><Space> <C-d>
 nnoremap <silent> <f5> :set paste!<CR>
 nnoremap <C-]> g<C-]>
 nnoremap <C-w><C-w> <C-w><C-p>
-nnoremap <C-w>\ :vertical resize 80<CR> 
+nnoremap <C-w>\ :vertical resize 80<CR>
 
 " Visual Selection Helpers {{{
 " reselect last change
