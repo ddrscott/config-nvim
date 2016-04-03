@@ -334,3 +334,9 @@ set foldcolumn=1
 highlight Folded  cterm=underline ctermfg=10 ctermbg=0
 " }}}
 
+" Quickfix Stuff {{{
+augroup quickfix_stuff
+  au!
+  autocmd BufReadPost quickfix  setlocal norelativenumber number
+augroup END
+" }}}
