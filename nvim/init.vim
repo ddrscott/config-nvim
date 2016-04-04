@@ -202,7 +202,6 @@ nnoremap zk zkzz
 nnoremap <F1> <nop>
 nnoremap Q <nop>
 nnoremap K <nop>
-nnoremap Y y$
 
 " Faster :ex commands
 nnoremap <C-s> :write<CR>
@@ -228,14 +227,23 @@ nnoremap d "dd
 nnoremap D "dD
 
 " Yank without moving cursor. *AWESOME*
-" exit visual mode, mv=mark v, last visual selection, y, go to mark
-vnoremap y <ESC>mvgvy`v
+" exit visual mode, my=mark y, last visual selection, y, go to mark
+vnoremap y <ESC>mygvy`y
+vnoremap Y <ESC>mygvY`y
+" Use `y and 'y for last yank position.
+nnoremap y myy
+" Same with Y and make Y yank to end of line.
+nnoremap Y myy$
 
 " Swap p/P for gp/gP. Paste should moves to end of change.
-nnoremap p gp
-nnoremap P gP
-nnoremap gp p
-nnoremap gP P
+nnoremap p gpmp
+nnoremap P gPmp
+nnoremap gp pmp
+nnoremap gP Pmp
+
+nnoremap c mcc
+vnoremap c <ESC>mcgvc
+vnoremap C <ESC>mcgvC
 
 " Grep Stuff
 nnoremap <silent> <Leader>gw :execute "grep! " . shellescape(expand("<cWORD>"))<CR>:copen<CR>
