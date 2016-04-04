@@ -166,6 +166,11 @@ inoremap kj <ESC>
 " CTRL-G u  break undo sequence, start new change      *i_CTRL-G_u*
 inoremap <CR> <C-g>u<CR>
 
+" Make <C-r> more consisten with 'Register' access in insert and cmd mode.
+nnoremap <C-r> :echo 'which regster? (access Redo with <S-u>)'<cr>"
+" Make capital U perform a Redo
+nnoremap U <C-r>
+
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
 map <Leader>n :NERDTreeToggle<CR>
