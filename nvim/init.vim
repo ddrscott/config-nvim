@@ -187,8 +187,12 @@ nnoremap VV V`]
 " }}}
 
 nnoremap <silent> <Leader>5 :let @* = expand("%")<CR>:echom "copied: " . expand("%")<CR>
-nnoremap <Up> gk
-nnoremap <Down> gj
+" vertically move visual line
+nnoremap k gk
+nnoremap j gj
+" move whole line even if wrapped
+nnoremap gk k
+nnoremap gj j
 nnoremap } }zz
 nnoremap { {zz
 nnoremap zj zjzz
