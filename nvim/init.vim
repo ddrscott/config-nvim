@@ -163,8 +163,6 @@ nnoremap <C-;> ;
 
 inoremap <C-@> <C-n>
 inoremap kj <ESC>
-inoremap <C-a> <C-o>^
-inoremap <C-e> <C-o>$
 
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
@@ -257,6 +255,8 @@ command! Notes Files ~/notes
 " Emac Editing {{{
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
+inoremap <C-a> <C-o>$
+inoremap <C-e> <End>
 " }}}
 
 " Multicursor {{{
