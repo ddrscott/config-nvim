@@ -221,6 +221,12 @@ nnoremap <silent> <Leader>fh :Hist<CR>
 nnoremap <silent> <Leader>fm :Marks<CR>
 nnoremap <silent> <Leader>fb :Buffers<CR>
 
+" Delete to "d register. *AWESOME!*
+vnoremap d "dd
+vnoremap D "dD
+nnoremap d "dd
+nnoremap D "dD
+
 " Grep Stuff
 nnoremap <silent> <Leader>gw :execute "grep! " . shellescape(expand("<cWORD>"))<CR>:copen<CR>
 " }}}
