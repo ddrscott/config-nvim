@@ -77,8 +77,8 @@ set splitright
 " Don't try to highlight lines longer than X
 set synmaxcol=1000
 set winheight=10
-set winminheight=10
-set winwidth=78
+set winminheight=5
+set winwidth=80
 set winminwidth=15
 
 " no background on vertical split
@@ -253,7 +253,6 @@ command! Notes Files ~/notes
 " }}}
 
 " Emac Editing {{{
-cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 inoremap <C-a> <C-o>$
 inoremap <C-e> <End>
