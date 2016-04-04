@@ -231,6 +231,12 @@ nnoremap D "dD
 " exit visual mode, mv=mark v, last visual selection, y, go to mark
 vnoremap y <ESC>mvgvy`v
 
+" Swap p/P for gp/gP. Paste should moves to end of change.
+nnoremap p gp
+nnoremap P gP
+nnoremap gp p
+nnoremap gP P
+
 " Grep Stuff
 nnoremap <silent> <Leader>gw :execute "grep! " . shellescape(expand("<cWORD>"))<CR>:copen<CR>
 " }}}
