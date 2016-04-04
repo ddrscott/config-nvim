@@ -227,6 +227,10 @@ vnoremap D "dD
 nnoremap d "dd
 nnoremap D "dD
 
+" Yank without moving cursor. *AWESOME*
+" exit visual mode, mv=mark v, last visual selection, y, go to mark
+vnoremap y <ESC>mvgvy`v
+
 " Grep Stuff
 nnoremap <silent> <Leader>gw :execute "grep! " . shellescape(expand("<cWORD>"))<CR>:copen<CR>
 " }}}
