@@ -163,6 +163,8 @@ nnoremap <C-;> ;
 
 inoremap <C-@> <C-n>
 inoremap kj <ESC>
+" CTRL-G u  break undo sequence, start new change      *i_CTRL-G_u*
+inoremap <CR> <C-g>u<CR>
 
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
