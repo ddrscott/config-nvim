@@ -171,15 +171,30 @@ nnoremap <C-r> :echo 'which regster? (access Redo with <S-u>)'<cr>"
 " Make capital U perform a Redo
 nnoremap U <C-r>
 
+" Scroll 1 line at a time instead of default 3
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
-map <Leader>n :NERDTreeToggle<CR>
+
+nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>tt :Tagbar<CR>
 nnoremap <Leader>ta :TagbarOpenAutoClose<CR>
+
+" Pager like Less/More
 nnoremap <Leader><Space> <C-d>
+
+" Paste mode, NVIM might not need this.
 nnoremap <silent> <f5> :set paste!<CR>
+
+" Better use :tjump instead of :tag
 nnoremap <C-]> g<C-]>
+nnoremap g<C-]> <C-]>
+
+" Alternate windows. Easier than 2 handed default.
 nnoremap <C-w><C-w> <C-w><C-p>
+nnoremap <C-w><C-p> <C-w><C-w>
+
+" Make window exactly 80 columns wide
+" note: <C-w>| is normally maximize.
 nnoremap <C-w>\ :vertical resize 80<CR>
 
 " Visual Selection Helpers {{{
