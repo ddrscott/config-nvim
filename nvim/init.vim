@@ -179,11 +179,10 @@ nnoremap <C-w>\ :vertical resize 80<CR>
 
 " Visual Selection Helpers {{{
 " reselect last change
-nnoremap <Leader>V V`]
-nnoremap <Leader>v v`]
+nnoremap <Leader>vV V`]
+nnoremap <Leader>vv v`]
 " Select (charwise) the contents of the current line, excluding indentation.
 nnoremap vv ^vg_
-nnoremap VV V`]
 " }}}
 
 nnoremap <silent> <Leader>5 :let @* = expand("%")<CR>:echom "copied: " . expand("%")<CR>
