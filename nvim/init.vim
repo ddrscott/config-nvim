@@ -169,7 +169,7 @@ inoremap <CR> <C-g>u<CR>
 " Make <C-r> more consisten with 'Register' access in insert and cmd mode.
 nnoremap <C-r> :echo 'which regster? (access Redo with <S-u>)'<cr>"
 " Make capital U perform a Redo
-nnoremap U <C-r>
+nnoremap <S-u> <C-r>
 
 " Scroll 1 line at a time instead of default 3
 map <ScrollWheelUp> <C-Y>
