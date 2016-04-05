@@ -65,8 +65,9 @@ set hidden
 
 " Look and Feel {{{
 set background=dark
-let g:solarized_termtrans=0
+" Make sure to set iTerm to xterm-256color
 let g:solarized_termcolors=16
+let g:solarized_termtrans=0
 colorscheme solarized
 
 " set fillchars=diff:⣿,vert:\│
