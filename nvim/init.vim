@@ -239,11 +239,14 @@ nnoremap <silent> <Leader>fh :Hist<CR>
 nnoremap <silent> <Leader>fm :Marks<CR>
 nnoremap <silent> <Leader>fb :Buffers<CR>
 
-" Delete to "d register. *AWESOME!*
-vnoremap d "dd
-vnoremap D "dD
-nnoremap d "dd
-nnoremap D "dD
+" Delete to "x register
+vnoremap x "xx
+vnoremap X "xX
+
+" Delete to "d register
+" I use dd too much expecting to cut.
+"nnoremap d "dd
+"nnoremap D "dD
 
 " Yank without moving cursor. *AWESOME*
 " exit visual mode, my=mark y, last visual selection, y, go to mark
