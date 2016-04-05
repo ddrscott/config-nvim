@@ -171,6 +171,11 @@ inoremap <CR> <C-g>u<CR>
 
 " Make <C-r> more consisten with 'Register' access in insert and cmd mode.
 nnoremap <C-r> :echo 'which regster? (access Redo with <S-u>)'<cr>"
+nnoremap <C-r><C-r> "0
+cnoremap <C-r><C-r> "0
+vnoremap <C-r><C-r> "0
+inoremap <C-r><C-r> <C-r>0
+
 " Make capital U perform a Redo
 nnoremap <S-u> <C-r>
 
