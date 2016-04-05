@@ -107,6 +107,8 @@ let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_powerline_fonts = 0
 let g:airline_theme='solarized'
+let g:airline_section_x=''
+let g:airline_section_y=''
 let g:vim_markdown_fenced_languages=['c++=cpp', 'viml=vim', 'bash=sh', 'ini=dosini', 'rb=ruby']
 " }}}
 
