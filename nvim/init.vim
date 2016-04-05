@@ -200,6 +200,10 @@ nnoremap <C-w><C-p> <C-w><C-w>
 " note: <C-w>| is normally maximize.
 nnoremap <C-w>\ :vertical resize 80<CR>
 
+" Strip whitespace
+" Zap-Whitespace
+nnoremap <silent> <Leader>zw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
 " Visual Selection Helpers {{{
 " reselect last change
 nnoremap <Leader>vV V`]
