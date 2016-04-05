@@ -255,8 +255,8 @@ nnoremap y myy
 nnoremap Y myy$
 
 " Swap p/P for gp/gP. Paste should moves to end of change.
-nnoremap p p`]mp
-nnoremap P P`]mp
+nnoremap p ]p`]mp
+nnoremap P ]P`]mp
 
 nnoremap c mcc
 vnoremap c <ESC>mcgvc
