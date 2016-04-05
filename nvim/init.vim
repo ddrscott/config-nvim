@@ -273,9 +273,10 @@ nnoremap Y myy$
 nnoremap p ]p`]mp
 nnoremap P ]P`]mp
 
-nnoremap c mcc
-vnoremap c <ESC>mcgvc
-vnoremap C <ESC>mcgvC
+" Messes up too many other plugins :(
+" nnoremap c mcc
+" vnoremap c <ESC>mcgvc
+" vnoremap C <ESC>mcgvC
 
 " Grep Stuff
 nnoremap <silent> <Leader>gw :execute "grep! " . shellescape(expand("<cWORD>"))<CR>:copen<CR>
