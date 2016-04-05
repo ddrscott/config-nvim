@@ -408,6 +408,19 @@ augroup fugitive_stuff
 augroup END
 " }}}
 
+" Git Mappings {{{
+nnoremap <Leader>gd :Gvdiff<cr>
+nnoremap <Leader>gs :Gstatus<cr>
+nnoremap <Leader>gw :Gwrite<cr>
+nnoremap <Leader>ga :Gadd<cr>
+nnoremap <Leader>gb :Gblame<cr>
+nnoremap <Leader>gco :Gcheckout<cr>
+nnoremap <Leader>gci :Gcommit<cr>
+"nnoremap <Leader>gm :Gmove<cr>
+"nnoremap <Leader>gr :Gremove<cr>
+"nnoremap <Leader>gl :Shell git gl -18<cr>:wincmd \|<cr>
+" }}}
+
 " Neomake Stuff {{{
 augroup neomake_stuff
   au!
