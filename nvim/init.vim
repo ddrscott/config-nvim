@@ -307,7 +307,7 @@ command! Notes Files ~/notes
 
 " Emac Editing {{{
 cnoremap <C-e> <End>
-inoremap <C-a> <C-o>$
+inoremap <C-a> <C-o>^
 inoremap <C-e> <End>
 " }}}
 
