@@ -120,6 +120,9 @@ let g:vim_markdown_fenced_languages=['c++=cpp', 'viml=vim', 'bash=sh', 'ini=dosi
 if has('nvim')
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
   tnoremap <Esc><Esc> <C-\><C-n>
+  augroup neovim_stuff
+    autocmd BufWinEnter,WinEnter term://* startinsert
+  augroup END
 endif
 " }}}
 
