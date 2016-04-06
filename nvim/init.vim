@@ -235,10 +235,9 @@ nnoremap vv ^vg_
 " }}}
 
 nnoremap <silent> <Leader>5 :let @* = expand("%")<CR>:echom "copied: " . expand("%")<CR>
-" vertically move visual line
+" Move through wrapped lines as default, with reverse mappings
 nnoremap k gk
 nnoremap j gj
-" move whole line even if wrapped
 nnoremap gk k
 nnoremap gj j
 
@@ -264,9 +263,8 @@ nnoremap <C-q> :quit<CR>
 " Buffer Stuff
 nnoremap <silent> <C-p> :bprevious<CR>
 nnoremap <silent> <C-n> :bnext<CR>
-nnoremap <silent> <Leader>bb :b#<CR>
 nnoremap <silent> <C-x> <C-o>:bdelete #<CR>
-
+nnoremap <silent> <Leader>bb :b#<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>ff :Files<CR>
 nnoremap <silent> <Leader>fh :Hist<CR>
@@ -282,7 +280,7 @@ vnoremap X "xX
 "nnoremap d "dd
 "nnoremap D "dD
 
-" Yank without moving cursor. *AWESOME*
+" ***** Yank without moving cursor!
 " exit visual mode, my=mark y, last visual selection, y, go to mark
 vnoremap y <ESC>mygvy`y
 vnoremap Y <ESC>mygvY`y
@@ -292,6 +290,7 @@ nnoremap y myy
 nnoremap Y myy$
 
 " Swap p/P for gp/gP. Paste should moves to end of change.
+" This paste also maintains indent level with line above it.
 nnoremap p ]p`]mp
 nnoremap P ]P`]mp
 
@@ -318,6 +317,8 @@ inoremap <C-e> <End>
 
 " Multicursor {{{
 let g:multi_cursor_start_key='<Leader>m'
+" Use <C-n> and <C-p> to add or remove candidates
+" Use action when done. Probably want c, a, or i.
 " }}}
 
 " Wildmenu completion {{{
@@ -443,12 +444,12 @@ augroup END
 " Git Mappings {{{
 nnoremap <Leader>gd :Gvdiff<cr>
 nnoremap <Leader>gs :Gstatus<cr>
-nnoremap <Leader>gw :Gwrite<cr>
 nnoremap <Leader>ga :Gadd<cr>
 nnoremap <Leader>gb :Gblame<cr>
 nnoremap <Leader>gco :Gcheckout<cr>
 nnoremap <Leader>gci :Gcommit<cr>
 "nnoremap <Leader>gm :Gmove<cr>
+"nnoremap <Leader>gw :Gwrite<cr>
 "nnoremap <Leader>gr :Gremove<cr>
 "nnoremap <Leader>gl :Shell git gl -18<cr>:wincmd \|<cr>
 " }}}
