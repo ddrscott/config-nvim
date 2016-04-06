@@ -56,6 +56,9 @@ set nonumber
 set relativenumber
 set showcmd
 set virtualedit=block
+" Case sensitivity
+set ignorecase
+set smartcase
 
 " System clipboard
 set clipboard+=unnamedplus
