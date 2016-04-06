@@ -241,6 +241,11 @@ nnoremap j gj
 " move whole line even if wrapped
 nnoremap gk k
 nnoremap gj j
+
+" Defaults to w, but should be e like the rest all other basic editors.
+nnoremap <S-RIGHT> e
+
+" Center screen after common jumps.
 nnoremap } }zz
 nnoremap { {zz
 nnoremap zj zjzz
