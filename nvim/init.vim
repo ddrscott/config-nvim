@@ -185,7 +185,10 @@ nnoremap <C-r> :echo 'which regster? (access Redo with <S-u>)'<cr>"
 nnoremap <C-r><C-r> "0
 cnoremap <C-r><C-r> "0
 vnoremap <C-r><C-r> "0
+" ***** This pastes the last thing yanked!
 inoremap <C-r><C-r> <C-r>0
+" provide reverse mapping for original <C-r><C-r> behavior.
+inoremap <C-r>r <C-r><C-r>
 
 " Make capital U perform a Redo
 nnoremap <S-u> <C-r>
