@@ -425,7 +425,7 @@ augroup END
 " Fugitive Stuff {{{
 augroup fugitive_stuff
   au!
-  autocmd BufEnter fugitive* setlocal nofoldenable
+  autocmd BufEnter fugitive://* setlocal nofoldenable
 augroup END
 " }}}
 
