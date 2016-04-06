@@ -121,7 +121,10 @@ if has('nvim')
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
   tnoremap <Esc><Esc> <C-\><C-n>
   augroup neovim_stuff
-    autocmd BufWinEnter,WinEnter term://* startinsert
+    au!
+    autocmd BufWinEnter,WinEnter term://*
+      \ setlocal nonumber norelativenumber |
+      \ startinsert
   augroup END
 endif
 " }}}
