@@ -2,7 +2,8 @@
 " Plugin manager provided by: https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/Raimondi/delimitMate'
-Plug 'https://github.com/Shougo/deoplete.nvim'
+" Don't use deoplete. It was interupting typing too much
+" Plug 'https://github.com/Shougo/deoplete.nvim'
 Plug 'https://github.com/airblade/vim-gitgutter.git'
 Plug 'https://github.com/altercation/vim-colors-solarized'
 Plug 'https://github.com/benekastah/neomake'
@@ -119,10 +120,14 @@ if has('nvim')
 endif
 " }}}
 
-" Deoplete {{{
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources = {}
-let g:deoplete#sources._ = ['buffer','tag']
+" Deoplete - disabled {{{
+" This was messing slowing down each keystroke.
+"let g:deoplete#sources = {}
+"let g:deoplete#sources._ = ['buffer']
+"let g:deoplete#sources.rb = ['buffer','tag']
+"let g:deoplete#enable_camel_case = 1
+"let g:deoplete#auto_complete_delay = 100
+"let g:deoplete#enable_at_startup = 1
 " }}}
 
 " Fuzzy Finder {{{
