@@ -328,6 +328,7 @@ command! SymbolizeHash let z=@/ | %s/\v('|")([^\1]+)\1\s*\=\>\s*/\2: /ge | let @
 
 " Emac Editing {{{
 cnoremap <C-e> <End>
+cnoremap <C-a> <Home>
 inoremap <C-a> <C-o>^
 inoremap <C-e> <End>
 " No need for normal mode mappings.
