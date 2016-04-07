@@ -201,8 +201,13 @@ map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
 
 nnoremap <Leader>n :NERDTreeToggle<CR>
-nnoremap <Leader>tt :Tagbar<CR>
+nnoremap <Leader>tb :Tagbar<CR>
 nnoremap <Leader>ta :TagbarOpenAutoClose<CR>
+
+" Neoterm mappings {{{
+nnoremap <Leader>tt :Topen<CR>
+nnoremap <Leader>tr :TREPLSend<CR>
+" }}}
 
 " Pager like Less/More
 nnoremap <Leader><Space> <C-d>
