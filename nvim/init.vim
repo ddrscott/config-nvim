@@ -39,6 +39,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'https://github.com/terryma/vim-expand-region'
 Plug 'https://github.com/haya14busa/incsearch.vim'
+Plug 'https://github.com/ecomba/vim-ruby-refactoring'
 call plug#end()
 " }}}
 
