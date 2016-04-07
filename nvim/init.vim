@@ -316,8 +316,10 @@ command! Notes Files ~/notes
 " }}}
 
 " Substitutions {{{
-command! DoubleToSingle %s/\"\([^"]*\)\"/'\1'/g
-command! SymbolizeHash  %s/\v('|")([^\1]+)\1\s*\=\>\s*/\2: /g
+" TODO restrict these to a visual selection
+" These retain the original search register.
+command! DoubleToSingle let z=@/ | %s/\v"([^"#]+)"/'\1'/ge | let @/=z | unlet z
+command! SymbolizeHash let z=@/ | %s/\v('|")([^\1]+)\1\s*\=\>\s*/\2: /ge | let @/=z | unlet z
 " }}}
 
 " Emac Editing {{{
