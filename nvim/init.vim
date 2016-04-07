@@ -58,7 +58,8 @@ set relativenumber
 set showcmd
 set virtualedit=block
 " Case sensitivity
-set ignorecase
+" I tried this while ignoring case and it was driving me crazy
+set noignorecase
 set smartcase
 
 " System clipboard
