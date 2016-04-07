@@ -237,8 +237,7 @@ nnoremap <silent> <Leader>zw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:noh
 
 " Visual Selection Helpers {{{
 " reselect last change
-nnoremap <Leader>vV V`]
-nnoremap <Leader>vv v`]
+nnoremap <Leader>vv mv`[V`]`v
 " Select (charwise) the contents of the current line, excluding indentation.
 nnoremap vv ^vg_
 " }}}
