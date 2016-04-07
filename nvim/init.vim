@@ -314,6 +314,11 @@ command! Source source $MYVIMRC
 command! Notes Files ~/notes
 " }}}
 
+" Substitutions {{{
+command! DoubleToSingle %s/\"\([^"]*\)\"/'\1'/g
+command! SymbolizeHash  %s/\v('|")([^\1]+)\1\s*\=\>\s*/\2: /g
+" }}}
+
 " Emac Editing {{{
 cnoremap <C-e> <End>
 inoremap <C-a> <C-o>^
