@@ -323,6 +323,9 @@ command! SymbolizeHash  %s/\v('|")([^\1]+)\1\s*\=\>\s*/\2: /g
 cnoremap <C-e> <End>
 inoremap <C-a> <C-o>^
 inoremap <C-e> <End>
+" No need for normal mode mappings.
+" use <S-i> to insert begining
+" use <S-a> to append at end
 " }}}
 
 " Multicursor {{{
