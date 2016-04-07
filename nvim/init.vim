@@ -272,7 +272,6 @@ nnoremap <C-q> :quit<CR>
 nnoremap <silent> <C-p> :bprevious<CR>
 nnoremap <silent> <C-n> :bnext<CR>
 nnoremap <silent> <C-x> <C-o>:bdelete #<CR>
-nnoremap <silent> <Leader>bb :b#<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>ff :Files<CR>
 nnoremap <silent> <Leader>fh :Hist<CR>
