@@ -242,7 +242,9 @@ nnoremap <Leader>vv mv`[V`]`v
 nnoremap vv ^vg_
 " }}}
 
+" Copy current buffer path to system clipboard
 nnoremap <silent> <Leader>5 :let @* = expand("%")<CR>:echom "copied: " . expand("%")<CR>
+
 " Move through wrapped lines as default, with reverse mappings
 nnoremap k gk
 nnoremap j gj
