@@ -321,7 +321,7 @@ command! Notes Files ~/notes
 " Gsub {{{
 function! Gsub(a, b, re)
   try
-    let z=@/ 
+    let z=@/
     exe "'" . a:a . ",'" . a:b . a:re
   finally
     unlet z
