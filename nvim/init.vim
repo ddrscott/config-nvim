@@ -340,6 +340,19 @@ nnoremap <Leader>zh <Esc>:set opfunc=SymbolizeHashOperation<CR>g@
 vnoremap <Leader>zh <Esc>:call SymbolizeHash('<','>')<CR>
 " }}}
 
+" DoubleToSingleQuote {{{
+func! DoubleToSingleQuote(a, b)
+  call Gsub(a:a, a:b, 's/\v"([^"#]+)"/''\1''/ge')
+endf
+
+func! DoubleToSingleQuoteOperation(type)
+  call DoubleToSingleQuote('[', ']')
+endf
+
+nnoremap <Leader>zq <Esc>:set opfunc=DoubleToSingleQuoteOperation<CR>g@
+vnoremap <Leader>zq <Esc>:call DoubleToSingleQuote('<','>')<CR>
+" }}}
+
 " Emac Editing {{{
 cnoremap <C-e> <End>
 cnoremap <C-a> <Home>
