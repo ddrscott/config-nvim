@@ -523,3 +523,8 @@ augroup gitgutter_stuff
   nmap <Leader>hp <Plug>GitGutterPreviewHunk
 augroup END
 " }}}
+
+" ctag helpers {{{
+command! Ctag !ctags --verbose --languages=ruby --recurse -f tags .
+command! CtagBundle !ctags --verbose --languages=ruby --recurse -f gem.tags $(bundle list --paths | grep -v $(pwd))
+" }}}
