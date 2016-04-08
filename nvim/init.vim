@@ -316,11 +316,28 @@ command! Source source $MYVIMRC
 command! Notes Files ~/notes
 " }}}
 
-" Substitutions {{{
-" TODO restrict these to a visual selection
-" These retain the original search register.
-command! DoubleToSingle let z=@/ | %s/\v"([^"#]+)"/'\1'/ge | let @/=z | unlet z
-command! SymbolizeHash let z=@/ | %s/\v('|")([^\1]+)\1\s*\=\>\s*/\2: /ge | let @/=z | unlet z
+" Gsub {{{
+function! Gsub(a, b, re)
+  try
+    let z=@/ 
+    exe "'" . a:a . ",'" . a:b . a:re
+  finally
+    unlet z
+  endtry
+endfunction
+" }}}
+
+" SymbolizeHash {{{
+func! SymbolizeHash(a, b)
+  call Gsub(a:a, a:b, 's/\v(''|")([^\1]+)\1\s*\=\>\s*/\2: /ge')
+endf
+
+func! SymbolizeHashOperation(type)
+  call SymbolizeHash('[', ']')
+endf
+
+nnoremap <Leader>zh <Esc>:set opfunc=SymbolizeHashOperation<CR>g@
+vnoremap <Leader>zh <Esc>:call SymbolizeHash('<','>')<CR>
 " }}}
 
 " Emac Editing {{{
