@@ -250,6 +250,8 @@ nnoremap <S-A-l> ve
 vnoremap <S-A-l> e
 nnoremap <S-A-h> vb
 vnoremap <S-A-h> b
+nnoremap <A-l> e
+nnoremap <A-h> b
 " }}}
 
 " Move through wrapped lines as default, with reverse mappings
