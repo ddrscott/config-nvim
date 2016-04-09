@@ -179,34 +179,53 @@ let mapleader=" "
 
 " Fix my common typos
 command! W w   " write it
+" Warning: I don't use ';' often. Use <C-;> if you do.
 nnoremap ; :
 nnoremap <C-;> ;
 
+" <C-@> is same as <S-Space>
 inoremap <C-@> <C-n>
+
+" Warning: This causes a slight delay for the cursor to move past 'k' 
 inoremap kj <ESC>
-" CTRL-G u  break undo sequence, start new change      *i_CTRL-G_u*
+
+" Warning: CTRL-G u  break undo sequence, start new change      *i_CTRL-G_u*
+" This is an awesome feature. Especially for those that stay in insert mode a
+" little too long. Old habits due hard. But at least now the undo isn't so
+" drastic.
 inoremap <CR> <C-g>u<CR>
 
-" Make <C-r> more consisten with 'Register' access in insert and cmd mode.
+" Warning: I'm killing the 2nd <C-r> in these modes because '0' is too hard to
+" reach. This makes <C-r> more consistent with Register access in insert and
+" command mode.
 nnoremap <C-r> :echo 'which regster? (access Redo with <S-u>)'<cr>"
 nnoremap <C-r><C-r> "0
 cnoremap <C-r><C-r> <C-r>0
 vnoremap <C-r><C-r> "0
-" ***** This pastes the last thing yanked!
+
+" Warning: This pastes the last thing yanked! Awesome sauce!
 inoremap <C-r><C-r> <C-r>0
-" provide reverse mapping for original <C-r><C-r> behavior.
+" Warning: provide reverse mapping for original <C-r><C-r> behavior at the
+" expense of accessing the 'r' register. Poor 'r' register no one loves you.
 inoremap <C-r>r <C-r><C-r>
 
-" Make capital U perform a Redo
+" Warning: Make capital U perform a Redo
+" Because of the <C-r> hacks above, I break <S-u> and make it redo. The default
+" because of <S-u> is undo the whole line. Sorry if you used it.
 nnoremap <S-u> <C-r>
 
-" Scroll 1 line at a time instead of default 3
+" Warning: Scroll 1 line at a time instead of default 3
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
 
+" Nerd Tree {{{
 nnoremap <Leader>n :NERDTreeToggle<CR>
+" }}}
+
+" Tagbar {{{
 nnoremap <Leader>tb :Tagbar<CR>
 nnoremap <Leader>ta :TagbarOpenAutoClose<CR>
+" }}}
 
 " Neoterm mappings {{{
 nnoremap <Leader>tt :Topen<CR>
@@ -216,14 +235,16 @@ nnoremap <Leader>tr :TREPLSend<CR>
 " Pager like Less/More
 nnoremap <Leader><Space> <C-d>
 
-" Paste mode, NVIM might not need this.
+" Paste mode, NeoVim might not need this.
 nnoremap <silent> <f5> :set paste!<CR>
 
 " Better use :tjump instead of :tag
+" Warning: swapping <C-]> and g<C-]>
 nnoremap <C-]> g<C-]>
 nnoremap g<C-]> <C-]>
 
 " Alternate windows. Easier than 2 handed default.
+" Warning: swapping <C-w><C-w> and <C-w><C-p>
 nnoremap <C-w><C-w> <C-w><C-p>
 nnoremap <C-w><C-p> <C-w><C-w>
 
@@ -231,11 +252,11 @@ nnoremap <C-w><C-p> <C-w><C-w>
 " note: <C-w>| is normally maximize.
 nnoremap <C-w>\ :vertical resize 80<CR>
 
-" Strip whitespace
-" Zap-Whitespace
+" [z]ap [w]hitespace
 nnoremap <silent> <Leader>zw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " Copy current buffer path to system clipboard
+" I picked 5 because it's also the '%' key.
 nnoremap <silent> <Leader>5 :let @* = expand("%")<CR>:echom "copied: " . expand("%")<CR>
 
 " Visual Selection Helpers {{{
@@ -255,21 +276,24 @@ nnoremap <A-h> b
 " }}}
 
 " Move through wrapped lines as default, with reverse mappings
+" Warning: swapping k with gk and j with gj
 nnoremap k gk
 nnoremap j gj
 nnoremap gk k
 nnoremap gj j
 
 " Defaults to w, but should be e like the rest all other basic editors.
+" Warning: make S-RIGHT because like the rest of the OS.
 nnoremap <S-RIGHT> e
 
 " Center screen after common jumps.
+" Warning: This might make you mad, but makes my happy. I'm so selfish.
 nnoremap } }zz
 nnoremap { {zz
 nnoremap zj zjzz
 nnoremap zk zkzz
 
-" Disable annoying key defaults
+" Warning: Disable annoying key defaults
 nnoremap <F1> <nop>
 nnoremap Q <nop>
 nnoremap K <nop>
@@ -280,16 +304,21 @@ inoremap <C-s> <ESC>:write<CR>
 nnoremap <C-q> :quit<CR>
 
 " Buffer Stuff
+" Warning: C-n/C-p to move to next/previous buffer. Instead of down/up lines. 
 nnoremap <silent> <C-p> :bprevious<CR>
 nnoremap <silent> <C-n> :bnext<CR>
+" [x]-out the current buffer and jump out.
 nnoremap <silent> <C-x> <C-o>:bdelete #<CR>
+
+" Fuzzy Finder FZF helpers {{{
 nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>ff :Files<CR>
 nnoremap <silent> <Leader>fh :Hist<CR>
 nnoremap <silent> <Leader>fm :Marks<CR>
-nnoremap <silent> <Leader>fb :Buffers<CR>
+nnoremap <silent> <Leader>fb :unnamed<CR>
+" }}}
 
-" Delete to "x register
+" Warning: Delete to "x register
 vnoremap x "xx
 vnoremap X "xX
 
@@ -298,16 +327,16 @@ vnoremap X "xX
 "nnoremap d "dd
 "nnoremap D "dD
 
-" ***** Yank without moving cursor!
+" Warning: Yank without moving cursor! Awesome Sauce!
 " exit visual mode, my=mark y, last visual selection, y, go to mark
 vnoremap y <ESC>mygvy`y
 vnoremap Y <ESC>mygvY`y
-" Use `y and 'y for last yank position.
+
+" Warning: Marks last yank position.
 nnoremap y myy
-" Same with Y and make Y yank to end of line.
 nnoremap Y myy$
 
-" Swap p/P for gp/gP. Paste should moves to end of change.
+" Warning: Paste moves to end of change. As if you typed in the change.
 " This paste also maintains indent level with line above it.
 nnoremap p ]p`]mp
 nnoremap P ]P`]mp
@@ -385,7 +414,7 @@ set wildmenu
 set wildmode=longest,list:longest
 set wildignore+=tmp/ios,tmp/android,app/assets/images,public/assets,vendor/assets,bin/classes
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-set wildignore+=tags
+set wildignore+=tags,gem.tags
 set wildignore+=*/tmp/*
 set wildignore+=*/vendor/*
 set wildignore+=*.class
@@ -437,7 +466,7 @@ augroup END
 " }}}
 
 " Inc Search {{{
-set hlsearch
+" Warning: beat up all the search defaults.
 let g:incsearch#auto_nohlsearch = 1
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
@@ -456,6 +485,8 @@ nmap <Leader>zi :set foldmethod=indent<CR>
 nmap <Leader>zs :set foldmethod=syntax<CR>
 nmap <Leader>zk :set foldmethod=marker<CR>
 nmap <Leader>zm :set foldmethod=manual<CR>
+
+" Map <Leader>z0-9 to set a foldlevel directly
 for i in [0,1,2,3,4,5,6,7,8,9]
   execute 'nmap <Leader>z' . i . ' :set foldlevel=' . i . '<CR>'
 endfor
@@ -496,7 +527,7 @@ augroup END
 " Fugitive Stuff {{{
 augroup fugitive_stuff
   au!
-  autocmd BufEnter fugitive://* setlocal nofoldenable
+  autocmd BufEnter fugitive://* setlocal foldenable
 augroup END
 " }}}
 
