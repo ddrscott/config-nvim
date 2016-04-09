@@ -155,6 +155,7 @@ augroup basics_autocmd
   " sets special tag files to include gem.tagsand look at parent dirs
   " remove '_' from ruby keyword so `w` stops at underscore
   autocmd FileType ruby set tags=gem.tags,tags;/
+    \ | setlocal makeprg=rubocop\ \-\-format\ emacs\ %
   autocmd FileType javascript set tags=.tags.jsx,tags
   autocmd FileType markdown,vim setlocal textwidth=80
   autocmd FileType java,go,hs set autoindent smartindent tabstop=4 shiftwidth=4  noexpandtab
