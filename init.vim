@@ -420,15 +420,7 @@ let g:multi_cursor_start_key='<Leader>m'
 " Wildmenu completion {{{
 set wildmenu
 set wildmode=longest,list:longest
-set wildignore+=tmp/ios,tmp/android,app/assets/images,public/assets,vendor/assets,bin/classes
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-set wildignore+=tags,gem.tags
-set wildignore+=*/tmp/*
-set wildignore+=*/vendor/*
-set wildignore+=*.class
-set wildignore+=*/node_modules/*
-set wildignore+=*/*.min.js*
-set wildignore+=*/bower_components
+set wildignore=
 " }}}
 
 " The Silver Searcher {{{
