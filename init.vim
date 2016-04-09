@@ -347,6 +347,13 @@ nnoremap P ]P`]mp
 " vnoremap c <ESC>mcgvc
 " vnoremap C <ESC>mcgvC
 
+" Quick Inserts {{{
+" There's no way to remember this unless you're me.
+" I often `dw` parameters and append them to reorder as needed.
+" Usage: `dw`, `e` to the new location, `, `
+nnoremap ,<SPACE> a, <C-r>"<ESC>
+" }}}
+
 " Grep Stuff
 nnoremap <silent> <Leader>gw :execute "grep! " . shellescape(expand("<cWORD>"))<CR>:copen<CR>
 " }}}
