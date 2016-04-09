@@ -240,6 +240,13 @@ nnoremap <silent> <Leader>zw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:noh
 nnoremap <Leader>vv mv`[V`]`v
 " Select (charwise) the contents of the current line, excluding indentation.
 nnoremap vv ^vg_
+
+" Ctrl Left and Right (h, l) starts visual selection
+" then continues it simlar to Shift-Option-Left/Right
+nnoremap <S-A-l> ve
+vnoremap <S-A-l> e
+nnoremap <S-A-h> vb
+vnoremap <S-A-h> b
 " }}}
 
 " Copy current buffer path to system clipboard
