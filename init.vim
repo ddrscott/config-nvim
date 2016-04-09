@@ -96,7 +96,7 @@ set textwidth=80
 set linebreak     " break at whitespace
 set nolist        " list disables linebreak
 set nowrap
-set nolazyredraw
+set lazyredraw
 set breakindent
 set breakindentopt=sbr
 set showbreak=↪>\  " ↪ space
