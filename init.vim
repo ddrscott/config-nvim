@@ -354,6 +354,7 @@ nnoremap P ]P`]mp
 " There's no way to remember this unless you're me.
 " I often `dw` parameters and append them to reorder as needed.
 " Usage: `dw`, `e` to the new location, `, `
+" Note: specifically NOT <Leader><Space> because ',' is a parameter seperator.
 nnoremap ,<SPACE> a, <C-r>"<ESC>
 " }}}
 
