@@ -235,6 +235,9 @@ nnoremap <C-w>\ :vertical resize 80<CR>
 " Zap-Whitespace
 nnoremap <silent> <Leader>zw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
+" Copy current buffer path to system clipboard
+nnoremap <silent> <Leader>5 :let @* = expand("%")<CR>:echom "copied: " . expand("%")<CR>
+
 " Visual Selection Helpers {{{
 " reselect last change
 nnoremap <Leader>vv mv`[V`]`v
@@ -248,9 +251,6 @@ vnoremap <S-A-l> e
 nnoremap <S-A-h> vb
 vnoremap <S-A-h> b
 " }}}
-
-" Copy current buffer path to system clipboard
-nnoremap <silent> <Leader>5 :let @* = expand("%")<CR>:echom "copied: " . expand("%")<CR>
 
 " Move through wrapped lines as default, with reverse mappings
 nnoremap k gk
