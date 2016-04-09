@@ -78,7 +78,7 @@ colorscheme solarized
 
 " set fillchars=diff:⣿,vert:\│
 set fillchars=diff:-,vert:\│
-set listchars=nbsp:⌴,trail:⌴,precedes:…,extends:…,tab:⇥\
+set listchars=nbsp:+,trail:*,precedes:<,extends:>,tab:>\
 set splitbelow
 set splitright
 " Don't try to highlight lines longer than X
