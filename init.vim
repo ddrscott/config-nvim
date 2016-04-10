@@ -87,10 +87,10 @@ set splitright
 set synmaxcol=1000
 
 " Sensible window sizes
-set winminheight=5
-set winminwidth=15
 set winheight=10
 set winwidth=80
+set winminheight=5
+set winminwidth=15
 
 " no background on vertical split
 highlight VertSplit cterm=bold ctermfg=11 ctermbg=NONE
