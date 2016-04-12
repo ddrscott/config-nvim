@@ -199,16 +199,18 @@ inoremap <C-@> <C-n>
 " Warning: This causes a slight delay for the cursor to move past 'k' 
 inoremap kj <ESC>
 
-function! HomeThenZero()
-  let c = col('.')
-  normal ^
-  if c == col('.')
-    call cursor(line('.'), 1)
+" Helper function to use an alternate movement if the first
+" movement doesn't move the cursor.
+function! ToggleMovement(firstOp, thenOp)
+  let pos = getpos('.')
+  execute "normal! " . a:firstOp
+  if pos == getpos('.')
+    execute "normal! " . a:thenOp
   endif
 endfunction
 
 " Warning: 0 uses ^ first, then 0
-nnoremap 0 :call HomeThenZero()<CR>
+nnoremap 0 :call ToggleMovement('0', '^')<CR>
 
 " Warning: CTRL-G u  break undo sequence, start new change      *i_CTRL-G_u*
 " This is an awesome feature. Especially for those that stay in insert mode a
