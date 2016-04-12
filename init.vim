@@ -329,7 +329,7 @@ inoremap <C-s> <ESC>:write<CR>
 nnoremap <C-q> :quit<CR>
 
 " Buffer Stuff
-" Warning: C-n/C-p to move to next/previous buffer. Instead of down/up lines. 
+" Warning: C-n/C-p to move to next/previous buffer. Instead of down/up lines.
 nnoremap <silent> <C-p> :bprevious<CR>
 nnoremap <silent> <C-n> :bnext<CR>
 " [x]-out the current buffer and jump out.
