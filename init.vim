@@ -44,6 +44,8 @@ Plug 'https://github.com/tommcdo/vim-exchange.git'
 call plug#end()
 " }}}
 
+runtime macros/matchit.vim
+
 " Basics Settings {{{
 scriptencoding utf-8
 
