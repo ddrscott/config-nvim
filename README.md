@@ -15,7 +15,7 @@ mv ~/.config/nvim{,.bak}
 git clone git@github.com:ddrscott/config-nvm.git ~/.config/nvim
 
 # Startup nvim. There will be errors. Just hit return.
-nvm
+nvim
 
 # Install Plugins. Do this inside of NeoVim 
 :PlugInstall
@@ -27,6 +27,9 @@ nvm
 I use Solarize, iTerm and Input Font. If solarized color themes are not
 installed, yet NeoVim is going to look pretty gross. Feel free to install from
 the links provided or fork and make the appropriate adjustments.
+
+Make sure your terminal is set to use xterm-256, otherwise airline won't look
+right.
 
 Here's some links to get started:
 
