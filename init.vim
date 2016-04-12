@@ -180,9 +180,6 @@ let mapleader=" "
 
 " Fix my common typos
 command! W w   " write it
-" Warning: I don't use ';' often. Use <C-;> if you do.
-nnoremap ; :
-nnoremap <C-;> ;
 
 " <C-@> is same as <S-Space>
 inoremap <C-@> <C-n>
