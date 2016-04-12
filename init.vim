@@ -319,11 +319,13 @@ nnoremap <silent> <C-n> :bnext<CR>
 nnoremap <silent> <C-x> <C-o>:bdelete #<CR>
 
 " Fuzzy Finder FZF helpers {{{
+command! SinceDev call fzf#run({'source': 'git diff --name-only dev..', 'down': '33%', 'options': '-m'})
 nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>ff :Files<CR>
 nnoremap <silent> <Leader>fh :Hist<CR>
 nnoremap <silent> <Leader>fm :Marks<CR>
-nnoremap <silent> <Leader>fb :unnamed<CR>
+nnoremap <silent> <Leader>fb :Buffers<CR>
+nnoremap <silent> <Leader>fd :SinceDev<CR>
 " }}}
 
 " Warning: Delete to "x register
