@@ -205,16 +205,16 @@ inoremap kj <ESC>
 " drastic.
 inoremap <CR> <C-g>u<CR>
 
-" Warning: I'm killing the 2nd <C-r> in these modes because '0' is too hard to
+" Warning: I'm killing the 2nd <C-r> in these modes because '"' is too hard to
 " reach. This makes <C-r> more consistent with Register access in insert and
 " command mode.
 nnoremap <C-r> :echo 'which regster? (access Redo with <S-u>)'<cr>"
-nnoremap <C-r><C-r> "0
-cnoremap <C-r><C-r> <C-r>0
-vnoremap <C-r><C-r> "0
+nnoremap <C-r><C-r> ""
+cnoremap <C-r><C-r> <C-r>"
+vnoremap <C-r><C-r> ""
 
 " Warning: This pastes the last thing yanked! Awesome sauce!
-inoremap <C-r><C-r> <C-r>0
+inoremap <C-r><C-r> <C-r>"
 " Warning: provide reverse mapping for original <C-r><C-r> behavior at the
 " expense of accessing the 'r' register. Poor 'r' register no one loves you.
 inoremap <C-r>r <C-r><C-r>
