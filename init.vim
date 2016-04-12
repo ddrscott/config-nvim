@@ -101,6 +101,12 @@ set breakindent
 set breakindentopt=sbr
 set showbreak=↪>\  " ↪ space
 set autoindent smartindent tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+
+" Completion options
+"   current buffer, windowed buffers, other loaded bufferes, and tags.
+"   different from default by NOT considering unloaded buffers.
+set complete=.,w,b,t
+set completeopt=menuone,preview,longest
 " }}}
 
 " Airline {{{
