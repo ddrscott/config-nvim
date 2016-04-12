@@ -261,7 +261,7 @@ nnoremap <C-w><C-p> <C-w><C-w>
 nnoremap <C-w>\ :vertical resize 80<CR>
 
 " [z]ap [w]hitespace
-nnoremap <silent> <Leader>zw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+nnoremap <silent> <Leader>zw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<Bar>:write<CR>
 
 " Copy current buffer path to system clipboard
 " I picked 5 because it's also the '%' key.
