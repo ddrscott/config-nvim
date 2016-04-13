@@ -194,7 +194,7 @@ command! W w   " write it
 " <C-@> is same as <S-Space>
 inoremap <C-@> <C-n>
 
-" Warning: This causes a slight delay for the cursor to move past 'k' 
+" Warning: This causes a slight delay for the cursor to move past 'k'
 inoremap kj <ESC>
 
 " Warning: CTRL-G u  break undo sequence, start new change      *i_CTRL-G_u*
@@ -312,7 +312,7 @@ inoremap <C-s> <ESC>:write<CR>
 nnoremap <C-q> :quit<CR>
 
 " Buffer Stuff
-" Warning: C-n/C-p to move to next/previous buffer. Instead of down/up lines. 
+" Warning: C-n/C-p to move to next/previous buffer. Instead of down/up lines.
 nnoremap <silent> <C-p> :bprevious<CR>
 nnoremap <silent> <C-n> :bnext<CR>
 " [x]-out the current buffer and jump out.
