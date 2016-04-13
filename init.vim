@@ -212,7 +212,7 @@ function! ToggleMovement(firstOp, thenOp)
 endfunction
 
 " Warning: 0 uses ^ first, then 0
-nnoremap 0 :call ToggleMovement('0', '^')<CR>
+nnoremap 0 :call ToggleMovement('^', '0')<CR>
 
 " Warning: CTRL-G u  break undo sequence, start new change      *i_CTRL-G_u*
 " This is an awesome feature. Especially for those that stay in insert mode a
@@ -428,15 +428,34 @@ nnoremap <Leader>zq <Esc>:set opfunc=DoubleToSingleQuoteOperation<CR>g@
 vnoremap <Leader>zq <Esc>:call DoubleToSingleQuote('<','>')<CR>
 " }}}
 
-" Emac Editing {{{
+" Emacs Editing {{{
 cnoremap <C-e> <End>
 cnoremap <C-a> <Home>
 inoremap <C-a> <C-o>^
 inoremap <C-e> <End>
+nnoremap <a-bs> "_db
+inoremap <a-bs> <C-w>
 " No need for normal mode mappings.
 " use <S-i> to insert begining
 " use <S-a> to append at end
 " }}}
+
+" BlackHole {{{
+" Performs a "_d against them motion or visual selection.
+func! BlackHoleDeleteOperator(type)
+  if a:type ==# 'char'
+    execute 'normal! `[v`]"_d'
+  elseif a:type ==# 'line'
+    execute 'normal! `[V`]"_d'
+  else
+    execute 'normal! `<' . a:type . '`>"_d'
+  endif
+endf
+
+nnoremap <silent> <BS> <Esc>:set opfunc=BlackHoleDeleteOperator<CR>g@
+vnoremap <silent> <BS> :<C-u>call BlackHoleDeleteOperator(visualmode())<CR>
+" }}}
+
 
 " Multicursor {{{
 let g:multi_cursor_start_key='<Leader>m'
