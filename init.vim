@@ -409,11 +409,13 @@ nnoremap <Leader>zq <Esc>:set opfunc=DoubleToSingleQuoteOperation<CR>g@
 vnoremap <Leader>zq <Esc>:call DoubleToSingleQuote('<','>')<CR>
 " }}}
 
-" Emac Editing {{{
+" Emacs Editing {{{
 cnoremap <C-e> <End>
 cnoremap <C-a> <Home>
 inoremap <C-a> <C-o>^
 inoremap <C-e> <End>
+nnoremap <a-bs> "_db
+inoremap <a-bs> <C-w>
 " No need for normal mode mappings.
 " use <S-i> to insert begining
 " use <S-a> to append at end
