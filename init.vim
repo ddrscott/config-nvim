@@ -421,6 +421,23 @@ inoremap <a-bs> <C-w>
 " use <S-a> to append at end
 " }}}
 
+" BlackHole {{{
+" Performs a "_d against them motion or visual selection.
+func! BlackHoleDeleteOperator(type)
+  if a:type ==# 'char'
+    execute 'normal! `[v`]"_d'
+  elseif a:type ==# 'line'
+    execute 'normal! `[V`]"_d'
+  else
+    execute 'normal! `<' . a:type . '`>"_d'
+  endif
+endf
+
+nnoremap <silent> <BS> <Esc>:set opfunc=BlackHoleDeleteOperator<CR>g@
+vnoremap <silent> <BS> :<C-u>call BlackHoleDeleteOperator(visualmode())<CR>
+" }}}
+
+
 " Multicursor {{{
 let g:multi_cursor_start_key='<Leader>m'
 " Use <C-n> and <C-p> to add or remove candidates
