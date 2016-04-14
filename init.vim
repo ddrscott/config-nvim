@@ -137,7 +137,8 @@ if has('nvim')
   augroup neovim_stuff
     au!
     autocmd BufWinEnter,WinEnter term://*
-      \ setlocal nonumber norelativenumber |
+      \ setlocal nonumber norelativenumber
+    autocmd WinEnter term://*
       \ startinsert
   augroup END
 endif
