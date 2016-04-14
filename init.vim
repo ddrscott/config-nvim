@@ -201,6 +201,7 @@ inoremap <C-@> <C-n>
 " <C-c>, <ESC>, <C-[>
 " inoremap kj <ESC>
 
+" Toggle Movements {{{
 " Helper function to use an alternate movement if the first
 " movement doesn't move the cursor.
 function! ToggleMovement(firstOp, thenOp)
@@ -212,7 +213,19 @@ function! ToggleMovement(firstOp, thenOp)
 endfunction
 
 " Warning: 0 uses ^ first, then 0
-nnoremap 0 :call ToggleMovement('^', '0')<CR>
+nnoremap <silent> 0 :call ToggleMovement('^', '0')<CR>
+
+nnoremap <silent> ; :call ToggleMovement(';', ',')<CR>
+nnoremap <silent> , :call ToggleMovement(',', ';')<CR>
+
+" How about H and L
+nnoremap <silent> H :call ToggleMovement('H', 'L')<CR>
+nnoremap <silent> L :call ToggleMovement('L', 'H')<CR>
+
+" How about G and gg
+nnoremap <silent> G :call ToggleMovement('G', 'gg')<CR>
+nnoremap <silent> gg :call ToggleMovement('gg', 'G')<CR>
+" }}}
 
 " Warning: CTRL-G u  break undo sequence, start new change      *i_CTRL-G_u*
 " This is an awesome feature. Especially for those that stay in insert mode a
