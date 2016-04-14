@@ -214,15 +214,16 @@ endfunction
 
 " Warning: 0 uses ^ first, then 0
 nnoremap <silent> 0 :call ToggleMovement('^', '0')<CR>
+nnoremap <silent> ^ :call ToggleMovement('0', '^')<CR>
+
+nnoremap <silent> $ :call ToggleMovement('$', '^')<CR>
 
 nnoremap <silent> ; :call ToggleMovement(';', ',')<CR>
 nnoremap <silent> , :call ToggleMovement(',', ';')<CR>
 
-" How about H and L
 nnoremap <silent> H :call ToggleMovement('H', 'L')<CR>
 nnoremap <silent> L :call ToggleMovement('L', 'H')<CR>
 
-" How about G and gg
 nnoremap <silent> G :call ToggleMovement('G', 'gg')<CR>
 nnoremap <silent> gg :call ToggleMovement('gg', 'G')<CR>
 " }}}
