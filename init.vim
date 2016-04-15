@@ -229,6 +229,10 @@ nnoremap <silent> G :call ToggleMovement('G', 'gg')<CR>
 nnoremap <silent> gg :call ToggleMovement('gg', 'G')<CR>
 " }}}
 
+" Other Toggles {{{
+nnoremap <silent> <C-[> a
+"}}}
+
 " Warning: CTRL-G u  break undo sequence, start new change      *i_CTRL-G_u*
 " This is an awesome feature. Especially for those that stay in insert mode a
 " little too long. Old habits due hard. But at least now the undo isn't so
