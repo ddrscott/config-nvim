@@ -354,6 +354,9 @@ nnoremap <silent> <C-n> :bnext<CR>
 " [x]-out the current buffer and jump out.
 nnoremap <silent> <C-x> <C-o>:bdelete #<CR>
 
+" Populate QuickFix with changes since dev
+command! QfSinceDev cexpr! system("git diff --name-only dev.. \| sed -E 's/(.*)/\\1:0:0 \\1/'") | copen
+
 " Fuzzy Finder FZF helpers {{{
 command! SinceDev call fzf#run({'source': 'git diff --name-only dev..', 'down': '33%', 'sink': 'edit', 'options': '-m'})
 nnoremap <silent> <Leader>b :Buffers<CR>
