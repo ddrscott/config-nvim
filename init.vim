@@ -230,7 +230,7 @@ nnoremap <silent> gg :call ToggleMovement('gg', 'G')<CR>
 " }}}
 
 " Other Toggles {{{
-nnoremap <silent> <C-[> a
+" stop the insanity! nnoremap <silent> <C-[> a
 "}}}
 
 " Warning: CTRL-G u  break undo sequence, start new change      *i_CTRL-G_u*
