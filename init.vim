@@ -53,7 +53,7 @@ filetype indent plugin on
 syntax sync fromstart
 
 set directory=~/tmp
-" tree style listing, possible nerd tree replacement
+" tree style listing
 let g:netrw_liststyle=3
 set foldmethod=syntax
 set foldlevelstart=99
