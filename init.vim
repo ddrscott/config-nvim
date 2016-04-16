@@ -380,8 +380,8 @@ vnoremap X "xX
 
 " Warning: Yank without moving cursor! Awesome Sauce!
 " exit visual mode, my=mark y, last visual selection, y, go to mark
-vnoremap y <ESC>mygvy`y
-vnoremap Y <ESC>mygvY`y
+vnoremap y myy`y
+vnoremap Y myY`y
 
 " Warning: Marks last yank position.
 nnoremap y myy
