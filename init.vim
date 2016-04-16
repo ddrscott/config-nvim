@@ -18,7 +18,7 @@ Plug 'https://github.com/osyo-manga/vim-monster.git'
 Plug 'https://github.com/pangloss/vim-javascript'
 Plug 'https://github.com/plasticboy/vim-markdown'
 Plug 'https://github.com/rust-lang/rust.vim.git'
-Plug 'https://github.com/scrooloose/nerdtree'
+" Plug 'https://github.com/scrooloose/nerdtree'
 Plug 'https://github.com/terryma/vim-multiple-cursors'
 Plug 'https://github.com/tpope/vim-commentary'
 Plug 'https://github.com/tpope/vim-endwise'
@@ -53,6 +53,8 @@ filetype indent plugin on
 syntax sync fromstart
 
 set directory=~/tmp
+" tree style listing, possible nerd tree replacement
+let g:netrw_liststyle=3
 set foldmethod=syntax
 set foldlevelstart=99
 set incsearch
