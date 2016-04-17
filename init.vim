@@ -269,7 +269,7 @@ map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
 
 " Nerd Tree {{{
-nnoremap <Leader>n :NERDTreeToggle<CR>
+" nnoremap <Leader>n :NERDTreeToggle<CR>
 " }}}
 
 " Tagbar {{{
