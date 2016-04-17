@@ -1,6 +1,6 @@
 " Plugins {{{
 " Plugin manager provided by: https://github.com/junegunn/vim-plug
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 Plug 'https://github.com/Raimondi/delimitMate'
 " Don't use deoplete. It was interupting typing too much
 " Plug 'https://github.com/Shougo/deoplete.nvim'
