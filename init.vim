@@ -41,6 +41,7 @@ Plug 'https://github.com/terryma/vim-expand-region'
 Plug 'https://github.com/haya14busa/incsearch.vim'
 Plug 'https://github.com/ecomba/vim-ruby-refactoring'
 Plug 'https://github.com/tommcdo/vim-exchange.git'
+Plug 'https://github.com/AndrewRadev/switch.vim.git'
 call plug#end()
 " }}}
 
