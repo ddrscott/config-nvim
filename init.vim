@@ -242,6 +242,8 @@ nnoremap <silent> gg :call ToggleMovement('gg', 'G')<CR>
 " little too long. Old habits due hard. But at least now the undo isn't so
 " drastic.
 inoremap <CR> <C-g>u<CR>
+" Warning: breaks undo sequence when space is used.
+inoremap <Space> <C-g>u<Space>
 
 " Warning: I'm killing the 2nd <C-r> in these modes because '"' is too hard to
 " reach. This makes <C-r> more consistent with Register access in insert and
