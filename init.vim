@@ -42,6 +42,9 @@ Plug 'https://github.com/haya14busa/incsearch.vim'
 Plug 'https://github.com/ecomba/vim-ruby-refactoring'
 Plug 'https://github.com/tommcdo/vim-exchange.git'
 Plug 'https://github.com/AndrewRadev/switch.vim.git'
+Plug 'AndrewRadev/sideways.vim'
+Plug 'kana/vim-submode'
+Plug 'tek/vim-fieldtrip'
 call plug#end()
 " }}}
 
@@ -644,4 +647,18 @@ augroup END
 " ctag helpers {{{
 command! Ctag !ctags --verbose --languages=ruby --recurse -f tags .
 command! CtagBundle !ctags --verbose --languages=ruby --recurse -f gem.tags $(bundle list --paths | grep -v $(pwd))
+" }}}
+
+" Submode Plugins {{{
+" No exit submodes automatically
+let g:submode_timeout=0
+" }}}
+
+" Fieldtrip and Sideways {{{
+" Note: Sideways allows for switching of arguments.
+"       Fieldtrip provides a submode for doing so.
+" Defaults: `l` and `h' quickly move between args
+"           `L` and `H` moves the arguments position right and left.
+" [g]oto [a]rguments
+let g:fieldtrip_start_map='ga'
 " }}}
