@@ -396,8 +396,9 @@ nnoremap Y myy$
 
 " Warning: Paste moves to end of change. As if you typed in the change.
 " This paste also maintains indent level with line above it.
-nnoremap p ]p`]mp
-nnoremap P ]P`]mp
+" Also re-indents what ever was pasted.
+nnoremap p ]p`]mp=`[`p
+nnoremap P ]P`]mp=`[`p
 
 " Messes up too many other plugins :(
 " nnoremap c mcc
