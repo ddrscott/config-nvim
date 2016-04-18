@@ -373,7 +373,6 @@ command! QfSinceDev cexpr! system("git diff --name-only dev.. \| sed -E 's/(.*)/
 
 " Fuzzy Finder FZF helpers {{{
 command! SinceDev call fzf#run({'source': 'git diff --name-only dev..', 'down': '33%', 'sink': 'edit', 'options': '-m'})
-nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>ff :Files<CR>
 nnoremap <silent> <Leader>fh :Hist<CR>
 nnoremap <silent> <Leader>fm :Marks<CR>
