@@ -379,7 +379,10 @@ nnoremap <silent> <Leader>fh :Hist<CR>
 nnoremap <silent> <Leader>fm :Marks<CR>
 nnoremap <silent> <Leader>fb :Buffers<CR>
 nnoremap <silent> <Leader>fd :SinceDev<CR>
-" }}}
+" }}
+
+" Not a FZF but I like the 'f' prefix :/
+map <Leader>fw [I:let nr = input("Which tag?: ")<Bar>exe "normal " . nr ."[\t"<CR>
 
 " Warning: Delete to "x register
 vnoremap x "xx
