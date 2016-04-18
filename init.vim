@@ -271,6 +271,10 @@ nnoremap <S-u> <C-r>
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
 
+" Warning: Faster schooling with C-e/y and keeps cursor in place.
+nnoremap <C-e> 3<C-e>3j
+nnoremap <C-y> 3<C-y>3k
+
 " Nerd Tree {{{
 " nnoremap <Leader>n :NERDTreeToggle<CR>
 " }}}
