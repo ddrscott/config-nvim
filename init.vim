@@ -662,3 +662,21 @@ let g:submode_timeout=0
 " [g]oto [a]rguments
 let g:fieldtrip_start_map='ga'
 " }}}
+
+" Window Submode {{{
+let g:submode_always_show_submode = 1
+call submode#enter_with('window', 'n', '', '<Leader>w')
+call submode#leave_with('window', 'n', '', '<Esc>')
+call submode#map('window', 'n', '', 'l', '<C-w>l')
+call submode#map('window', 'n', '', 'h', '<C-w>h')
+call submode#map('window', 'n', '', 'j', '<C-w>j')
+call submode#map('window', 'n', '', 'k', '<C-w>k')
+call submode#map('window', 'n', '', 'L', '<C-w>L')
+call submode#map('window', 'n', '', 'H', '<C-w>H')
+call submode#map('window', 'n', '', 'J', '<C-w>J')
+call submode#map('window', 'n', '', 'K', '<C-w>K')
+call submode#map('window', 'n', '', 'q', '<C-w>q')
+call submode#map('window', 'n', '', 'n', '<C-w>n')
+call submode#map('window', 'n', '', 'v', '<C-w>v')
+call submode#map('window', 'n', '', 'w', '<C-w>p') " w-w mappend to previous, not p.
+" }}}
