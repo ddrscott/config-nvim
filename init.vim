@@ -689,4 +689,9 @@ call submode#map('window', 'n', '', 'q', '<C-w>q')
 call submode#map('window', 'n', '', 'n', '<C-w>n')
 call submode#map('window', 'n', '', 'v', '<C-w>v')
 call submode#map('window', 'n', '', 'w', '<C-w>p') " w-w mappend to previous, not p.
+call submode#map('window', 'n', '', '-', '<C-w>-')
+call submode#map('window', 'n', '', '+', '<C-w>+')
+call submode#map('window', 'n', '', '>', '<C-w>>')
+call submode#map('window', 'n', '', '<', '<C-w><')
+call submode#map('window', 'n', '', '=', '<C-w>=')
 " }}}
