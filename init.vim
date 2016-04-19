@@ -328,12 +328,12 @@ nnoremap vv ^vg_
 
 " Ctrl Left and Right (h, l) starts visual selection
 " then continues it simlar to Shift-Option-Left/Right
-nnoremap <S-A-l> ve
-vnoremap <S-A-l> e
-nnoremap <S-A-h> vb
-vnoremap <S-A-h> b
-nnoremap <A-l> e
-nnoremap <A-h> b
+nmap <S-A-l> ve
+vmap <S-A-l> e
+nmap <S-A-h> vb
+vmap <S-A-h> b
+nmap <A-l> e
+nmap <A-h> b
 " }}}
 
 " Move through wrapped lines as default, with reverse mappings
