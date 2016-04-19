@@ -9,6 +9,8 @@ Plug 'https://github.com/altercation/vim-colors-solarized'
 Plug 'https://github.com/benekastah/neomake'
 Plug 'https://github.com/jeetsukumaran/vim-indentwise'
 Plug 'https://github.com/kana/vim-textobj-user.git'
+Plug 'https://github.com/kana/vim-submode'
+Plug 'https://github.com/kana/vim-smartword'
 Plug 'https://github.com/kassio/neoterm'
 Plug 'https://github.com/kshenoy/vim-signature.git'
 Plug 'https://github.com/majutsushi/tagbar.git'
@@ -43,7 +45,6 @@ Plug 'https://github.com/ecomba/vim-ruby-refactoring'
 Plug 'https://github.com/tommcdo/vim-exchange.git'
 Plug 'https://github.com/AndrewRadev/switch.vim.git'
 Plug 'AndrewRadev/sideways.vim'
-Plug 'kana/vim-submode'
 Plug 'tek/vim-fieldtrip'
 call plug#end()
 " }}}
@@ -694,4 +695,11 @@ call submode#map('window', 'n', '', '+', '<C-w>+')
 call submode#map('window', 'n', '', '>', '<C-w>>')
 call submode#map('window', 'n', '', '<', '<C-w><')
 call submode#map('window', 'n', '', '=', '<C-w>=')
+" }}}
+
+" Smart Word Mappings {{{
+map w  <Plug>(smartword-w)
+map b  <Plug>(smartword-b)
+map e  <Plug>(smartword-e)
+map ge <Plug>(smartword-ge)
 " }}}
