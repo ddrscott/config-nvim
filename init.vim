@@ -68,7 +68,7 @@ set incsearch
 set nonumber
 set relativenumber
 set showcmd
-set virtualedit=all
+set virtualedit=block
 " Case sensitivity
 " I tried this while ignoring case and it was driving me crazy
 set noignorecase
