@@ -430,9 +430,10 @@ nnoremap <silent> <Leader>gw :execute "grep! " . shellescape(expand("<cWORD>"))<
 " }}}
 
 " Quick Editing {{{
-command! Evimrc vsplit $MYVIMRC
-command! Source source $MYVIMRC
-command! Notes Files ~/notes
+" Double caps so I can keep holding shift. :EV<S-CR>
+command! EVimrc vsplit $MYVIMRC
+command! SOurce source $MYVIMRC
+command! NOtes Files ~/notes
 " }}}
 
 " Gsub {{{
