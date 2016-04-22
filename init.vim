@@ -66,7 +66,7 @@ set foldmethod=syntax
 set foldlevelstart=99
 set incsearch
 set nonumber
-set relativenumber
+set norelativenumber
 set showcmd
 set virtualedit=block
 " Case sensitivity
