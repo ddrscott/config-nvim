@@ -116,6 +116,7 @@ set breakindent
 set breakindentopt=sbr
 set showbreak=↪>\  " ↪ space
 set autoindent smartindent tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+set whichwrap+=<,>,h,l,[,]
 
 " Completion options
 "   current buffer, windowed buffers, other loaded bufferes, and tags.
