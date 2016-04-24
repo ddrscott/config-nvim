@@ -712,6 +712,7 @@ map ge <Plug>(smartword-ge)
 " }}}
 
 " Arpeggio Mappings {{{
+call arpeggio#load()
 Arpeggio imap kj <Esc>
 Arpeggio cmap kj <Esc>
 Arpeggio vmap kj <Esc>
