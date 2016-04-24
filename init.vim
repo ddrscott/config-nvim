@@ -480,7 +480,7 @@ cnoremap <C-e> <End>
 cnoremap <C-a> <Home>
 inoremap <C-a> <C-o>^
 inoremap <C-e> <End>
-nnoremap <a-bs> "_db
+nnoremap <a-bs> a<C-w>
 inoremap <a-bs> <C-w>
 " No need for normal mode mappings.
 " use <S-i> to insert begining
