@@ -8,6 +8,7 @@ Plug 'https://github.com/airblade/vim-gitgutter.git'
 Plug 'https://github.com/altercation/vim-colors-solarized'
 Plug 'https://github.com/benekastah/neomake'
 Plug 'https://github.com/jeetsukumaran/vim-indentwise'
+Plug 'https://github.com/kana/vim-arpeggio'
 Plug 'https://github.com/kana/vim-smartword'
 Plug 'https://github.com/kana/vim-submode'
 Plug 'https://github.com/kana/vim-textobj-indent'
@@ -708,4 +709,10 @@ call submode#map('window', 'n', '', '=', '<C-w>=')
 map b  <Plug>(smartword-b)
 map e  <Plug>(smartword-e)
 map ge <Plug>(smartword-ge)
+" }}}
+
+" Arpeggio Mappings {{{
+Arpeggio imap kj <Esc>
+Arpeggio cmap kj <Esc>
+Arpeggio vmap kj <Esc>
 " }}}
