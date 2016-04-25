@@ -216,11 +216,6 @@ command! W w   " write it
 " <C-@> is same as <S-Space>
 inoremap <C-@> <C-n>
 
-" After trying this for some time. It's too disruptive of insert mode
-" to NOT see 'k' come out as soon as I press it. Oh well. Back to using
-" <C-c>, <ESC>, <C-[>
-" inoremap kj <ESC>
-
 " Toggle Movements {{{
 " Helper function to use an alternate movement if the first
 " movement doesn't move the cursor.
