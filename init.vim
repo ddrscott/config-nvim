@@ -732,6 +732,14 @@ call submode#map('Z', 'n', '', 'O', 'zO')
 call submode#map('Z', 'n', '', 'R', 'zR')
 " }}}
 
+" g-changes submode {{{
+call submode#enter_with('g-changes', 'n', '', 'g;', 'g;')
+call submode#enter_with('g-changes', 'n', '', 'g,', 'g,')
+call submode#leave_with('g-changes', 'n', '', '<Esc>')
+call submode#map('g-changes', 'n', '', ';', 'g;')
+call submode#map('g-changes', 'n', '', ',', 'g,')
+" }}}
+
 " Smart Word Mappings {{{
 " Warning: This overrides w/b/e/ge defaults
 " map w  <Plug>(smartword-w)
