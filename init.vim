@@ -54,6 +54,7 @@ call plug#end()
 " }}}
 
 runtime macros/matchit.vim
+call arpeggio#load()
 
 " Basics Settings {{{
 scriptencoding utf-8
@@ -740,7 +741,6 @@ map ge <Plug>(smartword-ge)
 " }}}
 
 " Arpeggio Mappings {{{
-call arpeggio#load()
 Arpeggio imap kj <Esc>
 Arpeggio cmap kj <Esc>
 Arpeggio vmap kj <Esc>
