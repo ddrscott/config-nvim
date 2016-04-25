@@ -656,6 +656,7 @@ augroup END
 
 " Git Gutter {{{
 augroup gitgutter_stuff
+  au!
   nmap [h <Plug>GitGutterPrevHunk
   nmap ]h <Plug>GitGutterNextHunk
   nmap <Leader>hs <Plug>GitGutterStageHunk
