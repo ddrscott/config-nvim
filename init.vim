@@ -441,6 +441,10 @@ command! Notes Files ~/notes
 cabbrev EV Evimrc
 cabbrev SO Source
 cabbrev NO Notes
+augroup SourceVimrc
+  au!
+  autocmd BufWritePost $VIMRC source % | echom 'Auto sourced: ' . $VIMRC
+augroup END
 " }}}
 
 " Gsub {{{
