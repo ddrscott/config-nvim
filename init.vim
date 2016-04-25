@@ -77,6 +77,11 @@ set virtualedit=block
 set noignorecase
 set smartcase
 
+" No tmp or swp files
+set nobackup
+set nowritebackup
+set noswapfile
+
 " System clipboard
 set clipboard+=unnamedplus
 
