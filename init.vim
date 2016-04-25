@@ -8,8 +8,8 @@ Plug 'https://github.com/airblade/vim-gitgutter.git'
 Plug 'https://github.com/altercation/vim-colors-solarized'
 Plug 'https://github.com/benekastah/neomake'
 Plug 'https://github.com/jeetsukumaran/vim-indentwise'
-Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'https://github.com/junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'https://github.com/junegunn/vim-peekaboo.git'
 Plug 'https://github.com/kana/vim-arpeggio'
 Plug 'https://github.com/kana/vim-smartword'
