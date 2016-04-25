@@ -280,8 +280,8 @@ inoremap <C-r>r <C-r><C-r>
 nnoremap <S-u> <C-r>
 
 " Warning: Scroll 1 line at a time instead of default 3
-map <ScrollWheelUp> <C-Y>
-map <ScrollWheelDown> <C-E>
+noremap <ScrollWheelUp> <C-Y>
+noremap <ScrollWheelDown> <C-E>
 
 " Warning: Faster schooling with C-e/y and keeps cursor in place.
 " This is similar to <C-d/u> behavior
