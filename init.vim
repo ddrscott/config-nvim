@@ -503,7 +503,7 @@ inoremap <a-bs> <C-w>
 
 " BlackHole {{{
 " Performs a "_d against them motion or visual selection.
-func! BlackHoleDeleteOperator(type)
+func! BlackHoleDeleteOperator(type, ...)
   if a:type ==# 'char'
     execute 'normal! `[v`]"_d'
   elseif a:type ==# 'line'
@@ -512,9 +512,8 @@ func! BlackHoleDeleteOperator(type)
     execute 'normal! `<' . a:type . '`>"_d'
   endif
 endf
-
-nnoremap <silent> <BS> <Esc>:set opfunc=BlackHoleDeleteOperator<CR>g@
-vnoremap <silent> <BS> :<C-u>call BlackHoleDeleteOperator(visualmode())<CR>
+nnoremap <silent> <BS> :set opfunc=BlackHoleDeleteOperator<CR>g@
+vnoremap <silent> <BS> :<C-u>call BlackHoleDeleteOperator(visualmode(), 1)<CR>
 " }}}
 
 
