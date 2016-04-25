@@ -448,7 +448,8 @@ cabbrev SO Source
 cabbrev NO Notes
 augroup SourceVimrc
   au!
-  autocmd BufWritePost $VIMRC source % | echom 'Auto sourced: ' . $VIMRC
+  autocmd BufWritePost ~/.config/nvim/init.vim sleep 100m source <afile>
+  autocmd BufWritePost ~/.vimrc sleep 100m source <afile>
 augroup END
 " }}}
 
