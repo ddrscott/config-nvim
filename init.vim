@@ -40,8 +40,9 @@ Plug 'https://github.com/vim-airline/vim-airline'
 Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/vim-ruby/vim-ruby'
 Plug 'https://github.com/zeekay/vimtips.git'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'https://github.com/junegunn/fzf.vim'
+Plug 'https://github.com/junegunn/vim-peekaboo.git'
 Plug 'https://github.com/terryma/vim-expand-region'
 Plug 'https://github.com/haya14busa/incsearch.vim'
 Plug 'https://github.com/ecomba/vim-ruby-refactoring'
@@ -701,6 +702,30 @@ call submode#map('window', 'n', '', '+', '3<C-w>+')
 call submode#map('window', 'n', '', '>', '5<C-w>>')
 call submode#map('window', 'n', '', '<', '5<C-w><')
 call submode#map('window', 'n', '', '=', '<C-w>=')
+" }}}
+
+" 'z' submode {{{
+call submode#enter_with('Z', 'n', '', '<Leader>zz', 'zz')
+call submode#leave_with('Z', 'n', '', '<Esc>')
+call submode#map('Z', 'n', '', 't', 'zt')
+call submode#map('Z', 'n', '', 'b', 'zb')
+call submode#map('Z', 'n', '', 'l', 'zl')
+call submode#map('Z', 'n', '', 'h', 'zh')
+call submode#map('Z', 'n', '', 'L', 'zL')
+call submode#map('Z', 'n', '', 'H', 'zH')
+call submode#map('Z', 'n', '', 'j', 'zjzz')
+call submode#map('Z', 'n', '', 'k', 'zkzz')
+call submode#map('Z', 'n', '', 'z', 'zz')
+
+" folding
+call submode#map('Z', 'n', '', 'a', 'za')
+call submode#map('Z', 'n', '', 'm', 'zm')
+call submode#map('Z', 'n', '', 'o', 'zo')
+call submode#map('Z', 'n', '', 'r', 'zr')
+call submode#map('Z', 'n', '', 'A', 'zA')
+call submode#map('Z', 'n', '', 'M', 'zM')
+call submode#map('Z', 'n', '', 'O', 'zO')
+call submode#map('Z', 'n', '', 'R', 'zR')
 " }}}
 
 " Smart Word Mappings {{{
