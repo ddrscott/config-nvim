@@ -362,6 +362,8 @@ nnoremap zk zkzz
 nnoremap <F1> <nop>
 nnoremap Q <nop>
 nnoremap K <nop>
+command! Qa qa
+command! QA qa
 
 " Faster :ex commands
 nnoremap <C-s> :write<CR>
