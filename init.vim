@@ -402,9 +402,10 @@ vnoremap X "xX
 "nnoremap D "dD
 
 " Warning: Yank without moving cursor! Awesome Sauce!
-" exit visual mode, my=mark y, last visual selection, y, go to mark
-vnoremap y myy`y
-vnoremap Y myY`y
+"          exit visual mode, my=mark y, last visual selection, y, go to mark
+" Thanks: http://ddrscott.github.io/blog/2016/yank-without-jank/#comment-2643800118
+vnoremap <expr>y "my\"" . v:register . "y`y"
+vnoremap <expr>Y "my\"" . v:register . "Y`y"
 
 " Warning: Marks last yank position.
 nnoremap y myy
@@ -702,15 +703,18 @@ call submode#map('window', 'n', '', 'L', '<C-w>L')
 call submode#map('window', 'n', '', 'H', '<C-w>H')
 call submode#map('window', 'n', '', 'J', '<C-w>J')
 call submode#map('window', 'n', '', 'K', '<C-w>K')
-call submode#map('window', 'n', '', 'q', '<C-w>q')
 call submode#map('window', 'n', '', 'n', '<C-w>n')
-call submode#map('window', 'n', '', 'v', '<C-w>v')
-call submode#map('window', 'n', '', 'w', '<C-w>p') " w-w mapped to previous, not p.
+call submode#map('window', 'n', '', 'p', '<C-w>w')
+call submode#map('window', 'n', '', 'P', '<C-w>P')
+call submode#map('window', 'n', '', 'q', '<C-w>q')
+call submode#map('window', 'n', '', 'v', ':vnew<CR>')
+call submode#map('window', 'n', '', 'w', '<C-w>p')
+call submode#map('window', 'n', '', 'W', '<C-w>W')
 call submode#map('window', 'n', '', '_', '3<C-w>-')
 call submode#map('window', 'n', '', '-', '3<C-w>-')
 call submode#map('window', 'n', '', '+', '3<C-w>+')
-call submode#map('window', 'n', '', '>', '5<C-w>>')
-call submode#map('window', 'n', '', '<', '5<C-w><')
+call submode#map('window', 'n', '', '>', '10<C-w>>')
+call submode#map('window', 'n', '', '<', '10<C-w><')
 call submode#map('window', 'n', '', '=', '<C-w>=')
 " }}}
 
