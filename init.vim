@@ -434,13 +434,9 @@ nnoremap <silent> <Leader>gw :execute "grep! " . shellescape(expand("<cWORD>"))<
 " }}}
 
 " Quick Editing {{{
-" Double caps so I can keep holding shift. :EV<S-CR>
-command! Evimrc vsplit $MYVIMRC
-command! Source source $MYVIMRC
 command! Notes Files ~/notes
-cabbrev EV Evimrc
-cabbrev SO Source
-cabbrev NO Notes
+" Hit [v]im[r]c at the same time to open vimrc.
+Arpeggio nnoremap vr :e $MYVIMRC<CR>
 augroup SourceVimrc
   au!
   autocmd BufWritePost ~/.config/nvim/init.vim sleep 100m source <afile>
