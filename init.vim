@@ -514,9 +514,14 @@ vnoremap <silent> <BS> :<C-u>call BlackHoleDeleteOperator(visualmode(), 1)<CR>
 
 
 " Multicursor {{{
+" Warning: Slightly more intuitive mappings. Plus I already use the defaults
+"          <C-n/p> for buffer switching.
+let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_start_key='<Leader>m'
-" Use <C-n> and <C-p> to add or remove candidates
-" Use action when done. Probably want c, a, or i.
+let g:multi_cursor_next_key='m'
+let g:multi_cursor_prev_key='<S-m>'
+let g:multi_cursor_skip_key='<C-m>'
+let g:multi_cursor_quit_key='<Esc>'
 " }}}
 
 " Wildmenu completion {{{
