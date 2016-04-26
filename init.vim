@@ -693,29 +693,24 @@ let g:fieldtrip_start_map='ga'
 
 " Window Submode {{{
 let g:submode_always_show_submode = 1
-call submode#enter_with('window', 'n', '', '<Leader>w')
+call submode#enter_with('window', 'n', '', '<C-w>')
 call submode#leave_with('window', 'n', '', '<Esc>')
-call submode#map('window', 'n', '', 'l', '<C-w>l')
-call submode#map('window', 'n', '', 'h', '<C-w>h')
-call submode#map('window', 'n', '', 'j', '<C-w>j')
-call submode#map('window', 'n', '', 'k', '<C-w>k')
-call submode#map('window', 'n', '', 'L', '<C-w>L')
-call submode#map('window', 'n', '', 'H', '<C-w>H')
-call submode#map('window', 'n', '', 'J', '<C-w>J')
-call submode#map('window', 'n', '', 'K', '<C-w>K')
-call submode#map('window', 'n', '', 'n', '<C-w>n')
-call submode#map('window', 'n', '', 'p', '<C-w>w')
-call submode#map('window', 'n', '', 'P', '<C-w>P')
-call submode#map('window', 'n', '', 'q', '<C-w>q')
-call submode#map('window', 'n', '', 'v', ':vnew<CR>')
-call submode#map('window', 'n', '', 'w', '<C-w>p')
-call submode#map('window', 'n', '', 'W', '<C-w>W')
-call submode#map('window', 'n', '', '_', '3<C-w>-')
-call submode#map('window', 'n', '', '-', '3<C-w>-')
+for key in ['a','b','c','d','e','f',
+          \ 'g','h','i','j','k','l',
+          \ 'm','n','o','p','r','s',
+          \ 't','u','v','w','x','y','z',
+          \ '=']
+  call submode#map('window', 'n', '', key, '<C-w>' . key)
+  call submode#map('window', 'n', '', toupper(key), '<C-w>' . toupper(key))
+  call submode#map('window', 'n', '', '<C-' . key . '>', '<C-w>' . '<C-'.key . '>')
+endfor
+call submode#map('window', 'n', '', 'q', '<C-w>c')
+call submode#map('window', 'n', '', '<C-q>', '<C-w>c')
+call submode#map('window', 'n', '', '\', ':vertical resize 80<CR>')
 call submode#map('window', 'n', '', '+', '3<C-w>+')
-call submode#map('window', 'n', '', '>', '10<C-w>>')
+call submode#map('window', 'n', '', '-', '3<C-w>-')
 call submode#map('window', 'n', '', '<', '10<C-w><')
-call submode#map('window', 'n', '', '=', '<C-w>=')
+call submode#map('window', 'n', '', '>', '10<C-w>>')
 " }}}
 
 " 'z' submode {{{
