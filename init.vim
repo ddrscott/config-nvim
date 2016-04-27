@@ -308,15 +308,6 @@ nnoremap <silent> <f5> :set paste!<CR>
 nnoremap <C-]> g<C-]>
 nnoremap g<C-]> <C-]>
 
-" Alternate windows. Easier than 2 handed default.
-" Warning: swapping <C-w><C-w> and <C-w><C-p>
-nnoremap <C-w><C-w> <C-w><C-p>
-nnoremap <C-w><C-p> <C-w><C-w>
-
-" Make window exactly 80 columns wide
-" note: <C-w>| is normally maximize.
-nnoremap <C-w>\ :vertical resize 80<CR>
-
 " [z]ap [w]hitespace
 nnoremap <silent> <Leader>zw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<Bar>:write<CR>
 
