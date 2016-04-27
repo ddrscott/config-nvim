@@ -381,6 +381,10 @@ nnoremap <silent> <Leader>fd :SinceDev<CR>
 
 nnoremap <silent> <Leader>bb :b#<CR>
 
+" [b]uffer [o]nly - close all except my buffer
+" Thanks: http://stackoverflow.com/a/34050776
+nnoremap <silent> <Leader>bo :update<cr>:%bd<cr>:e#<CR>
+
 " Not a FZF but I like the 'f' prefix :/
 map <Leader>fw [I:let nr = input("Which tag?: ")<Bar>exe "normal " . nr ."[\t"<CR>
 
