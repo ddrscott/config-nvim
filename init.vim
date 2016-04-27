@@ -451,8 +451,7 @@ nnoremap <silent> <Leader>gw :execute "grep! " . shellescape(expand("<cWORD>"))<
 " Quick Editing {{{
 command! Notes Files ~/notes
 " Hit [v]im[r]c at the same time to open vimrc.
-Arpeggio nnoremap vr :e $MYVIMRC<CR>
-Arpeggio nnoremap rv :e $MYVIMRC<CR>
+nnoremap <Leader>vr :e $MYVIMRC<CR>
 
 augroup SourceVimrc
   au!
