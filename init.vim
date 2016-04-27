@@ -713,6 +713,8 @@ for key in ['a','b','c','d','e','f',
 endfor
 call submode#map('window', 'n', '', 'q', '<C-w>c')
 call submode#map('window', 'n', '', '<C-q>', '<C-w>c')
+call submode#map('window', 'n', '', 'v', ':vnew<CR>')
+call submode#map('window', 'n', '', '<C-v>', ':vnew<CR>')
 call submode#map('window', 'n', '', '\', ':vertical resize 80<CR>')
 call submode#map('window', 'n', '', '+', '3<C-w>+')
 call submode#map('window', 'n', '', '-', '3<C-w>-')
