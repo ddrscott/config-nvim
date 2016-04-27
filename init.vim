@@ -580,9 +580,11 @@ augroup END
 " }}}
 
 " Expand Region {{{
-" The plugin defaults to '_' and '+'
-" vnoremap _ <Plug>(expand_region_shrink)
-" vnoremap + <Plug>(expand_region_expand)
+" Warning: takes over visual mode. Get use to it! Totally Sweet!
+"          Defaults to `viw` which is usually what I want anyway.
+nmap v <Plug>(expand_region_expand)
+vmap v <Plug>(expand_region_expand)
+vmap V <Plug>(expand_region_shrink)
 " }}}
 
 " Inc Search {{{
