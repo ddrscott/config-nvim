@@ -760,3 +760,13 @@ Arpeggio imap kj <Esc>
 Arpeggio cmap kj <Esc>
 Arpeggio vmap kj <Esc>
 " }}}
+
+" Git Functions {{{
+function! GitBranchPoint()
+  return system('git log --graph --oneline -99 | grep -A 1 -E ''^\* [0-9a-f]{7}'' | cut -c 5-11 | tail -1')
+endfunction
+command! DiffBranchPoint execute(':Gvdiff ' . GitBranchPoint())
+" [d]iff [v]isually, same as fugitives mapping
+nnoremap <Leader>dv :DiffBranchPoint<CR>
+Arpeggio map dv :DiffBranchPoint<CR>
+" }}}
