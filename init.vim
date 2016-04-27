@@ -773,5 +773,4 @@ endfunction
 command! DiffBranchPoint execute(':Gvdiff ' . GitBranchPoint())
 " [d]iff [v]isually, same as fugitives mapping
 nnoremap <Leader>dv :DiffBranchPoint<CR>
-Arpeggio map dv :DiffBranchPoint<CR>
 " }}}
