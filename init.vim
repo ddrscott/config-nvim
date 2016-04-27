@@ -318,8 +318,6 @@ nnoremap <silent> <Leader>5 :let @* = expand("%")<CR>:echom "copied: " . expand(
 " Visual Selection Helpers {{{
 " reselect last change
 nnoremap <Leader>vv mv`[V`]`v
-" Select (charwise) the contents of the current line, excluding indentation.
-nnoremap vv ^vg_
 
 " Ctrl Left and Right (h, l) starts visual selection
 " then continues it simlar to Shift-Option-Left/Right
