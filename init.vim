@@ -419,6 +419,18 @@ nnoremap Y myy$
 nnoremap p ]p`]mp=`[`p
 nnoremap P ]P`]mp=`[`p
 
+" Visual Paste {{{
+" Warning: overrides `p` and `P` behavior by preserving the "" register and
+"          moving cursor to end of paste location
+function! VisualPaste(key)
+  let saved = @"
+  exec "normal! gv".a:key."`]mp=`[`'"
+  let @" = saved
+endfunction
+vnoremap <silent> p :<C-u>call VisualPaste('p')<CR>
+vnoremap <silent> P :<C-u>call VisualPaste('P')<CR>
+" }}}
+
 " Messes up too many other plugins :(
 " nnoremap c mcc
 " vnoremap c <ESC>mcgvc
