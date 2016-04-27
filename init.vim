@@ -452,6 +452,8 @@ nnoremap <silent> <Leader>gw :execute "grep! " . shellescape(expand("<cWORD>"))<
 command! Notes Files ~/notes
 " Hit [v]im[r]c at the same time to open vimrc.
 Arpeggio nnoremap vr :e $MYVIMRC<CR>
+Arpeggio nnoremap rv :e $MYVIMRC<CR>
+
 augroup SourceVimrc
   au!
   autocmd BufWritePost ~/.config/nvim/init.vim sleep 100m source <afile>
