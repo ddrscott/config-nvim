@@ -416,17 +416,14 @@ nnoremap P ]P`]mp=`[`p
 " Visual Paste Override {{{
 " Warning: overrides `p` and `P` behavior by preserving the "" register and
 "          moving cursor to end of paste location
+" See `:h setreg()` for a reference of how to use get/setreg.
 function! VisualPaste()
-  let s:saved_unnamed = eval('@'.v:register)
+  let s:saved_unnamed = getreg(v:register,1)
+  let s:saved_type = getregtype(v:register)
   return "p`]mp=`[`':call RestorePaste()\<cr>"
 endfunction
 function! RestorePaste()
-  " Fixme: eval('@' . v:register . '=s:saved_unnamed')
-  "        The eval statement doesn't work, so I need to hardcode
-  "        all three registers in case user has a strange setting.
-  let @+=s:saved_unnamed
-  let @*=s:saved_unnamed
-  let @"=s:saved_unnamed
+  call setreg(v:register, s:saved_unnamed, s:saved_type)
 endfunction
 vnoremap <silent> <expr> p VisualPaste()
 
