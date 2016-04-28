@@ -413,17 +413,22 @@ nnoremap Y myy$
 nnoremap p ]p`]mp=`[`p
 nnoremap P ]P`]mp=`[`p
 
-" Visual Paste {{{
+" Visual Paste Override {{{
 " Warning: overrides `p` and `P` behavior by preserving the "" register and
 "          moving cursor to end of paste location
-function! VisualPaste(key)
-  let saved = @"
-  exec "normal! gv".a:key."`]mp=`[`'"
-  let @" = saved
+function! VisualPaste()
+  let s:saved_unnamed = eval('@'.v:register)
+  return "p`]mp=`[`':call RestorePaste()\<cr>"
 endfunction
-vnoremap <silent> p :<C-u>call VisualPaste('p')<CR>
-vnoremap <silent> P :<C-u>call VisualPaste('P')<CR>
-" }}}
+function! RestorePaste()
+  " Fixme: eval('@' . v:register . '=s:saved_unnamed')
+  "        The eval statement doesn't work, so I need to hardcode
+  "        all three registers in case user has a strange setting.
+  let @+=s:saved_unnamed
+  let @*=s:saved_unnamed
+  let @"=s:saved_unnamed
+endfunction
+vnoremap <silent> <expr> p VisualPaste()
 
 " Messes up too many other plugins :(
 " nnoremap c mcc
