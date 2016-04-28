@@ -218,7 +218,7 @@ command! W w   " write it
 inoremap <C-@> <C-n>
 
 " Warning: Override <enter> with ':'
-nnoremap <C-m> :
+" nnoremap <C-m> :
 
 " Toggle Movements {{{
 " Helper function to use an alternate movement if the first
