@@ -400,8 +400,8 @@ vnoremap X "xX
 " Warning: Yank without moving cursor! Awesome Sauce!
 "          exit visual mode, my=mark y, last visual selection, y, go to mark
 " Thanks: http://ddrscott.github.io/blog/2016/yank-without-jank/#comment-2643800118
-vnoremap <expr>y "my\"" . v:register . "y`y"
-vnoremap <expr>Y "my\"" . v:register . "Y`y"
+vnoremap <expr>y 'my"' . v:register . 'y`y'
+vnoremap <expr>Y 'my"' . v:register . 'Y`y'
 
 " Warning: Marks last yank position.
 nnoremap y myy
