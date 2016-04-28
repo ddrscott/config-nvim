@@ -69,7 +69,7 @@ let g:netrw_liststyle=3
 set foldmethod=syntax
 set foldlevelstart=99
 set incsearch
-set nonumber
+set number
 set norelativenumber
 set showcmd
 set virtualedit=block
