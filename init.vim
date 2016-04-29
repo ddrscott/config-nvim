@@ -457,6 +457,7 @@ nnoremap <silent> <Leader>gw :execute "grep! " . shellescape(expand("<cWORD>"))<
 command! Notes Files ~/notes
 " Hit [v]im[r]c at the same time to open vimrc.
 nnoremap <silent> <Leader>vr :edit $MYVIMRC<CR>
+nnoremap <silent> <Leader>ve :edit $MYVIMRC<CR>
 nnoremap <silent> <Leader>vs :source $MYVIMRC<CR>:echo 'sourced: ' . $MYVIMRC<CR>
 
 " TODO why doesn't this work?
