@@ -456,8 +456,10 @@ nnoremap <silent> <Leader>gw :execute "grep! " . shellescape(expand("<cWORD>"))<
 " Quick Editing {{{
 command! Notes Files ~/notes
 " Hit [v]im[r]c at the same time to open vimrc.
-nnoremap <Leader>vr :e $MYVIMRC<CR>
+nnoremap <silent> <Leader>vr :edit $MYVIMRC<CR>
+nnoremap <silent> <Leader>vs :source $MYVIMRC<CR>
 
+" TODO why doesn't this work?
 augroup SourceVimrc
   au!
   autocmd BufWritePost ~/.config/nvim/init.vim sleep 100m source <afile>
