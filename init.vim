@@ -707,8 +707,10 @@ command! CtagBundle !ctags --verbose --languages=ruby --recurse -f gem.tags $(bu
 " }}}
 
 " Submode Plugins {{{
-" No exit submodes automatically
-let g:submode_timeout=0
+" Exit submodes after a 2 seconds. Think fast!
+let g:submode_always_show_submode = 1
+let g:submode_timeout=1
+let g:submode_timeoutlen=2000
 " }}}
 
 " Fieldtrip and Sideways {{{
@@ -721,7 +723,6 @@ let g:fieldtrip_start_map='ga'
 " }}}
 
 " Window Submode {{{
-let g:submode_always_show_submode = 1
 call submode#enter_with('window', 'n', '', '<C-w>')
 call submode#leave_with('window', 'n', '', '<Esc>')
 for key in ['a','b','c','d','e','f',
