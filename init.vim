@@ -708,7 +708,7 @@ command! CtagBundle !ctags --verbose --languages=ruby --recurse -f gem.tags $(bu
 
 " Submode Plugins {{{
 " Exit submodes after a 2 seconds. Think fast!
-let g:submode_always_show_submode = 1
+let g:submode_always_show_submode=1
 let g:submode_timeout=1
 let g:submode_timeoutlen=2000
 " }}}
