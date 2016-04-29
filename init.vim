@@ -361,7 +361,7 @@ command! QA qa
 " Faster :ex commands
 nnoremap <C-s> :write<CR>
 inoremap <C-s> <ESC>:write<CR>
-nnoremap <C-q> :quit<CR>
+nnoremap <C-q> :close<CR>
 
 " Buffer Stuff
 " Warning: C-n/C-p to move to next/previous buffer. Instead of down/up lines.
