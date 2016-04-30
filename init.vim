@@ -295,6 +295,11 @@ noremap <ScrollWheelDown> <C-E>
 nnoremap <C-e> 3<C-e>3j
 nnoremap <C-y> 3<C-y>3k
 
+" Search Replace {{{
+nnoremap cn *Ncgn
+nnoremap cN #Ncgn
+" }}}
+
 " Nerd Tree {{{
 " nnoremap <Leader>n :NERDTreeToggle<CR>
 " }}}
