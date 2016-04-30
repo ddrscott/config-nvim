@@ -127,6 +127,11 @@ set showbreak=↪>\  " ↪ space
 set autoindent smartindent tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 set whichwrap+=<,>,h,l,[,]
 
+" Sensible side scrolling, makes it like other editors.
+" And can see more text at a
+set sidescroll=1
+set sidescrolloff=3
+
 " Completion options
 "   current buffer, windowed buffers, other loaded bufferes, and tags.
 "   different from default by NOT considering unloaded buffers.
