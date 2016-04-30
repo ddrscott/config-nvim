@@ -63,7 +63,6 @@ scriptencoding utf-8
 filetype indent plugin on
 syntax sync fromstart
 
-set directory=~/tmp
 " tree style listing
 let g:netrw_liststyle=3
 let g:netrw_altfile=1
