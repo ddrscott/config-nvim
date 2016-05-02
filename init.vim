@@ -165,9 +165,9 @@ if has('nvim')
   augroup neovim_stuff
     au!
     autocmd BufWinEnter,WinEnter term://*
-      \ setlocal nonumber norelativenumber
+          \ setlocal nonumber norelativenumber
     autocmd WinEnter term://*
-      \ startinsert
+          \ startinsert
   augroup END
 endif
 " }}}
@@ -185,9 +185,9 @@ endif
 " Fuzzy Finder {{{
 set runtimepath+=~/.fzf
 let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-s': 'split',
-  \ 'ctrl-v': 'vsplit' }
+      \ 'ctrl-t': 'tab split',
+      \ 'ctrl-s': 'split',
+      \ 'ctrl-v': 'vsplit' }
 " }}}
 
 " Autocmds Settings  {{{
@@ -196,7 +196,7 @@ augroup basics_autocmd
   " sets special tag files to include gem.tagsand look at parent dirs
   " remove '_' from ruby keyword so `w` stops at underscore
   autocmd FileType ruby set tags=gem.tags,tags;/
-    \ | setlocal makeprg=rubocop\ \-\-format\ emacs\ %
+        \ | setlocal makeprg=rubocop\ \-\-format\ emacs\ %
   autocmd FileType javascript set tags=.tags.jsx,tags
   autocmd FileType markdown,vim setlocal textwidth=80
   autocmd FileType java,go,hs set autoindent smartindent tabstop=4 shiftwidth=4  noexpandtab
@@ -606,9 +606,9 @@ iab deb debugger; // eslint-disable-line
 " Cursorline {{{
 " Only show cursorline in the current window and in normal mode.
 augroup cline
-    au!
-    au WinLeave,InsertEnter * set nocursorline
-    au WinEnter,InsertLeave * set cursorline
+  au!
+  au WinLeave,InsertEnter * set nocursorline
+  au WinEnter,InsertLeave * set cursorline
 augroup END
 " }}}
 
@@ -616,8 +616,8 @@ augroup END
 " Make sure Vim returns to the same line when you reopen a file.
 " Thanks, Amit
 augroup line_return
-    au!
-    au BufReadPost *
+  au!
+  au BufReadPost *
         \ if line("'\"") > 0 && line("'\"") <= line("$") |
         \     execute 'normal! g''"zvzz' |
         \ endif
@@ -767,9 +767,9 @@ let g:fieldtrip_start_map='ga'
 call submode#enter_with('window', 'n', '', '<Leader>w')
 call submode#leave_with('window', 'n', '', '<Esc>')
 for key in ['a','b','c','d','e','f',
-          \ 'g','h','i','j','k','l',
-          \ 'm','n','o','p','r','s',
-          \ 't','u','v','w','x','y','z']
+      \ 'g','h','i','j','k','l',
+      \ 'm','n','o','p','r','s',
+      \ 't','u','v','w','x','y','z']
   call submode#map('window', 'n', '', key, '<C-w>' . key)
   call submode#map('window', 'n', '', toupper(key), '<C-w>' . toupper(key))
   call submode#map('window', 'n', '', '<C-' . key . '>', '<C-w>' . '<C-'.key . '>')
