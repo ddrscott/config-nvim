@@ -254,7 +254,7 @@ nnoremap <silent> gg :call ToggleMovement('gg', 'G')<CR>
 
 " Cycle Movement {{{
 " Thanks: http://ddrscott.github.io/blog/2016/vim-toggle-movement/#comment-2652924928
-" TODO This gets a stack overflow error when run on a blank line.  
+" TODO This gets a stack overflow error when run on a blank line.
 function! CycleMovement(firstOp, secondOp, ...) abort
   let g:cycle_movement = get(g:, "cycle_movement", 1)
 
