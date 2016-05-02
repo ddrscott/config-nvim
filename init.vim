@@ -488,7 +488,8 @@ nnoremap ,<SPACE> a, <C-r>"<ESC>
 " }}}
 
 " Grep Stuff
-nnoremap <silent> <Leader>gw :execute "grep! " . shellescape(expand("<cWORD>"))<CR>:copen<CR>
+" Warning: sets @/ register to current word
+nnoremap <silent> <Leader>gw :let @/=expand("<cword>")<CR>:execute "grep! " . shellescape(expand("<cword>"))<CR>:cwindow<CR>
 " }}}
 
 " Quick Editing {{{
