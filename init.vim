@@ -68,6 +68,7 @@ let g:netrw_liststyle=3
 let g:netrw_altfile=1
 
 " misc
+set nostartofline
 set directory=~/tmp
 set foldmethod=syntax
 set foldlevelstart=99
