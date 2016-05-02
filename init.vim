@@ -351,7 +351,7 @@ nnoremap <C-]> g<C-]>
 nnoremap g<C-]> <C-]>
 
 " [z]ap [w]hitespace
-nnoremap <silent> <Leader>zw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<Bar>:write<CR>
+nnoremap <silent> <Leader>zw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<Bar>:update<CR>
 
 " Copy current buffer path to system clipboard
 " I picked 5 because it's also the '%' key.
