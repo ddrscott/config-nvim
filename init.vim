@@ -764,13 +764,12 @@ let g:fieldtrip_start_map='ga'
 " }}}
 
 " Window Submode {{{
-call submode#enter_with('window', 'n', '', '<C-w>')
+call submode#enter_with('window', 'n', '', '<Leader>w')
 call submode#leave_with('window', 'n', '', '<Esc>')
 for key in ['a','b','c','d','e','f',
           \ 'g','h','i','j','k','l',
           \ 'm','n','o','p','r','s',
-          \ 't','u','v','w','x','y','z',
-          \ '=']
+          \ 't','u','v','w','x','y','z']
   call submode#map('window', 'n', '', key, '<C-w>' . key)
   call submode#map('window', 'n', '', toupper(key), '<C-w>' . toupper(key))
   call submode#map('window', 'n', '', '<C-' . key . '>', '<C-w>' . '<C-'.key . '>')
@@ -784,6 +783,7 @@ call submode#map('window', 'n', '', '+', '3<C-w>+')
 call submode#map('window', 'n', '', '-', '3<C-w>-')
 call submode#map('window', 'n', '', '<', '10<C-w><')
 call submode#map('window', 'n', '', '>', '10<C-w>>')
+call submode#map('window', 'n', '', '=', '<C-w>=')
 " }}}
 
 " 'z' submode {{{
