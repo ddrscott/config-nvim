@@ -255,9 +255,37 @@ nnoremap <silent> G :call ToggleMovement('G', 'gg')<CR>
 nnoremap <silent> gg :call ToggleMovement('gg', 'G')<CR>
 " }}}
 
-" Other Toggles {{{
-" stop the insanity! nnoremap <silent> <C-[> a
-"}}}
+" Cycle Movement {{{
+" Thanks: http://ddrscott.github.io/blog/2016/vim-toggle-movement/#comment-2652924928
+" TODO This gets a stack overflow error when run on a blank line.  
+function! CycleMovement(firstOp, secondOp, ...) abort
+  let g:cycle_movement = get(g:, "cycle_movement", 1)
+
+  if g:cycle_movement == 1
+    let l:command = a:firstOp
+  elseif g:cycle_movement == 2
+    let l:command = a:secondOp
+  elseif a:0 == 1 && g:cycle_movement == 3
+    let l:command = a:1
+  endif
+
+  if (a:0 == 0 && g:cycle_movement == 2) || (a:0 == 1 && g:cycle_movement == 3)
+    let g:cycle_movement = 1
+  else
+    let g:cycle_movement = g:cycle_movement + 1
+  endif
+
+  let pos = getpos('.')
+  execute "normal! " . l:command
+  if pos == getpos('.')
+    if a:0 == 1
+      call CycleMovement(a:firstOp, a:secondOp, a:1)
+    else
+      call CycleMovement(a:firstOp, a:secondOp)
+    endif
+  endif
+endfunction
+" }}}
 
 " Warning: CTRL-G u  break undo sequence, start new change      *i_CTRL-G_u*
 " This is an awesome feature. Especially for those that stay in insert mode a
