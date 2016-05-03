@@ -132,7 +132,7 @@ set autoindent smartindent tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 set whichwrap+=<,>,h,l,[,]
 
 " Sensible side scrolling, makes it like other editors.
-" And can see more text at a
+" Reduce scroll jump with cursor goes off the screen.
 set sidescroll=1
 set sidescrolloff=3
 
