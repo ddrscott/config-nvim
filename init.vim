@@ -589,6 +589,11 @@ let g:multi_cursor_quit_key='<Esc>'
 set wildmenu
 set wildmode=longest,list:longest
 set wildignore=
+set wildignore+=.hg,.git,.svn,*.pyc,*.spl,*.o,*.out,*.DS_Store,*.class,*.manifest
+set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,*.bak,*.exe,target,tags,gem.tags
+set wildignore+=*.pyc,*.DS_Store,*.db,*.min.js
+set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.zip,*.xc*,*.pbxproj,*.xcodeproj/**,*.xcassets/**
+set wildignore+=*.js.map,ui/public/client/*,cassettes/**,node_modules/**
 " }}}
 
 " The Silver Searcher {{{
