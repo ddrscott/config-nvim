@@ -421,6 +421,8 @@ command! QfBranch cexpr! system("git diff --name-only  `git log --graph --onelin
 " Fuzzy Finder FZF helpers {{{
 command! SinceDev call fzf#run({'source': 'git diff --name-only dev..', 'down': '33%', 'sink': 'edit', 'options': '-m'})
 nnoremap <silent> <Leader>ff :Files<CR>
+" [e]dit [f]ile - easier to chord
+nnoremap <silent> <Leader>ef :Files<CR>
 nnoremap <silent> <Leader>fh :Hist<CR>
 nnoremap <silent> <Leader>fm :Marks<CR>
 nnoremap <silent> <Leader>fb :Buffers<CR>
