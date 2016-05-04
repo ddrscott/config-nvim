@@ -214,6 +214,8 @@ augroup basics_autocmd
   autocmd VimResized * let &previewheight=(winheight(0) * 1/3)
   autocmd BufEnter init.vim setlocal foldmethod=marker
 
+  autocmd FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0]) | normal! II
+
   " Open help always to the right.
   autocmd FileType help wincmd L
 augroup END
@@ -880,7 +882,7 @@ function! s:when_pum(pum_map, other)
   endif
   return a:other
 endfunction
-imap <silent><expr><Enter> <SID>when_pum("\<C-y>", "\<Enter>")
-imap <silent><expr><C-j> <SID>when_pum("\<C-n>", "\<C-j>")
-imap <silent><expr><C-k> <SID>when_pum("\<C-p>", "\<C-k>")
+imap <silent> <expr> <Enter> <SID>when_pum("\<C-y>", "\<Enter>")
+imap <silent> <expr> <C-j> <SID>when_pum("\<C-n>", "\<C-j>")
+imap <silent> <expr> <C-k> <SID>when_pum("\<C-p>", "\<C-k>")
 "}}}
