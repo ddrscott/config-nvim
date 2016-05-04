@@ -47,9 +47,9 @@ Plug 'https://github.com/zeekay/vimtips.git'
 Plug 'https://github.com/terryma/vim-expand-region'
 Plug 'https://github.com/haya14busa/incsearch.vim'
 Plug 'https://github.com/ecomba/vim-ruby-refactoring'
-Plug 'https://github.com/tommcdo/vim-exchange.git'
-Plug 'https://github.com/AndrewRadev/switch.vim.git'
-Plug 'AndrewRadev/sideways.vim'
+Plug 'https://github.com/AndrewRadev/sideways.vim'
+Plug 'https://github.com/AndrewRadev/splitjoin.vim'
+Plug 'https://github.com/AndrewRadev/switch.vim'
 Plug 'tek/vim-fieldtrip'
 call plug#end()
 " }}}
@@ -861,3 +861,10 @@ endfunction
 nnoremap <silent> g= :call SaveViewNormal('gg=G')<CR>
 " }}}
 
+" Split Join {{{
+let g:splitjoin_split_mapping = ''
+let g:splitjoin_join_mapping = ''
+" [jo]in and [sp]lit
+nmap <Leader>jo :SplitjoinJoin<cr>
+nmap <Leader>sp :SplitjoinSplit<cr>
+" }}}
