@@ -213,6 +213,9 @@ augroup basics_autocmd
   autocmd QuickFixCmdPost *grep* cwindow
   autocmd VimResized * let &previewheight=(winheight(0) * 1/3)
   autocmd BufEnter init.vim setlocal foldmethod=marker
+
+  " Open help always to the right.
+  autocmd FileType help wincmd L
 augroup END
 " }}}
 
