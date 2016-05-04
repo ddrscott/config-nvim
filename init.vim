@@ -500,12 +500,12 @@ command! Notes Files ~/notes
 " Hit [v]im[r]c at the same time to open vimrc.
 nnoremap <silent> <Leader>vr :edit $MYVIMRC<CR>
 nnoremap <silent> <Leader>ve :edit $MYVIMRC<CR>
-nnoremap <silent> <Leader>vs :source $MYVIMRC<CR>:echo v:statusmsg . ' and sourced'<CR>
+nnoremap <silent> <Leader>vs :source $MYVIMRC<CR>:echo $MYVIMRC . ' sourced'<CR>
 
 " TODO why doesn't this work?
 augroup SourceVimrc
   au!
-  autocmd BufWritePost ~/.config/nvim/init.vim,~/.vimrc source <afile> | echo v:statusmsg . ' and sourced'
+  autocmd BufWritePost $MYVIMRC source <afile> | echo v:statusmsg . ' and sourced'
 augroup END
 " }}}
 
@@ -869,14 +869,11 @@ nmap <Leader>jo :SplitjoinJoin<cr>
 nmap <Leader>sp :SplitjoinSplit<cr>
 " }}}
 
-" Better Enter Behavior {{{
-" When pop up menu is visual, select current item,
-" otherwise do default behavior.
-function! s:better_enter()
-  if pumvisible()
-    return "\<C-y>"
-  endif
-  return "\<Enter>"
+" Better Behavior with PUM menu {{{
+function! s:when_pum(pum_map, other)
+  return pumvisible() ? a:pum_map : a:other
 endfunction
-imap <silent><expr><Enter> <SID>better_enter()
-" }}}
+imap <silent><expr><Enter> <SID>when_pum("\<C-y>", "\<Enter>")
+imap <silent><expr><C-j> <SID>when_pum("\<C-n>", "\<C-j>")
+imap <silent><expr><C-k> <SID>when_pum("\<C-p>", "\<C-k>")
+"}}}
