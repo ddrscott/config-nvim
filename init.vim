@@ -868,3 +868,15 @@ let g:splitjoin_join_mapping = ''
 nmap <Leader>jo :SplitjoinJoin<cr>
 nmap <Leader>sp :SplitjoinSplit<cr>
 " }}}
+
+" Better Enter Behavior {{{
+" When pop up menu is visual, select current item,
+" otherwise do default behavior.
+function! s:better_enter()
+  if pumvisible()
+    return "\<C-y>"
+  endif
+  return "\<Enter>"
+endfunction
+imap <silent><expr><Enter> <SID>better_enter()
+" }}}
