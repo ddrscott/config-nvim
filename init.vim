@@ -505,7 +505,7 @@ nnoremap <silent> <Leader>vs :source $MYVIMRC<CR>:echo $MYVIMRC . ' sourced'<CR>
 " TODO why doesn't this work?
 augroup SourceVimrc
   au!
-  autocmd BufWritePost $MYVIMRC source <afile> | echo v:statusmsg . ' and sourced'
+  autocmd BufWritePost $MYVIMRC source! <afile> | echo v:statusmsg . ' and sourced'
 augroup END
 " }}}
 
