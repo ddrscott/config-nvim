@@ -500,12 +500,12 @@ command! Notes Files ~/notes
 " Hit [v]im[r]c at the same time to open vimrc.
 nnoremap <silent> <Leader>vr :edit $MYVIMRC<CR>
 nnoremap <silent> <Leader>ve :edit $MYVIMRC<CR>
-nnoremap <silent> <Leader>vs :source $MYVIMRC<CR>:echo 'sourced: ' . $MYVIMRC<CR>
+nnoremap <silent> <Leader>vs :source $MYVIMRC<CR>:echo v:statusmsg . ' and sourced'<CR>
 
 " TODO why doesn't this work?
 augroup SourceVimrc
   au!
-  autocmd BufWritePost ~/.config/nvim/init.vim,~/.vimrc source <afile> | echo 'Saved and Sourced: ' . expand('%:t')
+  autocmd BufWritePost ~/.config/nvim/init.vim,~/.vimrc source <afile> | echo v:statusmsg . ' and sourced'
 augroup END
 " }}}
 
