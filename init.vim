@@ -882,7 +882,8 @@ function! WhenPum(pum_map, other)
   endif
   return a:other
 endfunction
-inoremap <silent> <expr> <Enter> WhenPum("\<C-y>", "\<Enter>")
-inoremap <silent> <expr> <C-j> WhenPum("\<C-n>", "\<C-j>")
-inoremap <silent> <expr> <C-k> WhenPum("\<C-p>", "\<C-k>")
+" Don't do these mappings until `expr` with pumvisible works on first boot.
+" inoremap <silent> <expr> <Enter> WhenPum("\<C-y>", "\<Enter>")
+" inoremap <silent> <expr> <C-j> WhenPum("\<C-n>", "\<C-j>")
+" inoremap <silent> <expr> <C-k> WhenPum("\<C-p>", "\<C-k>")
 "}}}
