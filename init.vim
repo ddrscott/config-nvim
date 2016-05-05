@@ -476,7 +476,7 @@ nnoremap P ]P`]mp=`[`p
 function! VisualPaste()
   let s:saved_unnamed = getreg(v:register,1)
   let s:saved_type = getregtype(v:register)
-  return "p`]mp=`[`':call RestorePaste()\<cr>"
+  return "p`]mp=`[`p:call RestorePaste()\<cr>"
 endfunction
 function! RestorePaste()
   call setreg(v:register, s:saved_unnamed, s:saved_type)
