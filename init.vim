@@ -876,13 +876,13 @@ nmap <Leader>sp :SplitjoinSplit<cr>
 " }}}
 
 " Better Behavior with PUM menu {{{
-function! s:when_pum(pum_map, other)
+function! WhenPum(pum_map, other)
   if pumvisible()
     return a:pum_map
   endif
   return a:other
 endfunction
-imap <silent> <expr> <Enter> <SID>when_pum("\<C-y>", "\<Enter>")
-imap <silent> <expr> <C-j> <SID>when_pum("\<C-n>", "\<C-j>")
-imap <silent> <expr> <C-k> <SID>when_pum("\<C-p>", "\<C-k>")
+inoremap <silent> <expr> <Enter> WhenPum("\<C-y>", "\<Enter>")
+inoremap <silent> <expr> <C-j> WhenPum("\<C-n>", "\<C-j>")
+inoremap <silent> <expr> <C-k> WhenPum("\<C-p>", "\<C-k>")
 "}}}
