@@ -611,7 +611,6 @@ augroup END
 " Expand Region {{{
 " Warning: takes over visual mode. Get use to it! Totally Sweet!
 "          Defaults to `viw` which is usually what I want anyway.
-nmap v <Plug>(expand_region_expand)
 vmap v <Plug>(expand_region_expand)
 vmap V <Plug>(expand_region_shrink)
 
