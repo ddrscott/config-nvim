@@ -237,9 +237,10 @@ inoremap <C-@> <C-n>
 " movement doesn't move the cursor.
 function! ToggleMovement(firstOp, thenOp)
   let pos = getpos('.')
-  execute "normal! " . a:firstOp
+  let c = v:count > 0 ? v:count : ''
+  execute "normal! " . c . a:firstOp
   if pos == getpos('.')
-    execute "normal! " . a:thenOp
+    execute "normal! " . c . a:thenOp
   endif
 endfunction
 
