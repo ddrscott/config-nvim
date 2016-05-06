@@ -851,9 +851,13 @@ map ge <Plug>(smartword-ge)
 " }}}
 
 " Arpeggio Mappings {{{
+" Try [jl] since those fingers are closer in length :/
 Arpeggio imap kj <Esc>
 Arpeggio cmap kj <Esc>
 Arpeggio vmap kj <Esc>
+Arpeggio imap jl <Esc>
+Arpeggio cmap jl <Esc>
+Arpeggio vmap jl <Esc>
 " }}}
 
 " Git Functions {{{
