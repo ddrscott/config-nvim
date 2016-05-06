@@ -358,8 +358,17 @@ nnoremap <silent> <f5> :set paste!<CR>
 nnoremap <C-]> g<C-]>
 nnoremap g<C-]> <C-]>
 
-" [z]ap [w]hitespace
-nnoremap <silent> <Leader>zw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<Bar>:update<CR>
+" [c]lear [w]hitespace
+function! ClearWhitespace()
+  let winview = winsaveview()
+  let _s=@/
+  execute 'keepjumps %s/\s\+$//e'
+  let @/=_s
+  nohl
+  update
+  call winrestview(winview)
+endfunction
+nnoremap <Leader>cw :call ClearWhitespace()<CR>
 
 " Copy current buffer path to system clipboard
 " I picked 5 because it's also the '%' key.
