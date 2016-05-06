@@ -151,6 +151,8 @@ let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#quickfix#quickfix_text = 'Quickfix'
 let g:airline#extensions#quickfix#location_text = 'Location'
+" removes full path from status line. just show the file name
+let g:airline_section_c = '%<%t%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_powerline_fonts = 0
