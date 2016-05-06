@@ -873,8 +873,14 @@ function! SaveViewNormal(cmd)
   call winrestview(winview)
 endfunction
 
+function! SaveViewExecute(cmd)
+  let winview = winsaveview()
+  execute 'keepjumps ' . a:cmd
+  call winrestview(winview)
+endfunction
+
 " Indent all lines without changing jumps or cursor position.
-nnoremap <silent> g= :call SaveViewNormal('gg=G')<CR>
+nnoremap <silent> g= :call SaveViewExecute('normal! gg=G')<CR>
 " }}}
 
 " Split Join {{{
