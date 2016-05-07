@@ -871,7 +871,7 @@ endfunction
 "}}}
 
 " Sneak Plugin Settings {{{
-" Help: :help sneak-defaults 
+" Help: :help sneak-defaults
 " Warning: Overrides `s` and `S`.
 "
 "    Key Sequence             | Description
