@@ -721,7 +721,8 @@ augroup gitgutter_stuff
   nmap <Leader>hs <Plug>GitGutterStageHunk
   nmap <Leader>hr <Plug>GitGutterRevertHunk
   nmap <Leader>hp <Plug>GitGutterPreviewHunk
-  nmap <Leader>hc <Plug>GitGutterStageHunk:Gcommit<cr>
+  nmap <Leader>hcc <Plug>GitGutterStageHunk:Gcommit<cr>
+  nmap <Leader>hca <Plug>GitGutterStageHunk:Gcommit --amend<cr>
 augroup END
 " }}}
 
