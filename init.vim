@@ -11,6 +11,7 @@ Plug 'https://github.com/jeetsukumaran/vim-indentwise'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'https://github.com/junegunn/vim-peekaboo.git'
+Plug 'https://github.com/justinmk/vim-sneak'
 Plug 'https://github.com/kana/vim-arpeggio'
 Plug 'https://github.com/kana/vim-smartword'
 Plug 'https://github.com/kana/vim-submode'
@@ -867,3 +868,14 @@ endfunction
 " inoremap <silent> <expr> <C-j> WhenPum("\<C-n>", "\<C-j>")
 " inoremap <silent> <expr> <C-k> WhenPum("\<C-p>", "\<C-k>")
 "}}}
+
+" Sneak Plugin Settings {{{
+" Help: :help sneak-defaults 
+" Warning: Overrides `s` and `S`.
+"
+"    Key Sequence             | Description
+"    -------------------------|----------------------------------------------
+"    s{char}{char}            | Go to the next occurrence of {char}{char}
+"    S{char}{char}            | Go to the previous occurrence of {char}{char}
+let g:sneak#s_next = 1
+" }}}
