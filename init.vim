@@ -882,7 +882,7 @@ let g:sneak#s_next = 1
 " }}}
 
 " Side Toggle {{{
-" Toggles a window with `a:src` file 
+" Toggles a window with `a:src` file
 " Example:  nnoremap <silent> <Leader>f0 :call <SID>side_toggle('~/notes/vim.md', 0.25)<CR><C-w>p
 "           <C-w>p focuses on previous window.
 " Params: a:src - the file to open
