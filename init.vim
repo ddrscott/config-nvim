@@ -291,8 +291,8 @@ nnoremap <C-e> 3<C-e>3j
 nnoremap <C-y> 3<C-y>3k
 
 " Search Replace {{{
-nnoremap cn *``cgn
-nnoremap cN #``cgn
+nnoremap cn *<C-o>cgn
+nnoremap cN #<C-o>cgn
 " }}}
 
 " Nerd Tree {{{
