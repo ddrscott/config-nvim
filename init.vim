@@ -1,15 +1,18 @@
 " Plugins {{{
 " Plugin manager provided by: https://github.com/junegunn/vim-plug
 call plug#begin('~/.config/nvim/plugged')
-Plug 'https://github.com/Raimondi/delimitMate'
 " Don't use deoplete. It was interupting typing too much
 " Plug 'https://github.com/Shougo/deoplete.nvim'
+Plug 'https://github.com/AndrewRadev/sideways.vim'
+Plug 'https://github.com/AndrewRadev/splitjoin.vim'
+Plug 'https://github.com/AndrewRadev/switch.vim'
+Plug 'https://github.com/Raimondi/delimitMate'
 Plug 'https://github.com/airblade/vim-gitgutter.git'
 Plug 'https://github.com/altercation/vim-colors-solarized'
 Plug 'https://github.com/benekastah/neomake'
+Plug 'https://github.com/ecomba/vim-ruby-refactoring'
+Plug 'https://github.com/haya14busa/incsearch.vim'
 Plug 'https://github.com/jeetsukumaran/vim-indentwise'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 Plug 'https://github.com/junegunn/vim-peekaboo.git'
 Plug 'https://github.com/justinmk/vim-sneak'
 Plug 'https://github.com/kana/vim-arpeggio'
@@ -29,6 +32,7 @@ Plug 'https://github.com/pangloss/vim-javascript'
 Plug 'https://github.com/plasticboy/vim-markdown'
 Plug 'https://github.com/rust-lang/rust.vim.git'
 Plug 'https://github.com/scrooloose/nerdtree'
+Plug 'https://github.com/terryma/vim-expand-region'
 Plug 'https://github.com/terryma/vim-multiple-cursors'
 Plug 'https://github.com/tpope/vim-commentary'
 Plug 'https://github.com/tpope/vim-endwise'
@@ -46,13 +50,10 @@ Plug 'https://github.com/vim-airline/vim-airline'
 Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/vim-ruby/vim-ruby'
 Plug 'https://github.com/wellle/targets.vim.git'
+Plug 'https://github.com/whatyouhide/vim-textobj-xmlattr.git'
 Plug 'https://github.com/zeekay/vimtips.git'
-Plug 'https://github.com/terryma/vim-expand-region'
-Plug 'https://github.com/haya14busa/incsearch.vim'
-Plug 'https://github.com/ecomba/vim-ruby-refactoring'
-Plug 'https://github.com/AndrewRadev/sideways.vim'
-Plug 'https://github.com/AndrewRadev/splitjoin.vim'
-Plug 'https://github.com/AndrewRadev/switch.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'tek/vim-fieldtrip'
 call plug#end()
 " }}}
@@ -310,8 +311,8 @@ nnoremap <Leader>tt :Topen<CR>
 nnoremap <Leader>tr :TREPLSend<CR>
 " }}}
 
-" Pager like Less/More
-nnoremap <Leader><Space> <C-d>
+" Easy Command Mode
+nnoremap <Leader>; :
 
 " Paste mode, NeoVim might not need this.
 nnoremap <silent> <f5> :set paste!<CR>
@@ -903,5 +904,8 @@ function! s:side_toggle(src, width) abort
   setlocal bufhidden=hide foldcolumn=0 textwidth=0 winfixheight winfixwidth
   let s:side_bufnr = bufnr('%')
 endfunction
+" [f]ile toggle 0 to view file, <Shift-0> to edit it
+" repeat the f, command to close the buffer
 nnoremap <silent> <Leader>f0 :call <SID>side_toggle('~/notes/vim.md', 0.25)<CR><C-w>p
+nnoremap <silent> <Leader>f) :call <SID>side_toggle('~/notes/vim.md', 0.25)<CR>
 " }}}
