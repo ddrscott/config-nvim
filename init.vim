@@ -293,6 +293,7 @@ nnoremap <C-y> 3<C-y>3gk
 " Change Star/Pound {{{
 " Allows use of '.' to change the next occurance of the same work. Totally Sweet!
 nnoremap c* *<C-o>cgn
+nnoremap c# #<C-o>cgn
 " }}}
 
 " Nerd Tree {{{
