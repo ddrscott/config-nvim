@@ -714,6 +714,8 @@ augroup neomake_stuff
   let g:neomake_javascript_enabled_makers = ['eslint']
   let g:neomake_jsx_enabled_makers = ['eslint']
   let g:neomake_open_list = 2
+  sign define neomake_err text=⛔️
+  sign define neomake_warn text=💩
 augroup END
 
 " Git Gutter {{{
