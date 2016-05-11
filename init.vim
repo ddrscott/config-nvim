@@ -713,7 +713,7 @@ augroup neomake_stuff
   let g:jsx_ext_required = 1
   let g:neomake_javascript_enabled_makers = ['eslint']
   let g:neomake_jsx_enabled_makers = ['eslint']
-  let g:neomake_open_list = 0
+  let g:neomake_open_list = 2
 augroup END
 
 " Git Gutter {{{
