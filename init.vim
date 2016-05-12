@@ -55,6 +55,7 @@ Plug 'https://github.com/zeekay/vimtips.git'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tek/vim-fieldtrip'
+Plug 'https://github.com/mhinz/vim-startify'
 call plug#end()
 " }}}
 
@@ -916,4 +917,9 @@ endfunction
 " repeat the f, command to close the buffer
 nnoremap <silent> <Leader>f0 :call <SID>side_toggle('~/notes/vim.md', 0.25)<CR><C-w>p
 nnoremap <silent> <Leader>f) :call <SID>side_toggle('~/notes/vim.md', 0.25)<CR>
+" }}}
+
+" Startify {{{
+let g:startify_change_to_dir=0
+let g:startify_change_to_vcs_root=1
 " }}}
