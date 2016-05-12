@@ -85,6 +85,8 @@ set virtualedit=block
 " I tried this while ignoring case and it was driving me crazy
 set noignorecase
 set smartcase
+set nocursorcolumn
+set nocursorline
 
 " No tmp or swp files
 set nobackup
@@ -595,11 +597,12 @@ iab deb debugger; // eslint-disable-line
 
 " Cursorline {{{
 " Only show cursorline in the current window and in normal mode.
-augroup cline
-  au!
-  au WinLeave,InsertEnter * set nocursorline
-  au WinEnter,InsertLeave * set cursorline
-augroup END
+" Disabled: This makes Vim slow for some reason.
+" augroup cline
+"   au!
+"   au WinLeave,InsertEnter * set nocursorline
+"   au WinEnter,InsertLeave * set cursorline
+" augroup END
 " }}}
 
 " Line Return {{{
