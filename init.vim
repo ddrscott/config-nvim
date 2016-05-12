@@ -292,10 +292,11 @@ noremap <ScrollWheelDown> <C-E>
 nnoremap <C-e> 3<C-e>3gj
 nnoremap <C-y> 3<C-y>3gk
 
-" Change Star/Pound {{{
+" Search Replace Helpers {{{
 " Allows use of '.' to change the next occurance of the same work. Totally Sweet!
 nnoremap c* *<C-o>cgn
 nnoremap c# #<C-o>cgn
+nnoremap <Leader>/ /\<<C-r><C-w>\><CR><C-o>
 " }}}
 
 " Nerd Tree {{{
