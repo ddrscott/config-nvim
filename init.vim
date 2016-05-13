@@ -857,7 +857,7 @@ endfunction
 
 " Indent all lines without changing jumps or cursor position.
 nnoremap <silent> g= :call SaveViewExecute('normal! gg=G')<CR>
-nnoremap <silent> G= :call SaveViewExecute('normal! gggqG')<CR>
+command! FormatAll call SaveViewExecute('normal! gggqG')
 " }}}
 
 " Split Join {{{
