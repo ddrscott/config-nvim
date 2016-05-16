@@ -240,7 +240,8 @@ nnoremap <C-y> 3<C-y>3gk
 " Allows use of '.' to change the next occurance of the same work. Totally Sweet!
 nnoremap c* *<C-o>cgn
 nnoremap c# #<C-o>cgn
-nnoremap <Leader>/ /\<<C-r><C-w>\><CR><C-o>
+nnoremap <Leader>// /\v<<C-r><C-w>><CR><C-o>
+nnoremap <Leader>/s :s/\v<<C-r><C-w>>//gce<left><left><left>
 " }}}
 
 " Nerd Tree {{{
