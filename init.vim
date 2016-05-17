@@ -335,6 +335,7 @@ nnoremap <silent> <C-p> :bprevious<CR>
 nnoremap <silent> <C-n> :bnext<CR>
 " [x]-out the current buffer and jump out.
 nnoremap <silent> <C-x> <C-o>:bdelete #<CR>
+nnoremap <Leader><Tab> <C-^>
 
 " Populate QuickFix with branch changes
 command! QfBranch cexpr! system("git diff --name-only  `git log --graph --oneline -99 \| grep -A 1 -E '^\\* [0-9a-f]{7}' \| cut -c 5-11 \| tail -1`.. \| sed -E 's/(.*)/\\1:0:0 \\1/'") | copen
