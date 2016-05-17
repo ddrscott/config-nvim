@@ -13,6 +13,9 @@ syntax sync fromstart
 let g:netrw_liststyle=3
 let g:netrw_altfile=1
 
+" turn off bell on ESC
+set vb t_vb=
+
 " misc
 set nostartofline
 set directory=~/tmp
