@@ -868,6 +868,11 @@ let g:startify_change_to_vcs_root=1
 " }}}
 
 " Split Dot {{{
-command! SplitDot s/\v\.\w+%(\([^)]+\)|\{[^}]+})*/\r\0/g <bar> keepjumps normal! ``=']']
+command! SplitDot
+\ let _s=@/                               <bar>
+\ s/\v\.\w+%(\([^)]+\)|\{[^}]+})*/\r\0/g  <bar>
+\ let @/=_s                               <bar>
+\ keepjumps normal! ``=']']
+
 nnoremap <Leader>sd :SplitDot<CR>
 " }}}
