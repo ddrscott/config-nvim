@@ -800,6 +800,9 @@ endfunction
 " Indent all lines without changing jumps or cursor position.
 nnoremap <silent> g= :call SaveViewExecute('normal! gg=G')<CR>
 command! FormatAll call SaveViewExecute('normal! gggqG')
+
+" Re-indent last change and move cursor to end of change
+nnoremap =. :normal! =````<CR>
 " }}}
 
 " Split Join {{{
