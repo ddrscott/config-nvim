@@ -863,3 +863,8 @@ nnoremap <silent> <Leader>f) :call <SID>side_toggle('~/notes/vim.md', 0.25)<CR>
 let g:startify_change_to_dir=0
 let g:startify_change_to_vcs_root=1
 " }}}
+
+" Split Dot {{{
+command! SplitDot s/\v\.\w+%(\([^)]+\)|\{[^}]+})*/\r\0/g <bar> keepjumps normal! ``=']']
+nnoremap <Leader>sd :SplitDot<CR>
+" }}}
