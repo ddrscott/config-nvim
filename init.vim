@@ -260,8 +260,8 @@ nnoremap <Leader>ta :TagbarOpenAutoClose<CR>
 " }}}
 
 " Neoterm mappings {{{
-nnoremap <Leader>tt :Topen<CR>
-nnoremap <Leader>tr :TREPLSend<CR>
+" nnoremap <Leader>tt :Topen<CR>
+" nnoremap <Leader>tr :TREPLSend<CR>
 " }}}
 
 " Easy Command Mode
