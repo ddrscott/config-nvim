@@ -64,8 +64,8 @@ set synmaxcol=1000
 " Sensible window sizes
 set winheight=10
 set winwidth=80
-set winminheight=5
-set winminwidth=15
+set winminheight=1
+set winminwidth=5
 
 " no background on vertical split
 highlight VertSplit cterm=bold ctermfg=11 ctermbg=NONE
@@ -95,34 +95,96 @@ set completeopt=menuone,preview
 " }}}
 
 " Airline {{{
-let g:airline#extensions#tabline#left_alt_sep = '|'
-" no more top bar. lets see if we can live without it.
-let g:airline#extensions#tabline#enabled = 0
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline#extensions#quickfix#quickfix_text = 'Quickfix'
-let g:airline#extensions#quickfix#location_text = 'Location'
-" removes full path from status line. just show the file name
-let g:airline_section_c = '%<%t%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_powerline_fonts = 0
-let g:airline_theme='solarized'
-let g:airline_section_x=''
-let g:airline_section_y=''
+" Disable: no more airline. try a simple status line instead.
+" let g:airline#extensions#tabline#left_alt_sep = '|'
+" " no more top bar. lets see if we can live without it.
+" let g:airline#extensions#tabline#enabled = 0
+" let g:airline#extensions#tabline#formatter = 'unique_tail'
+" let g:airline#extensions#quickfix#quickfix_text = 'Quickfix'
+" let g:airline#extensions#quickfix#location_text = 'Location'
+" let g:airline#extensions#branch#enabled = 0
+" " removes full path from status line. just show the file name
+" let g:airline_section_c = '%<%t%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
+" let g:airline_left_sep = ''
+" let g:airline_right_sep = ''
+" let g:airline_powerline_fonts = 0
+" let g:airline_theme='solarized'
+" let g:airline_section_x=''
+" let g:airline_section_y=''
+" }}}
+
+" Markdown Settings {{{
 let g:vim_markdown_fenced_languages=['c++=cpp', 'viml=vim', 'bash=sh', 'ini=dosini', 'rb=ruby']
+" }}}
+
+" Statusline {{{
+hi clear StatusLine
+hi clear StatusLineNC
+hi StatusLine   term=bold  ctermfg=0 ctermbg=0
+hi StatusLineNC term=bold  ctermfg=0 ctermbg=0
+
+" highlight values in terminal vim, colorscheme solarized
+hi User1                      ctermbg=0 ctermfg=9          guifg=#40ffff            " Identifier
+hi User2                      ctermbg=0 ctermfg=2 gui=bold guifg=#ffff60            " Statement
+hi User3 term=bold cterm=bold ctermbg=0 ctermfg=1          guifg=White   guibg=Red  " Error
+hi User4                      ctermbg=0 ctermfg=1          guifg=Orange             " Special
+hi User5                      ctermbg=0 ctermfg=10         guifg=#80a0ff            " Comment
+hi User6 term=bold cterm=bold ctermbg=0 ctermfg=1          guifg=Red                " WarningMsg
+
+function! WindowNumber()
+  return tabpagewinnr(tabpagenr())
+endfunction
+function! TrailingSpaceWarning()
+  if !exists("b:statline_trailing_space_warning")
+    let lineno = search('\s$', 'nw')
+    if lineno != 0
+      let b:statline_trailing_space_warning = ''.lineno.'!'
+    else
+      let b:statline_trailing_space_warning = ''
+    endif
+  endif
+  return b:statline_trailing_space_warning
+endfunction
+
+" recalculate when idle, and after saving
+augroup statline_trail
+  autocmd!
+  autocmd cursorhold,bufwritepost * unlet! b:statline_trailing_space_warning
+augroup END
+
+set statusline=
+set statusline+=%1*%m%r%*                          " modified, readonly
+set statusline+=%5*%{expand('%:h')}/               " relative path to file's directory
+set statusline+=%2*%t%*                            " file name
+set statusline+=\ 
+set statusline+=%=                                 " switch to RHS
+set statusline+=%5*%L%*%2*g                        " number of lines
+set statusline+=\ 
+set statusline+=%3*%{TrailingSpaceWarning()}%*     " trailing whitespace
+set statusline+=\ 
+set statusline+=%2*#%-3.3{WindowNumber()}%*        " window number
 " }}}
 
 " NeoVim {{{
 if has('nvim')
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
   tnoremap <Esc><Esc> <C-\><C-n>
+  " tnoremap gf :pedit <cfile><cr>
   augroup neovim_stuff
     au!
     autocmd BufWinEnter,WinEnter term://*
           \ setlocal nonumber norelativenumber
-    autocmd WinEnter term://*
-          \ startinsert
+    " autocmd WinEnter term://* startinsert
   augroup END
+
+  function! TermGf()
+    if &buftype ==# "terminal"
+      :vertical pedit <cfile>
+    else
+      normal! gf
+    endif
+  endfunction
+  nnoremap gf :call TermGf()<CR>
 endif
 " }}}
 
@@ -180,7 +242,8 @@ nnoremap <Space> <Nop>
 let mapleader=" "
 
 " Fix my common typos
-command! W w   " write it
+command! W w    " write it
+command! QQ qa! " quit I mean it!
 
 " <C-@> is same as <S-Space>
 inoremap <C-@> <C-n>
@@ -247,7 +310,7 @@ nnoremap <C-y> 3<C-y>3gk
 nnoremap c* *<C-o>cgn
 nnoremap c# #<C-o>cgn
 nnoremap <Leader>// /\v<<C-r><C-w>><CR><C-o>
-nnoremap <Leader>/s :s/\v<<C-r><C-w>>//gce<left><left><left>
+nnoremap <Leader>/s :%s/\v<<C-r><C-w>>//gce<left><left><left>
 " }}}
 
 " Nerd Tree {{{
@@ -340,7 +403,7 @@ nnoremap <C-q> :close<CR>
 nnoremap <silent> <C-p> :bprevious<CR>
 nnoremap <silent> <C-n> :bnext<CR>
 " [x]-out the current buffer and jump out.
-nnoremap <silent> <C-x> <C-o>:bdelete #<CR>
+nnoremap <silent> <C-x> <C-o>:bdelete! #<CR>
 nnoremap <Leader><Tab> <C-^>
 
 " Populate QuickFix with branch changes
@@ -876,10 +939,28 @@ let g:startify_change_to_vcs_root=1
 
 " Split Dot {{{
 command! SplitDot
-\ let _s=@/                               <bar>
-\ s/\v\.\w+%(\([^)]+\)|\{[^}]+})*/\r\0/g  <bar>
-\ let @/=_s                               <bar>
-\ keepjumps normal! ``=']']
+      \ let _s=@/                               <bar>
+      \ s/\v\.\w+%(\([^)]+\)|\{[^}]+})*/\r\0/g  <bar>
+      \ let @/=_s                               <bar>
+      \ keepjumps normal! ``=']']
 
 nnoremap <Leader>sd :SplitDot<CR>
+" }}}
+
+" Midterm Plugin {{{
+function! s:find_largest_winnr()
+  let largest = 0
+  let size = 0
+
+  let i = winnr('$')
+  while i > 0
+    let area = winheight(i) * winwidth(i)
+    if area >= size
+      let largest = i
+      let size = area
+    endif
+    let i -= 1
+  endwhile
+  return largest
+endfunction
 " }}}
