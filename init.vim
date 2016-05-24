@@ -120,8 +120,8 @@ let g:vim_markdown_fenced_languages=['c++=cpp', 'viml=vim', 'bash=sh', 'ini=dosi
 " Statusline {{{
 hi clear StatusLine
 hi clear StatusLineNC
-hi StatusLine   term=bold  ctermfg=0 ctermbg=0
-hi StatusLineNC term=bold  ctermfg=0 ctermbg=0
+hi StatusLine   term=none ctermfg=0 ctermbg=0
+hi StatusLineNC term=bold ctermfg=0 ctermbg=0
 
 " highlight values in terminal vim, colorscheme solarized
 hi User1                      ctermbg=0 ctermfg=9          guifg=#40ffff            " Identifier
@@ -156,13 +156,10 @@ set statusline=
 set statusline+=%1*%m%r%*                          " modified, readonly
 set statusline+=%5*%{expand('%:h')}/               " relative path to file's directory
 set statusline+=%2*%t%*                            " file name
-set statusline+=\ 
-set statusline+=%=                                 " switch to RHS
+set statusline+=\ %=                               " switch to RHS
 set statusline+=%5*%L%*%2*g                        " number of lines
-set statusline+=\ 
-set statusline+=%3*%{TrailingSpaceWarning()}%*     " trailing whitespace
-set statusline+=\ 
-set statusline+=%2*#%-3.3{WindowNumber()}%*        " window number
+set statusline+=\ %3*%{TrailingSpaceWarning()}%*     " trailing whitespace
+set statusline+=\ %2*#%-3.3{WindowNumber()}%*        " window number
 " }}}
 
 " NeoVim {{{
