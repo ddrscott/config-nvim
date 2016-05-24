@@ -945,10 +945,12 @@ command! SplitDot
 nnoremap <Leader>sd :SplitDot<CR>
 " }}}
 
-" Midterm Plugin {{{
-function! s:find_largest_winnr()
-  let largest = 0
-  let size = 0
+" terminal in new split {{{
+command! -nargs=+ Vterm vnew | terminal <args>
+command! -nargs=+ Sterm new | terminal <args>
+nnoremap <Leader>tv :vnew <BAR> terminal<SPACE>
+nnoremap <Leader>ts :new <BAR> terminal<SPACE>
+" }}}
 
 " Side Search {{{
 let g:ag_flags = ' --word-regexp' .
