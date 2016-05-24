@@ -246,9 +246,6 @@ command! QQ qa! " quit I mean it!
 " <C-@> is same as <S-Space>
 inoremap <C-@> <C-n>
 
-" Warning: Maps esc to also redraw screen and turn off highlihts
-noremap silent <esc> <esc><C-l>:silent nohl<cr>
-
 " Toggle Movements {{{
 " Helper function to use an alternate movement if the first
 " movement doesn't move the cursor.
