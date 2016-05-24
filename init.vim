@@ -277,10 +277,11 @@ inoremap <Space> <C-g>u<Space>
 " Warning: I'm killing the 2nd <C-r> in these modes because '"' is too hard to
 " reach. This makes <C-r> more consistent with Register access in insert and
 " command mode.
-nnoremap <C-r> :echo 'which regster? (access Redo with <S-u>)'<cr>"
 nnoremap <C-r><C-r> ""
 cnoremap <C-r><C-r> <C-r>"
 vnoremap <C-r><C-r> ""
+cnoremap <C-k> <up>
+cnoremap <C-j> <down>
 
 " Warning: This pastes the last thing yanked! Awesome sauce!
 inoremap <C-r><C-r> <C-r>"
