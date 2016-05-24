@@ -950,15 +950,19 @@ function! s:find_largest_winnr()
   let largest = 0
   let size = 0
 
-  let i = winnr('$')
-  while i > 0
-    let area = winheight(i) * winwidth(i)
-    if area >= size
-      let largest = i
-      let size = area
-    endif
-    let i -= 1
-  endwhile
-  return largest
-endfunction
+" Side Search {{{
+let g:ag_flags = ' --word-regexp' .
+      \ " --ignore='*.js.map' " .
+      \ " --ignore='*.csv' " .
+      \ " --ignore='ui/public/client' " .
+      \ " --ignore='cassettes/' " .
+      \ " --ignore='components/help' " .
+      \ " --heading --stats -C 2"
+let g:side_search_splitter = 'vnew'
+let g:side_search_width_pct = 0.4
+
+" SideSearch current word
+nnoremap <Leader>ss :SideSearch <C-r><C-w><CR>
+" Command Abbreviation for :SideSearch
+cabbrev SS SideSearch 
 " }}}

@@ -57,5 +57,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tek/vim-fieldtrip'
 Plug 'https://github.com/mhinz/vim-startify'
+Plug 'https://github.com/ddrscott/vim-side-search'
 call plug#end()
 " }}}
