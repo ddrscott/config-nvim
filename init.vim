@@ -118,6 +118,7 @@ let g:vim_markdown_fenced_languages=['c++=cpp', 'viml=vim', 'bash=sh', 'ini=dosi
 " }}}
 
 " Statusline {{{
+" Thanks: https://github.com/airblade/dotvim/blob/master/vimrc
 hi clear StatusLine
 hi clear StatusLineNC
 hi StatusLine   term=none ctermfg=0 ctermbg=0
