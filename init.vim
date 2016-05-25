@@ -953,7 +953,7 @@ nnoremap <Leader>ts :new <BAR> terminal<SPACE>
 " }}}
 
 " Side Search {{{
-let g:ag_flags = '--word-regexp'
+let g:side_search_prg = 'ag --word-regexp'
       \. " --ignore='*.js.map'"
       \. " --ignore='*.csv'"
       \. " --ignore='ui/public/client'"
@@ -963,7 +963,9 @@ let g:ag_flags = '--word-regexp'
 let g:side_search_splitter = 'vnew'
 let g:side_search_split_pct = 0.4
 
-" SideSearch current word
-nnoremap <Leader>ss :SideSearch <C-r><C-w><CR>
-command! -complete=file -nargs=+ SS SideSearch <args>
+" SideSearch current word and return to original window
+nnoremap <Leader>ss :SideSearch <C-r><C-w><CR> | wincmd p
+
+" SS shortcut and return to original window
+command! -complete=file -nargs=+ SS execute 'SideSearch <args>' | wincmd p
 " }}}
