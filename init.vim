@@ -953,18 +953,17 @@ nnoremap <Leader>ts :new <BAR> terminal<SPACE>
 " }}}
 
 " Side Search {{{
-let g:ag_flags = ' --word-regexp' .
-      \ " --ignore='*.js.map' " .
-      \ " --ignore='*.csv' " .
-      \ " --ignore='ui/public/client' " .
-      \ " --ignore='cassettes/' " .
-      \ " --ignore='components/help' " .
-      \ " --heading --stats -C 2"
+let g:ag_flags = '--word-regexp'
+      \. " --ignore='*.js.map'"
+      \. " --ignore='*.csv'"
+      \. " --ignore='ui/public/client'"
+      \. " --ignore='cassettes/'"
+      \. " --ignore='components/help'"
+      \. " --heading --stats -B 1 -A 4"
 let g:side_search_splitter = 'vnew'
-let g:side_search_width_pct = 0.4
+let g:side_search_split_pct = 0.4
 
 " SideSearch current word
 nnoremap <Leader>ss :SideSearch <C-r><C-w><CR>
-" Command Abbreviation for :SideSearch
-cabbrev SS SideSearch 
+command! -complete=file -nargs=+ SS SideSearch <args>
 " }}}
