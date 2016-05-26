@@ -212,7 +212,10 @@ augroup basics_autocmd
         \ | setlocal makeprg=rubocop\ --format\ emacs\ %
         \ | setlocal formatprg=rubocop\ -a\ --stdin\ %\ \|sed\ '1,/====================/d'
 
-  autocmd FileType javascript set tags=.tags.jsx,tags
+  autocmd FileType javascript,javascript.jxs set tags=.tags.jsx,tags
+        \ | command! -buffer Reformat call SaveViewExecute('!eslint --fix %')
+        " This doesn't work :( \ | setlocal formatprg=eslint\ --stdin\ --fix
+
   autocmd FileType markdown,vim setlocal textwidth=80
   autocmd FileType java,go,hs set autoindent smartindent tabstop=4 shiftwidth=4  noexpandtab
 
@@ -946,8 +949,8 @@ nnoremap <Leader>sd :SplitDot<CR>
 " }}}
 
 " terminal in new split {{{
-command! -nargs=+ Vterm vnew | terminal <args>
-command! -nargs=+ Sterm new | terminal <args>
+command! -complete=file -nargs=+ Vterm vnew | terminal <args>
+command! -complete=file -nargs=+ Sterm new | terminal <args>
 nnoremap <Leader>tv :vnew <BAR> terminal<SPACE>
 nnoremap <Leader>ts :new <BAR> terminal<SPACE>
 " }}}
@@ -967,5 +970,5 @@ let g:side_search_split_pct = 0.4
 nnoremap <Leader>ss :SideSearch <C-r><C-w><CR> | wincmd p
 
 " SS shortcut and return to original window
-command! -complete=file -nargs=+ SS execute 'SideSearch <args>' | wincmd p
+command! -complete=file -nargs=+ SS execute 'SideSearch <args>'
 " }}}
