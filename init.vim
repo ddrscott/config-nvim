@@ -941,10 +941,10 @@ nnoremap <Leader>sd :SplitDot<CR>
 " }}}
 
 " terminal in new split {{{
-command! -complete=file -nargs=+ Vterm vnew | terminal <args>
-command! -complete=file -nargs=+ Sterm new | terminal <args>
-nnoremap <Leader>tv :vnew <BAR> terminal<SPACE>
-nnoremap <Leader>ts :new <BAR> terminal<SPACE>
+command! -complete=file -nargs=+ Vterm vnew | setlocal winfixwidth winfixheight | terminal <args>
+command! -complete=file -nargs=+ Sterm new | setlocal winfixwidth winfixheight | terminal <args>
+nnoremap <Leader>tv :vnew <BAR>setlocal winfixwidth winfixheight <BAR> terminal<SPACE>
+nnoremap <Leader>ts :new <BAR>setlocal winfixwidth winfixheight <BAR> terminal<SPACE>
 " }}}
 
 " Side Search {{{
