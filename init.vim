@@ -408,7 +408,7 @@ nnoremap <silent> <C-x> <C-o>:bdelete! #<CR>
 nnoremap <Leader><Tab> <C-^>
 
 " Populate QuickFix with branch changes
-command! QfBranch cexpr! system("git diff --name-only  `git log --graph --oneline -99 \| grep -A 1 -E '^\\* [0-9a-f]{7}' \| cut -c 5-11 \| tail -1`.. \| sed -E 's/(.*)/\\1:0:0 \\1/'") | copen
+command! QfBranch cgetexpr system("git diff --name-only  `git log --graph --oneline -99 \| grep -A 1 -E '^\\* [0-9a-f]{7}' \| cut -c 5-11 \| tail -1`.. \| sed -E 's/(.*)/\\1:0:0 \\1/'") | copen
 
 " WIP - sed doesn't work in script, but does in terminal :/
 " command! QfStat cexpr! system("git diff --stat=999 --name-only"
