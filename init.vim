@@ -480,14 +480,6 @@ vnoremap <silent> <expr> p VisualPaste()
 " vnoremap c <ESC>mcgvc
 " vnoremap C <ESC>mcgvC
 
-" Quick Inserts {{{
-" There's no way to remember this unless you're me.
-" I often `dw` parameters and append them to reorder as needed.
-" Usage: `dw`, `e` to the new location, `, `
-" Note: specifically NOT <Leader><Space> because ',' is a parameter seperator.
-nnoremap ,<SPACE> a, <C-r>"<ESC>
-" }}}
-
 " Grep Stuff
 " Warning: sets @/ register to current word
 nnoremap <silent> <Leader>gw :let @/=expand("<cword>")<CR>:execute "grep! " . shellescape(expand("<cword>"))<CR>:cwindow<CR>
