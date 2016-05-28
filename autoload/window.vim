@@ -34,6 +34,7 @@ endfunction
 " It has a similar effect window#rotate, but handles all sorts of window
 " layouts.
 function! window#buffer_rotate(dir) abort
+  let current = winnr()
   " assume left is main window
   let winnr_to_bufnr = util#winnr_bufnr_dict()
   " collect all the buffer numbers
@@ -41,13 +42,14 @@ function! window#buffer_rotate(dir) abort
   let i = max
   while i > 0
     exec 'keepjumps '.i.'wincmd w'
-    let view = winsaveview()
+    " let view = winsaveview()
     let dst = (a:dir + i) - 1
     let mod = util#mod(dst,max) + 1
     exec 'silent keepjumps buffer '.winnr_to_bufnr[mod]
-    call winrestview(view)
+    " call winrestview(view)
     let i -= 1
   endwhile
+  exec 'keepjumps '.current.'wincmd w'
 endfunction
 
 function! window#winnr_by_area()
