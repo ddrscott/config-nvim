@@ -28,6 +28,11 @@ function! window#rotate(dir, idx) abort
   exec 'vertical resize' w
 endfunction
 
+" Sets window's buffer number to next/previous windows buffer number
+" This effective rotates the contents of the windows instead of the
+" actual window.
+" It has a similar effect window#rotate, but handles all sorts of window
+" layouts.
 function! window#buffer_rotate(dir) abort
   " assume left is main window
   let winnr_to_bufnr = util#winnr_bufnr_dict()
@@ -36,10 +41,27 @@ function! window#buffer_rotate(dir) abort
   let i = max
   while i > 0
     exec 'keepjumps '.i.'wincmd w'
-    setlocal winfixwidth
+    let view = winsaveview()
     let dst = (a:dir + i) - 1
     let mod = util#mod(dst,max) + 1
     exec 'silent keepjumps buffer '.winnr_to_bufnr[mod]
+    call winrestview(view)
     let i -= 1
   endwhile
+endfunction
+
+function! window#winnr_by_area()
+  let largest = 0
+  let size = 0
+
+  let i = winnr('$')
+  while i > 0
+    let area = winheight(i) * winwidth(i)
+    if area >= size
+      let largest = i
+      let size = area
+    endif
+    let i -= 1
+  endwhile
+  return largest
 endfunction
