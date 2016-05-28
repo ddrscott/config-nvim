@@ -964,3 +964,9 @@ nnoremap <Leader>ss :SideSearch <C-r><C-w><CR> | wincmd p
 " SS shortcut and return to original window
 command! -complete=file -nargs=+ SS execute 'SideSearch <args>'
 " }}}
+
+" Rotate Windows {{{
+" Important: `:<C-U>` is required the function doesn't get called multiple times.
+nnoremap ]r :<C-U>call window#buffer_rotate(-1 * v:count1)<cr>
+nnoremap [r :<C-U>call window#buffer_rotate(1 * v:count1)<cr>
+" }}}
