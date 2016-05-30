@@ -454,15 +454,6 @@ nnoremap <silent> <Leader>bo :update<cr>:%bd<cr>:e#<CR>
 " Not a FZF but I like the 'f' prefix :/
 map <Leader>fw [I:let nr = input("Which tag?: ")<Bar>exe "normal " . nr ."[\t"<CR>
 
-" Warning: Delete to "x register
-vnoremap x "xx
-vnoremap X "xX
-
-" Delete to "d register
-" I use dd too much expecting to cut.
-"nnoremap d "dd
-"nnoremap D "dD
-
 " Warning: Yank without moving cursor! Awesome Sauce!
 "          exit visual mode, my=mark y, last visual selection, y, go to mark
 " Thanks: http://ddrscott.github.io/blog/2016/yank-without-jank/#comment-2643800118
