@@ -514,7 +514,7 @@ function! Gsub(a, b, re)
     let z=@/
     exe "'" . a:a . ",'" . a:b . a:re
   finally
-    unlet z
+    let @/=z
   endtry
 endfunction
 " }}}
