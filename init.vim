@@ -457,18 +457,18 @@ map <Leader>fw [I:let nr = input("Which tag?: ")<Bar>exe "normal " . nr ."[\t"<C
 " Warning: Yank without moving cursor! Awesome Sauce!
 "          exit visual mode, my=mark y, last visual selection, y, go to mark
 " Thanks: http://ddrscott.github.io/blog/2016/yank-without-jank/#comment-2643800118
-vnoremap <expr>y 'my"' . v:register . 'y`y'
-vnoremap <expr>Y 'my"' . v:register . 'Y`y'
+vnoremap <expr>y 'my"'.v:register.'y`y'
+vnoremap <expr>Y 'my"'.v:register.'Y`y'
 
 " Warning: Marks last yank position.
-nnoremap y myy
-nnoremap Y myy$
+nnoremap <expr>y 'my"'.v:register.'y'
+nnoremap <expr>Y 'my"'.v:register.'y$'
 
 " Warning: Paste moves to end of change. As if you typed in the change.
 " This paste also maintains indent level with line above it.
 " Also re-indents what ever was pasted.
-nnoremap p ]p`]mp=`[`p
-nnoremap P ]P`]mp=`[`p
+nnoremap <expr>p '"'.v:register.']p`]mp=`[`p'
+nnoremap <expr>P '"'.v:register.']P`]mp=`[`p'
 
 " Visual Paste Override {{{
 " Warning: overrides `p` and `P` behavior by preserving the "" register and
