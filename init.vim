@@ -12,10 +12,6 @@ syntax sync fromstart
 " Thanks: https://www.reddit.com/r/vim/comments/4aab93/weekly_vim_tips_and_tricks_thread_1/d0za3nh
 set omnifunc=syntaxcomplete#Complete
 
-" tree style listing
-let g:netrw_liststyle=3
-let g:netrw_altfile=1
-
 " turn off bell on ESC
 set noerrorbells visualbell t_vb=
 
@@ -317,7 +313,9 @@ nnoremap <Leader>/w /\v<><left>
 nnoremap <Leader>/s :%s/\v<<C-r><C-w>>//gce<left><left><left>
 " }}}
 
-" Nerd Tree {{{
+" Nerd Tree / Netrw {{{
+let g:netrw_liststyle=3
+let g:netrw_altfile=1
 let g:netrw_winsize=25
 nnoremap <Leader>n :Lexplore<CR>
 nnoremap - :exe 'Lexplore' expand('%:h')<CR>
