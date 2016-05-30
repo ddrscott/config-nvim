@@ -318,7 +318,9 @@ nnoremap <Leader>/s :%s/\v<<C-r><C-w>>//gce<left><left><left>
 " }}}
 
 " Nerd Tree {{{
-nnoremap <Leader>n :NERDTreeToggle<CR>
+let g:netrw_winsize=25
+nnoremap <Leader>n :Lexplore<CR>
+nnoremap - :exe 'Lexplore' expand('%:h')<CR>
 " }}}
 
 " Tagbar {{{
