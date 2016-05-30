@@ -229,7 +229,7 @@ augroup basics_autocmd
   autocmd BufWritePost * Neomake
 
   " open search results immediately
-  autocmd QuickFixCmdPost * copen | setlocal winfixwidth winfixheight 
+  autocmd QuickFixCmdPost * copen | setlocal winfixwidth winfixheight
   autocmd VimResized * let &previewheight=(winheight(0) * 1/3)
   autocmd BufEnter init.vim setlocal foldmethod=marker
 
