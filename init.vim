@@ -8,6 +8,9 @@ scriptencoding utf-8
 
 filetype indent plugin on
 syntax sync fromstart
+" default to syntax completion
+" Thanks: https://www.reddit.com/r/vim/comments/4aab93/weekly_vim_tips_and_tricks_thread_1/d0za3nh
+set omnifunc=syntaxcomplete#Complete
 
 " tree style listing
 let g:netrw_liststyle=3
