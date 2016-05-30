@@ -406,8 +406,23 @@ nnoremap <C-q> :close<CR>
 " Warning: C-n/C-p to move to next/previous buffer. Instead of down/up lines.
 nnoremap <silent> <C-p> :bprevious<CR>
 nnoremap <silent> <C-n> :bnext<CR>
+" Jump out until buffer changes {{{
+function! s:jump_till_next_buffer() abort
+  let current_nr = bufnr('%')
+  let max = 100
+  while bufnr('%') == current_nr
+    exec "normal \<C-o>" 
+    if max == 0
+      echo 'max jumps reached!'
+      break
+    endif
+    let max -= 1
+  endwhile
+endfunction
 " [x]-out the current buffer and jump out.
-nnoremap <silent> <C-x> <C-o>:bdelete! #<CR>
+" nnoremap <silent> <C-x> <C-o>:bdelete! #<CR>
+nnoremap <C-x> :call <SID>jump_till_next_buffer() <BAR>bd#<CR>
+" }}}
 nnoremap <Leader><Tab> <C-^>
 
 " Populate QuickFix with branch changes
