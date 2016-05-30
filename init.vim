@@ -975,3 +975,13 @@ command! -complete=file -nargs=+ SS execute 'SideSearch <args>'
 nnoremap ]r :<C-U>call window#buffer_rotate(-1 * v:count1)<cr>
 nnoremap [r :<C-U>call window#buffer_rotate(1 * v:count1)<cr>
 " }}}
+
+" Tab Split Current Window {{{
+function! s:window_only()
+  if winnr('$') > 1
+    tab split
+  endif
+endfunction
+nnoremap <c-w>o :call <sid>window_only()<cr>
+nnoremap <c-w><c-o> :call <sid>window_only()<cr>
+" }}}
