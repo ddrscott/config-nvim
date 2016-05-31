@@ -41,12 +41,9 @@ function! window#buffer_rotate(dir) abort
   let max = winnr('$')
   let i = max
   while i > 0
-    exec 'keepjumps '.i.'wincmd w'
-    " let view = winsaveview()
     let dst = (a:dir + i) - 1
     let mod = util#mod(dst,max) + 1
-    exec 'silent keepjumps buffer '.winnr_to_bufnr[mod]
-    " call winrestview(view)
+    call window#set_winnr_to_bufnr(i, winnr_to_bufnr[mod])
     let i -= 1
   endwhile
   exec 'keepjumps '.current.'wincmd w'
@@ -67,3 +64,37 @@ function! window#winnr_by_area()
   endwhile
   return largest
 endfunction
+
+function! window#set_winnr_to_bufnr(window_num, buffer_num)
+  exec 'keepjumps '.a:window_num.'wincmd w'
+  exec 'silent keepjumps buffer '.a:buffer_num
+endfunction
+
+" Similar to `wincmd x`, but works regardless of layout.
+" When other is < 1, will exchange with previous window according to
+" `wincmd p`.
+function! window#exchange(other) abort
+  let current = winnr()
+  let winnr_to_bufnr = util#winnr_bufnr_dict()
+  let other_winnr = a:other
+  if other_winnr < 1
+    wincmd p
+    let other_winnr = winnr()
+  endif
+  let other_bufnr = winnr_to_bufnr[other_winnr]
+  if other_bufnr
+    call window#set_winnr_to_bufnr(other_winnr, winnr_to_bufnr[current])
+    call window#set_winnr_to_bufnr(current, winnr_to_bufnr[other_winnr])
+  endif
+endfunction
+
+" Tab Split Current Window
+" Mapping:
+"   nnoremap <c-w>o :call window#only()<cr>
+"   nnoremap <c-w><c-o> :call window#only()<cr>
+function! window#only()
+  if winnr('$') > 1
+    tab split
+  endif
+endfunction
+

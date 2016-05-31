@@ -974,18 +974,17 @@ nnoremap <Leader>ss :SideSearch <C-r><C-w><CR> | wincmd p
 command! -complete=file -nargs=+ SS execute 'SideSearch <args>'
 " }}}
 
-" Rotate Windows {{{
+" Window Mappings for improved layout commands {{{
 " Important: `:<C-U>` is required the function doesn't get called multiple times.
 nnoremap ]r :<C-U>call window#buffer_rotate(-1 * v:count1)<cr>
 nnoremap [r :<C-U>call window#buffer_rotate(1 * v:count1)<cr>
-" }}}
 
-" Tab Split Current Window {{{
-function! s:window_only()
-  if winnr('$') > 1
-    tab split
-  endif
-endfunction
-nnoremap <c-w>o :call <sid>window_only()<cr>
-nnoremap <c-w><c-o> :call <sid>window_only()<cr>
+nmap <C-w>r ]r
+nmap <C-w><C-r> ]r
+
+nnoremap <c-w>x :<C-U>call window#exchange(v:count)<cr>
+nnoremap <c-w><c-x> :<C-U>call window#exchange(v:count)<cr>
+
+nnoremap <c-w>o :call window#only()<cr>
+nnoremap <c-w><c-o> :call window#only()<cr>
 " }}}
