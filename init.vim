@@ -218,6 +218,8 @@ augroup basics_autocmd
   autocmd FileType markdown,vim setlocal textwidth=80
   autocmd FileType java,go,hs set autoindent smartindent tabstop=4 shiftwidth=4  noexpandtab
 
+  autocmd FileType markdown set makeprg=diction\ % errorformat=%f:%l:\ %m
+
   " set term title to current file
   autocmd BufEnter * let &titlestring=expand("%:t") | set title
 
