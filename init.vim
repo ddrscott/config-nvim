@@ -411,7 +411,7 @@ function! s:jump_till_next_buffer() abort
   let current_nr = bufnr('%')
   let max = 100
   while bufnr('%') == current_nr
-    exec "normal \<C-o>" 
+    exec "normal \<C-o>"
     if max == 0
       echo 'max jumps reached!'
       break
