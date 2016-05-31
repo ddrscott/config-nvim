@@ -962,6 +962,7 @@ nnoremap <Leader>ts :new <BAR>setlocal winfixwidth winfixheight <BAR> terminal<S
 let g:side_search_prg = 'ag --word-regexp'
       \. " --ignore='*.js.map'"
       \. " --ignore='*.csv'"
+			\. " --ignore='*tags'"
       \. " --ignore='ui/public/client'"
       \. " --ignore='cassettes/'"
       \. " --ignore='components/help'"
