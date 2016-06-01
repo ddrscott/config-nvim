@@ -14,3 +14,15 @@ function! util#winnr_bufnr_dict()
 	endwhile
   return result
 endfunction
+
+" return dicitionay of winnr to bufnr mappings
+function! util#bufnr_winnr_dict()
+  let result = {}
+  " collect all the buffer numbers
+  let i = winnr('$')
+  while i > 0
+    let result[winbufnr(i)] = i
+    let i -= 1
+  endwhile
+  return result
+endfunction

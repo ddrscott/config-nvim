@@ -985,16 +985,20 @@ nnoremap [r :<C-U>call window#buffer_rotate(1 * v:count1)<cr>
 nmap <C-w>r ]r
 nmap <C-w><C-r> ]r
 
-nnoremap <c-w>x :<C-U>call window#exchange(v:count)<cr>
-nnoremap <c-w><c-x> :<C-U>call window#exchange(v:count)<cr>
+nnoremap <C-w>x :<C-U>call window#exchange(v:count)<cr>
+nnoremap <C-w><c-x> :<C-U>call window#exchange(v:count)<cr>
 
-nnoremap <c-w>o :call window#only()<cr>
-nnoremap <c-w><c-o> :call window#only()<cr>
-" }}}
+nnoremap <C-w>o :call window#only()<cr>
+nnoremap <C-w><c-o> :call window#only()<cr>
 
-" Window Layouts {{{
-nnoremap <c-w>gl :<C-U>call window#join('rightbelow vsplit', v:count) <bar>normal 0<cr>
-nnoremap <c-w>gh :<C-U>call window#join('leftabove vsplit', v:count) <bar>normal 0<cr>
-nnoremap <c-w>gj :<C-U>call window#join('belowright split', v:count) <bar>normal 0<cr>
-nnoremap <c-w>gk :<C-U>call window#join('aboveleft split', v:count) <bar>normal 0<cr>
+nnoremap <C-w>gl :<C-U>call window#join('rightbelow vsplit', v:count) <BAR>normal 100zh<CR>
+nnoremap <C-w>gh :<C-U>call window#join('leftabove vsplit', v:count)  <BAR>normal 100zh<CR>
+nnoremap <C-w>gj :<C-U>call window#join('belowright split', v:count)  <BAR>normal 100zh<CR>
+nnoremap <C-w>gk :<C-U>call window#join('aboveleft split', v:count)   <BAR>normal 100zh<CR>
+
+command! LayoutH call window#layout('ball', 'H', 1)
+command! LayoutK call window#layout('vertical ball', 'K', 1)
+
+nnoremap <C-w>gH :LayoutH<CR>
+nnoremap <C-w>gK :LayoutK<CR>
 " }}}

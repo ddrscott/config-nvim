@@ -100,9 +100,7 @@ endfunction
 function! s:other_winnr(other)
   let other_winnr = a:other
   if other_winnr < 1
-    wincmd p
-    let other_winnr = winnr()
-    wincmd p
+    let other_winnr = winnr('#')
   endif
   return other_winnr
 endfunction
@@ -120,4 +118,19 @@ function! window#join(splitter, other) abort
   wincmd p
   exec a:splitter
   exec 'buffer '.other_bufnr
+endfunction
+
+" Based on current window and previous window
+" Usage: :call window#layout('ball', 'H', winnr())
+function! window#layout(split_all, main, idx, ...) abort
+  let winnr_to_bufnr = util#winnr_bufnr_dict()
+  exec a:split_all
+  let bufnr_to_winnr = util#bufnr_winnr_dict()
+ 
+  exec bufnr_to_winnr[winnr_to_bufnr[a:idx]].'wincmd w'
+  exec 'wincmd '. a:main
+
+  " command! LayoutA ball | exec "normal! \<C-w>H\<C-w>=" | windo set winfixwidth
+  " command! LayoutAA ball | exec "normal! \<C-w>H\<C-w>p\<C-w>H\<C-w>=1" | windo set winfixwidth | 1wincmd w | normal! 0
+  " command! LayoutAB ball | exec "normal! \<C-w>H\<C-w>=" | 1wincmd w | call window#join('belowright split', 2) | windo set winfixwidth
 endfunction
