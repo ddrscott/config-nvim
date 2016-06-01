@@ -76,10 +76,9 @@ endfunction
 function! window#exchange(other) abort
   let current = winnr()
   let winnr_to_bufnr = util#winnr_bufnr_dict()
-  let other_winnr = a:other
-  if other_winnr < 1
-    wincmd p
-    let other_winnr = winnr()
+  let other_winnr = s:other_winnr(a:other)
+  if current == other_winnr
+    return
   endif
   let other_bufnr = winnr_to_bufnr[other_winnr]
   if other_bufnr
@@ -98,3 +97,27 @@ function! window#only()
   endif
 endfunction
 
+function! s:other_winnr(other)
+  let other_winnr = a:other
+  if other_winnr < 1
+    wincmd p
+    let other_winnr = winnr()
+    wincmd p
+  endif
+  return other_winnr
+endfunction
+
+function! window#join(splitter, other) abort
+  let current = winnr()
+  let other_winnr = s:other_winnr(a:other)
+  if current == other_winnr
+    return
+  endif
+  let winnr_to_bufnr = util#winnr_bufnr_dict()
+  let other_bufnr = winnr_to_bufnr[other_winnr]
+  wincmd p
+  exec other_winnr.'quit'
+  wincmd p
+  exec a:splitter
+  exec 'buffer '.other_bufnr
+endfunction

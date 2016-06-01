@@ -991,3 +991,10 @@ nnoremap <c-w><c-x> :<C-U>call window#exchange(v:count)<cr>
 nnoremap <c-w>o :call window#only()<cr>
 nnoremap <c-w><c-o> :call window#only()<cr>
 " }}}
+
+" Window Layouts {{{
+nnoremap <c-w>gl :<C-U>call window#join('rightbelow vsplit', v:count) <bar>normal 0<cr>
+nnoremap <c-w>gh :<C-U>call window#join('leftabove vsplit', v:count) <bar>normal 0<cr>
+nnoremap <c-w>gj :<C-U>call window#join('belowright split', v:count) <bar>normal 0<cr>
+nnoremap <c-w>gk :<C-U>call window#join('aboveleft split', v:count) <bar>normal 0<cr>
+" }}}
