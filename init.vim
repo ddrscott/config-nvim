@@ -154,7 +154,7 @@ augroup END
 
 set statusline=
 set statusline+=%1*%m%r%*                          " modified, readonly
-set statusline+=%5*%{expand('%:h')}/               " relative path to file's directory
+set statusline+=%5*%{pathshorten(expand('%:h'))}/               " relative path to file's directory
 set statusline+=%2*%t%*                            " file name
 set statusline+=\ %=                               " switch to RHS
 set statusline+=%5*%L%*%2*g                        " number of lines
