@@ -999,6 +999,10 @@ nnoremap <C-w>gk :<C-U>call window#join('aboveleft split', v:count)   <BAR>norma
 command! LayoutH call window#layout('ball', 'H', 1)
 command! LayoutK call window#layout('vertical ball', 'K', 1)
 
-nnoremap <C-w>gH :LayoutH<CR>
-nnoremap <C-w>gK :LayoutK<CR>
+command! -nargs=* WinH call window#layout('windo wincmd J', 'H', <args>)
+" }}}
+
+" Simple commands to open external tools {{{
+command! -nargs=* Stree call system('stree ' . <q-args>)
+command! -nargs=* Open call system('open ' . <q-args>)
 " }}}
