@@ -58,5 +58,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'tek/vim-fieldtrip'
 Plug 'https://github.com/mhinz/vim-startify'
 Plug 'https://github.com/ddrscott/vim-side-search'
+Plug 'https://github.com/ddrscott/vim-window'
 call plug#end()
 " }}}
