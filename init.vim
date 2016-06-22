@@ -358,7 +358,7 @@ nnoremap <Leader>cw :call ClearWhitespace()<CR>
 
 " Copy current buffer path to system clipboard
 " I picked 5 because it's also the '%' key.
-nnoremap <silent> <Leader>5 :let @* = expand("%")<CR>:echom "copied: " . expand("%")<CR>
+nnoremap <silent> <Leader>5 :let @* = expand("%:p")<CR>:echom "copied: " . expand("%:p")<CR>
 
 " Visual Selection Helpers {{{
 " reselect last change
