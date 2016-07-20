@@ -1,11 +1,12 @@
 " Plugins {{{
 " Plugin manager provided by: https://github.com/junegunn/vim-plug
 call plug#begin('~/.config/nvim/plugged')
+Plug 'https://github.com/rking/ag.vim'
 " Don't use deoplete. It was interupting typing too much
 " Plug 'https://github.com/Shougo/deoplete.nvim'
 Plug 'https://github.com/AndrewRadev/sideways.vim'
 Plug 'https://github.com/AndrewRadev/splitjoin.vim'
-Plug 'https://github.com/AndrewRadev/switch.vim'
+" Plug 'https://github.com/AndrewRadev/switch.vim'
 Plug 'https://github.com/Raimondi/delimitMate'
 Plug 'https://github.com/airblade/vim-gitgutter.git'
 Plug 'https://github.com/altercation/vim-colors-solarized'
@@ -32,7 +33,7 @@ Plug 'https://github.com/osyo-manga/vim-monster.git'
 Plug 'https://github.com/pangloss/vim-javascript'
 Plug 'https://github.com/plasticboy/vim-markdown'
 Plug 'https://github.com/rust-lang/rust.vim.git'
-" Plug 'https://github.com/scrooloose/nerdtree'
+Plug 'https://github.com/scrooloose/nerdtree'
 Plug 'https://github.com/terryma/vim-expand-region'
 Plug 'https://github.com/terryma/vim-multiple-cursors'
 Plug 'https://github.com/tpope/vim-commentary'
@@ -57,7 +58,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tek/vim-fieldtrip'
 Plug 'https://github.com/mhinz/vim-startify'
-Plug 'https://github.com/ddrscott/vim-side-search'
-Plug 'https://github.com/ddrscott/vim-window'
+" Plug 'https://github.com/ddrscott/vim-side-search'
+" Plug 'https://github.com/ddrscott/vim-window'
+Plug '~/code/vim-side-search'
+Plug '~/code/vim-window'
 call plug#end()
 " }}}
