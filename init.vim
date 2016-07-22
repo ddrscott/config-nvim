@@ -76,7 +76,7 @@ set nolist        " list disables linebreak
 set wrap
 set lazyredraw    " reduced screen flicker
 set breakindent
-set breakindentopt=sbr
+set breakindentopt=sbr,shift:4
 set showbreak=↪>\  " ↪ space
 set autoindent smartindent tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 set whichwrap+=<,>,h,l,[,]
