@@ -1,4 +1,3 @@
-" Plugins {{{
 " Plugin manager provided by: https://github.com/junegunn/vim-plug
 call plug#begin('~/.config/nvim/plugged')
 Plug 'https://github.com/rking/ag.vim'
@@ -58,9 +57,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tek/vim-fieldtrip'
 Plug 'https://github.com/mhinz/vim-startify'
-" Plug 'https://github.com/ddrscott/vim-side-search'
-" Plug 'https://github.com/ddrscott/vim-window'
-Plug '~/code/vim-side-search'
-Plug '~/code/vim-window'
+Plug 'https://github.com/ddrscott/vim-side-search'
+Plug 'https://github.com/ddrscott/vim-window'
 call plug#end()
-" }}}
