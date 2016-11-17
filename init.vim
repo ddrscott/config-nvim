@@ -315,6 +315,14 @@ nnoremap <Leader>/w /\v<><left>
 nnoremap <Leader>/s :%s/\v<<C-r><C-w>>//gce<left><left><left>
 " }}}
 
+" cut/copy/paste helpers {{{
+vnoremap <Leader>x d
+vnoremap <Leader>c ygv
+vnoremap <Leader>v "_p
+nnoremap <Leader>y myyiw`y
+nnoremap <Leader>p mp"_diwP`p
+" }}}
+
 " Nerd Tree / Netrw {{{
 let g:netrw_liststyle=3
 let g:netrw_altfile=1
