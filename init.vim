@@ -183,6 +183,10 @@ if has('nvim')
   endfunction
   nnoremap gf :call TermGf()<CR>
 endif
+
+if exists('+inccommand')
+  set inccommand=nosplit
+endif
 " }}}
 
 " Deoplete - disabled {{{
