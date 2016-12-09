@@ -681,7 +681,7 @@ nmap <Leader>zi :set foldmethod=indent<CR>
 nmap <Leader>zs :set foldmethod=syntax<CR>
 nmap <Leader>zk :set foldmethod=marker<CR>
 nmap <Leader>zm :set foldmethod=manual<CR>
-
+nmap <Leader>zz :execute 'set foldlevel='.(foldlevel(line('.')) - 1)<CR>zzzO
 " Map <Leader>z0-9 to set a foldlevel directly
 for i in [0,1,2,3,4,5,6,7,8,9]
   execute 'nmap <Leader>z' . i . ' :set foldlevel=' . i . '<CR>'
