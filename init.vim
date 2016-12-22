@@ -351,7 +351,7 @@ nnoremap <Leader>ta :TagbarOpenAutoClose<CR>
 nnoremap <Leader>; :
 
 " Paste mode, NeoVim might not need this.
-nnoremap <silent> <f5> :set paste!<CR>
+nnoremap <silent> <f5> :set paste!<CR>:set paste?<CR>
 
 " Better use :tjump instead of :tag
 " Warning: swapping <C-]> and g<C-]>
