@@ -1026,3 +1026,15 @@ command! -nargs=* Open call system('open ' . <q-args>)
 
 " command! Duplicate execute('normal :saveas '.expand('%'))
 cnoremap <C-e> <C-R>=expand('%')<CR>
+
+" Open current file and line in Stash browser.
+" Fugitives :Gbrowse doesn't support stash, so this is our ugly hack. {{{
+command! StashOpen
+  \ let _file=substitute(expand('%'), system('git rev-parse --show-toplevel'), '', '') <bar>
+  \ let _branch=substitute(system('git rev-parse --abbrev-ref HEAD'), '\n', '', '') <bar>
+  \ let _cmd='open "https://stash.centro.net/projects/CEN/repos/centro-media-manager/browse/' . _file . '?at=refs/heads/' . _branch . '#' . line('.') . '"'<bar>
+  \ echo _cmd . system(_cmd)
+
+" Leader "O"pen
+nnoremap <Leader>o :StashOpen<CR>
+" }}}
