@@ -73,7 +73,7 @@ highlight VertSplit cterm=bold ctermfg=11 ctermbg=NONE
 set textwidth=80
 set linebreak     " break at whitespace
 set nolist        " list disables linebreak
-set wrap
+set nowrap
 set lazyredraw    " reduced screen flicker
 set breakindent
 set breakindentopt=sbr,shift:4
