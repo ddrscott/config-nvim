@@ -183,20 +183,28 @@ if has('nvim')
   endfunction
   nnoremap gf :call TermGf()<CR>
 endif
-
 if exists('+inccommand')
   set inccommand=nosplit
 endif
 " }}}
 
 " Deoplete - disabled {{{
-" This was messing slowing down each keystroke.
-"let g:deoplete#sources = {}
-"let g:deoplete#sources._ = ['buffer']
-"let g:deoplete#sources.rb = ['buffer','tag']
-"let g:deoplete#enable_camel_case = 1
-"let g:deoplete#auto_complete_delay = 100
-"let g:deoplete#enable_at_startup = 1
+" This might slow down individual keystrokes.
+" Comment out the block if the benefits aren't worth the cost.
+" @see https://github.com/Shougo/deoplete.nvim
+" :help deoplete
+" let g:deoplete#sources = {}
+" let g:deoplete#sources._ = ['buffer']
+" let g:deoplete#sources.rb = ['buffer','tag']
+let g:deoplete#enable_camel_case = 1
+let g:deoplete#auto_complete_delay = 100
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#omni#functions = {}
+let g:deoplete#omni#functions.ruby = 'rubycomplete#Complete'
+let g:deoplete#omni#functions.javascript = [
+  \ 'tern#Complete',
+  \ 'jspc#omni'
+  \]
 " }}}
 
 " Fuzzy Finder {{{

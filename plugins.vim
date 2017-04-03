@@ -2,7 +2,7 @@
 call plug#begin('~/.config/nvim/plugged')
 Plug 'https://github.com/rking/ag.vim'
 " Don't use deoplete. It was interupting typing too much
-" Plug 'https://github.com/Shougo/deoplete.nvim'
+Plug 'https://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'https://github.com/AndrewRadev/sideways.vim'
 Plug 'https://github.com/AndrewRadev/splitjoin.vim'
 " Plug 'https://github.com/AndrewRadev/switch.vim'
