@@ -89,8 +89,14 @@ set sidescrolloff=3
 " Completion options
 "   current buffer, windowed buffers, other loaded bufferes, and tags.
 "   different from default by NOT considering unloaded buffers.
-set complete=.,w,b,t
-set completeopt=menuone,preview
+"
+" 	.	scan the current buffer ('wrapscan' is ignored)
+"   w scan buffers from other windows
+"   b scan other loaded buffers that are in the buffer list
+"   k scan the files given with the 'dictionary' option
+"   ] tag completion
+set complete=.,w,b,],k
+set completeopt=menuone,preview,longest
 " }}}
 
 " Airline {{{
