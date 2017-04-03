@@ -233,6 +233,10 @@ augroup basics_autocmd
         \ | command! -buffer Reformat call SaveViewExecute('!eslint --fix %')
         " This doesn't work :( \ | setlocal formatprg=eslint\ --stdin\ --fix
 
+  if executable('sqlformat') == 1
+    autocmd FileType sql setlocal formatprg=sqlformat\ -k\ upper\ -i\ lower\ --reindent_aligned\ -
+  endif
+  
   autocmd FileType markdown,vim setlocal textwidth=80
   autocmd FileType java,go,hs set autoindent smartindent tabstop=4 shiftwidth=4  noexpandtab
 
