@@ -1056,3 +1056,22 @@ command! StashOpen
 " Leader "O"pen
 nnoremap <Leader>o :StashOpen<CR>
 " }}}
+
+" ISlime2 Mappings {{{
+let g:islime2_29_mode=1
+
+" Send current line
+nnoremap <silent> <Leader>i<CR> :ISlime2CurrentLine<CR>
+
+" Move to next line then send it
+nnoremap <silent> <Leader>ij :ISlime2NextLine<CR>
+
+" Move to previous line then send it
+nnoremap <silent> <Leader>ik :ISlime2PreviousLine<CR>
+
+" Send in/around text object
+nnoremap <silent> <Leader>i :set opfunc=islime2#iTermSendOperator<CR>g@
+
+" Send visual selection
+vnoremap <silent> <Leader>i :<C-u>call islime2#iTermSendOperator(visualmode(), 1)<CR>
+" }}}
