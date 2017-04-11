@@ -24,16 +24,16 @@ nvim
 ```
 
 ## Look and Feel
-I use Solarize, iTerm and Input Font. If solarized color themes are not
-installed, yet NeoVim is going to look pretty gross. Feel free to install from
-the links provided or fork and make the appropriate adjustments.
+I use Base16 to setup colors in terminal, and Base16-vim to pass those colors
+through to vim. Please follow the direction on
+[base16-shell](https://github.com/chriskempson/base16-shell) go ensure things
+look great in Vim.
 
-Make sure your terminal is set to use xterm-256, otherwise airline won't look
-right.
+Also please make sure your terminal is set to use xterm-256.
 
 Here's some links to get started:
 
-+ https://github.com/altercation/solarized.git
++ https://github.com/chriskempson/base16-shell
 + https://www.iterm2.com/
 + http://input.fontbureau.com/
 
