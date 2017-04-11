@@ -47,9 +47,11 @@ set hidden
 " Look and Feel {{{
 set background=dark
 " Make sure to set iTerm to xterm-256color
-let g:solarized_termcolors=16
-let g:solarized_termtrans=0
-colorscheme solarized
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+  colorscheme base16-default-dark
+endif
 
 " set fillchars=diff:⣿,vert:\│
 set fillchars=diff:-,vert:\│
