@@ -277,6 +277,8 @@ nnoremap <S-u> <C-r>
 " Warning: Scroll 1 line at a time instead of default 3
 noremap <ScrollWheelUp> <C-Y>
 noremap <ScrollWheelDown> <C-E>
+noremap <ScrollWheelLeft> zl
+noremap <ScrollWheelRight> zh
 
 " Warning: Faster schooling with C-e/y and keeps cursor in place.
 " This is similar to <C-d/u> behavior
@@ -291,6 +293,7 @@ nnoremap <Leader>*  /\v<<C-r><C-w>><CR><C-o>
 nnoremap <Leader>// /\v<<C-r><C-w>><CR><C-o>
 nnoremap <Leader>/w /\v<><left>
 nnoremap <Leader>/s :%s/\v<<C-r><C-w>>//gce<left><left><left>
+vnoremap <expr> // 'y/\V'.escape(@",'\').'<CR><C-o>'
 " }}}
 
 " cut/copy/paste helpers {{{
@@ -299,6 +302,8 @@ vnoremap <Leader>c ygv
 vnoremap <Leader>v "_p
 nnoremap <Leader>y myyiw`y
 nnoremap <Leader>p mp"_diwP`p
+" visually select pasted text
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 " }}}
 
 " Nerd Tree / Netrw {{{
@@ -655,7 +660,7 @@ nmap <Leader>zi :set foldmethod=indent<CR>
 nmap <Leader>zs :set foldmethod=syntax<CR>
 nmap <Leader>zk :set foldmethod=marker<CR>
 nmap <Leader>zm :set foldmethod=manual<CR>
-nmap <Leader>zz :execute 'set foldlevel='.(foldlevel(line('.')) - 1)<CR>zzzO
+nmap <Leader>zf :execute 'set foldlevel='.(foldlevel(line('.')) - 1)<CR>zzzO
 " Map <Leader>z0-9 to set a foldlevel directly
 for i in [0,1,2,3,4,5,6,7,8,9]
   execute 'nmap <Leader>z' . i . ' :set foldlevel=' . i . '<CR>'
@@ -923,6 +928,7 @@ endfunction
 " repeat the f, command to close the buffer
 nnoremap <silent> <Leader>f0 :call <SID>side_toggle('~/notes/vim.md', 0.25)<CR><C-w>p
 nnoremap <silent> <Leader>f) :call <SID>side_toggle('~/notes/vim.md', 0.25)<CR>
+nnoremap <silent> <Leader>fs :e ~/code/scratch/scratch.rb<CR>
 " }}}
 
 " Startify {{{
@@ -1009,25 +1015,13 @@ command! StashOpen
   \ let _cmd='open "https://stash.centro.net/projects/CEN/repos/centro-media-manager/browse/' . _file . '?at=refs/heads/' . _branch . '#' . line('.') . '"'<bar>
   \ echo _cmd . system(_cmd)
 
-" Leader "O"pen
-nnoremap <Leader>o :StashOpen<CR>
-" }}}
-
-" ISlime2 Mappings {{{
-let g:islime2_29_mode=1
-
+" SendText Mappings {{{
 " Send current line
-nnoremap <silent> <Leader>i<CR> :ISlime2CurrentLine<CR>
-
-" Move to next line then send it
-nnoremap <silent> <Leader>ij :ISlime2NextLine<CR>
-
-" Move to previous line then send it
-nnoremap <silent> <Leader>ik :ISlime2PreviousLine<CR>
+nnoremap <silent> <Leader>i<CR> :SendTextCurrentLine<CR>
 
 " Send in/around text object
-nnoremap <silent> <Leader>i :set opfunc=islime2#iTermSendOperator<CR>g@
+nnoremap <silent> <Leader>i :set opfunc=sendtext#iTermSendOperator<CR>g@
 
 " Send visual selection
-vnoremap <silent> <Leader>i :<C-u>call islime2#iTermSendOperator(visualmode(), 1)<CR>
+vnoremap <silent> <Leader>i :<C-u>call sendtext#iTermSendOperator(visualmode(), 1)<CR>
 " }}}
