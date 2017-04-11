@@ -558,7 +558,8 @@ func! BlackHoleDeleteOperator(type, ...)
     execute 'normal! `<' . a:type . '`>"_d'
   endif
 endf
-nnoremap <silent> <BS> :set opfunc=BlackHoleDeleteOperator<CR>g@
+" Too intrusive to accidental BS use. Keep the visual mapping cause it's neat.
+" nnoremap <silent> <BS> :set opfunc=BlackHoleDeleteOperator<CR>g@
 vnoremap <silent> <BS> :<C-u>call BlackHoleDeleteOperator(visualmode(), 1)<CR>
 " }}}
 
