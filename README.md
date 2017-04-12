@@ -46,3 +46,17 @@ cd /path/to/project
 :Ctag
 :CtagBundle
 ```
+
+## Setup Ruby Support
+
+Ruby bindings aren't built into NeoVim. So a lot of omnicompletion things won't
+behave the same as they do in Vim. Thankfully, some one as fixed that problem:
+https://github.com/alexgenco/neovim-ruby The project makes `has('ruby')` just
+work. Therefore the standard `vim-ruby` plugin can do its thing.
+
+Please install the latest neovim-ruby gem using:
+```
+gem install neovim
+```
+
+The gem also enables you to create Ruby plugins for NeoVim. Enjoy!

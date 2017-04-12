@@ -8,9 +8,6 @@ scriptencoding utf-8
 
 filetype indent plugin on
 syntax sync fromstart
-" default to syntax completion
-" Thanks: https://www.reddit.com/r/vim/comments/4aab93/weekly_vim_tips_and_tricks_thread_1/d0za3nh
-set omnifunc=syntaxcomplete#Complete
 
 " turn off bell on ESC
 set noerrorbells visualbell t_vb=
@@ -155,14 +152,11 @@ endif
 " Comment out the block if the benefits aren't worth the cost.
 " @see https://github.com/Shougo/deoplete.nvim
 " :help deoplete
-" let g:deoplete#sources = {}
-" let g:deoplete#sources._ = ['buffer']
-" let g:deoplete#sources.rb = ['buffer','tag']
+let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_camel_case = 1
 let g:deoplete#auto_complete_delay = 100
-let g:deoplete#enable_at_startup = 1
+let g:deoplete#complete_method = 'omnifunc'
 let g:deoplete#omni#functions = {}
-let g:deoplete#omni#functions.ruby = 'rubycomplete#Complete'
 let g:deoplete#omni#functions.javascript = [
   \ 'tern#Complete',
   \ 'jspc#omni'
