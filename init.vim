@@ -69,7 +69,7 @@ set winminwidth=5
 highlight VertSplit cterm=bold ctermfg=11 ctermbg=NONE
 
 " text wrapping
-set textwidth=100
+set textwidth=80
 set linebreak     " break at whitespace
 set nolist        " list disables linebreak
 set nowrap
