@@ -243,14 +243,6 @@ nnoremap <silent> ^ :call ToggleMovement('0', '^')<CR>
 nnoremap <silent> $ :call ToggleMovement('$', '^')<CR>
 " }}}
 
-" Warning: CTRL-G u  break undo sequence, start new change      *i_CTRL-G_u*
-" This is an awesome feature. Especially for those that stay in insert mode a
-" little too long. Old habits due hard. But at least now the undo isn't so
-" drastic.
-inoremap <CR> <C-g>u<CR>
-" Warning: breaks undo sequence when space is used.
-inoremap <Space> <C-g>u<Space>
-
 " Warning: I'm killing the 2nd <C-r> in these modes because '"' is too hard to
 " reach. This makes <C-r> more consistent with Register access in insert and
 " command mode.
