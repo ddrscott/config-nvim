@@ -19,7 +19,7 @@ set foldmethod=syntax
 set foldlevelstart=99
 set incsearch
 set number
-set norelativenumber
+set relativenumber
 set showcmd
 set virtualedit=block
 " Case sensitivity
@@ -27,7 +27,7 @@ set virtualedit=block
 set noignorecase
 set smartcase
 set nocursorcolumn
-set nocursorline
+set cursorline
 
 " No tmp or swp files
 set nobackup
