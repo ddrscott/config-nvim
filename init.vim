@@ -69,7 +69,7 @@ set winminwidth=5
 highlight VertSplit cterm=bold ctermfg=11 ctermbg=NONE
 
 " text wrapping
-set textwidth=80
+set textwidth=100
 set linebreak     " break at whitespace
 set nolist        " list disables linebreak
 set nowrap
@@ -79,6 +79,9 @@ set breakindentopt=sbr,shift:4
 set showbreak=↪>\  " ↪ space
 set autoindent smartindent tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 set whichwrap+=<,>,h,l,[,]
+
+" make columns outside textwidth blanked out
+let &colorcolumn=join(range(&textwidth+1,999),",")
 
 " Sensible side scrolling, makes it like other editors.
 " Reduce scroll jump with cursor goes off the screen.
