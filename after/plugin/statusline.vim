@@ -1,18 +1,19 @@
 " Statusline {{{
 " Thanks: https://github.com/airblade/dotvim/blob/master/vimrc
+let s:bg=19
 hi clear StatusLine
 hi clear StatusLineNC
-hi StatusLine   ctermfg=3 ctermbg=11
-hi StatusLineNC ctermfg=3 ctermbg=18
+exec 'hi StatusLine   ctermfg=3 ctermbg='.s:bg
+exec 'hi StatusLineNC ctermfg=3 ctermbg='.s:bg
 
 " highlight values in terminal vim, colorscheme solarized
 " Identifier
-hi User1  ctermfg=9   ctermbg=18  cterm=bold
-hi User2  ctermfg=2   ctermbg=18  cterm=bold
-hi User3  ctermfg=1   ctermbg=18  cterm=bold
-hi User4  ctermfg=1   ctermbg=18  cterm=bold
-hi User5  ctermfg=10  ctermbg=18  cterm=bold
-hi User6  ctermfg=1   ctermbg=18  cterm=bold
+exec 'hi User1  ctermfg=9   ctermbg='.s:bg.' cterm=bold'
+exec 'hi User2  ctermfg=2   ctermbg='.s:bg.' cterm=bold'
+exec 'hi User3  ctermfg=1   ctermbg='.s:bg.' cterm=bold'
+exec 'hi User4  ctermfg=1   ctermbg='.s:bg.' cterm=bold'
+exec 'hi User5  ctermfg=10  ctermbg='.s:bg.' cterm=bold'
+exec 'hi User6  ctermfg=1   ctermbg='.s:bg.' cterm=bold'
 
 function! WindowNumber()
   return tabpagewinnr(tabpagenr())
