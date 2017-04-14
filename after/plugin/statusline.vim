@@ -4,12 +4,12 @@ let s:bg=19
 hi clear StatusLine
 hi clear StatusLineNC
 exec 'hi StatusLine   ctermfg=3 ctermbg=' . s:bg
-exec 'hi StatusLineNC ctermfg=3 ctermbg=19' . ' cterm=italic'
+exec 'hi StatusLineNC ctermfg=3 ctermbg=' . s:bg . ' cterm=italic'
 
 " highlight values in terminal vim, colorscheme solarized
 " Identifier
-exec 'hi User1  ctermfg=9   ctermbg='.s:bg.' cterm=bold'
-exec 'hi User2  ctermfg=3   ctermbg='.s:bg.' cterm=bold,reverse'
+exec 'hi User1  ctermfg=9   ctermbg=' . s:bg . ' cterm=bold'
+exec 'hi User2  ctermfg=3   ctermbg=' . s:bg . ' cterm=bold,reverse'
 
 function! WindowNumber()
   return tabpagewinnr(tabpagenr())
@@ -50,31 +50,71 @@ function! statusline#buffers_for(type) abort
   return result
 endfunction
 
+function! statusline#buffers_prev(max) abort
+  let i = bufnr('$')
+  let result = ''
+  let found = 0
+  while i > 0
+    if buflisted(i)
+      let current = bufnr('%')
+      if i < current
+        let result = ' '. i . ':' . fnamemodify(bufname(i), ':t') . ' ' . result
+        let found += 1
+        if found >= a:max
+          return result
+        endif
+      endif
+    endif
+    let i -= 1
+  endwhile
+  return result
+endfunction
+
+function! statusline#buffers_next(max) abort
+  let i = 0
+  let last = bufnr('$')
+  let result = ''
+  let found = 0
+  while i <= l:last
+    if buflisted(i)
+      let current = bufnr('%')
+      if i > current
+        let result = result . ' '. i . ':' . fnamemodify(bufname(i), ':t') . ' '
+        let found += 1
+        if found >= a:max
+          return result
+        endif
+      endif
+    endif
+    let i += 1
+  endwhile
+  return result
+endfunction
+
 function! statusline#buf_display_name(bufexpr) abort
   let short_name = fnamemodify(bufname(a:bufexpr),":t")
-
   let display_buftype = ''
-
   if &buftype != ''
     let display_buftype = ' ('. &buftype . ')'
   endif
-  
-
   let unlisted = ''
   if buflisted(bufnr('%')) == 0
     let unlisted = '~'
   endif
-
   return unlisted . short_name . display_buftype
 endfunction
 
-function! statusline#build() abort
+function! statusline#build(state) abort
   let line = '%1*%([%M%H%W%R]%)%q%*'
   let line = line . '%='
-  let line = line . '%{statusline#buffers_for("prev")} '
-  let line = line .    '%{bufnr("%") != g:actual_curbuf ? "[ ".statusline#buf_display_name("%")." ]" : ""}'
-  let line = line . '%2*%{bufnr("%") == g:actual_curbuf ? "[ ".statusline#buf_display_name("%")." ]" : ""}%*'
-  let line = line . ' %{statusline#buffers_for("next")}'
+  let line = line . '%{statusline#buffers_prev(2)} '
+
+  if a:state == 'active'
+    let line = line . '%2*%{"[ ".statusline#buf_display_name("%")." ]"}%*'
+  else
+    let line = line .    '%{"[ ".statusline#buf_display_name("%")." ]"}'
+  endif
+  let line = line . ' %{statusline#buffers_next(2)}'
   let line = line . '%='
   let line = line . ' %Lg'
   let line = line . '%1*%{TrailingSpaceWarning()}%*'
@@ -82,12 +122,16 @@ function! statusline#build() abort
   return line
 endfunction
 
-set statusline=%!statusline#build()
+set statusline=%!statusline#build('inactive')
 
 augroup ShowStats
   au!
   " Show file status when entering a buffer
-  autocmd BufEnter * exec "normal \<C-g>"
+  autocmd BufEnter,WinEnter,CursorHold * exec "normal \<C-g>"
+    \ | setlocal statusline=%!statusline#build('active')
+
+  " Set inactive statusline when leaving stuff
+  autocmd BufLeave,WinLeave * setlocal statusline=%!statusline#build('inactive')
 augroup END
 
 " }}}
