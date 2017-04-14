@@ -17,7 +17,7 @@ git clone git@github.com:ddrscott/config-nvm.git ~/.config/nvim
 # Startup nvim. There will be errors. Just hit return.
 nvim
 
-# Install Plugins. Do this inside of NeoVim 
+# Install Plugins. Do this inside of NeoVim
 :PlugInstall
 
 # Quit and Restart NeoVim
