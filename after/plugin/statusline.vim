@@ -95,11 +95,12 @@ function! statusline#buf_display_name(bufexpr) abort
   let short_name = fnamemodify(bufname(a:bufexpr),":t")
   let display_buftype = ''
   if &buftype != ''
-    let display_buftype = ' ('. &buftype . ')'
+    " let display_buftype = ' ('. &buftype . ')'
+    return '~' . short_name
   endif
   let unlisted = ''
   if buflisted(bufnr('%')) == 0
-    let unlisted = '~'
+    let unlisted = '*'
   endif
   return unlisted . short_name . display_buftype
 endfunction
@@ -107,14 +108,14 @@ endfunction
 function! statusline#build(state) abort
   let line = '%1*%([%M%H%W%R]%)%q%*'
   let line = line . '%='
-  let line = line . '%{statusline#buffers_prev(2)} '
+  let line = line . '%{&buftype == "" ? statusline#buffers_prev(2) : ""} '
 
   if a:state == 'active'
     let line = line . '%2*%{"[ ".statusline#buf_display_name("%")." ]"}%*'
   else
     let line = line .    '%{"[ ".statusline#buf_display_name("%")." ]"}'
   endif
-  let line = line . ' %{statusline#buffers_next(2)}'
+  let line = line . ' %{&buftype == "" ? statusline#buffers_next(2) : ""}'
   let line = line . '%='
   let line = line . ' %Lg'
   let line = line . '%1*%{TrailingSpaceWarning()}%*'
