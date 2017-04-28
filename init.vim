@@ -1014,3 +1014,10 @@ nnoremap <silent> <Leader>i :set opfunc=sendtext#iTermSendOperator<CR>g@
 " Send visual selection
 vnoremap <silent> <Leader>i :<C-u>call sendtext#iTermSendOperator(visualmode(), 1)<CR>
 " }}}
+
+" Identify syntax group at current cursor position {{{
+" Thanks: http://vim.wikia.com/wiki/Identify_the_syntax_highlighting_group_used_at_the_cursor
+map <F9> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+      \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+      \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+" }}}
