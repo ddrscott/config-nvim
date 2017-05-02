@@ -81,7 +81,7 @@ set autoindent smartindent tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 set whichwrap+=<,>,h,l,[,]
 
 " make columns outside textwidth blanked out
-let &colorcolumn=join(range(&textwidth+1,999),",")
+let &colorcolumn=join(range(&textwidth+1,&textwidth+1),",")
 
 " Sensible side scrolling, makes it like other editors.
 " Reduce scroll jump with cursor goes off the screen.
