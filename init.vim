@@ -1021,3 +1021,13 @@ map <F9> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<
       \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
       \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 " }}}
+
+" Any character {{{
+" Thanks: https://github.com/rhysd/vim-textobj-anyblock/blob/master/plugin/textobj/anyblock.vim
+call textobj#user#plugin('anyblock', {
+    \ '-' : {
+    \      'select-a' : 'a.', '*select-a-function*' : 'textobj#anyblock#select_a',
+    \      'select-i' : 'i.', '*select-i-function*' : 'textobj#anyblock#select_i',
+    \   },
+    \ })
+" }}}
