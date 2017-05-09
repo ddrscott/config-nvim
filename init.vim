@@ -28,6 +28,7 @@ set noignorecase
 set smartcase
 set nocursorcolumn
 set cursorline
+set mouse=a
 
 " No tmp or swp files
 set nobackup
