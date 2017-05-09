@@ -916,7 +916,8 @@ endfunction
 " repeat the f, command to close the buffer
 nnoremap <silent> <Leader>f0 :call <SID>side_toggle('~/notes/vim.md', 0.25)<CR><C-w>p
 nnoremap <silent> <Leader>f) :call <SID>side_toggle('~/notes/vim.md', 0.25)<CR>
-nnoremap <silent> <Leader>fs :e ~/code/scratch/scratch.rb<CR>
+nnoremap <silent> <Leader>fs :e ~/code/cen/scratch/spierce/scratch.rb<CR>
+nnoremap <silent> <Leader>fz :e ~/.zshrc<CR>
 " }}}
 
 " Startify {{{
