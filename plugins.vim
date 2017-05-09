@@ -67,4 +67,5 @@ Plug 'https://github.com/mhinz/vim-startify'
 Plug 'https://github.com/ddrscott/vim-side-search'
 Plug 'https://github.com/ddrscott/vim-sendtext'
 Plug 'https://github.com/ddrscott/vim-window'
+Plug 'https://github.com/ddrscott/vim-textobj-anyblock'
 call plug#end()
