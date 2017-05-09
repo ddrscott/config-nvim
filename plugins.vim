@@ -47,7 +47,9 @@ Plug 'https://github.com/tpope/vim-obsession'
 Plug 'https://github.com/tpope/vim-rails'
 Plug 'https://github.com/tpope/vim-repeat'
 Plug 'https://github.com/tpope/vim-scriptease.git'
-Plug 'https://github.com/tpope/vim-sensible'
+if has('nvim') == 0
+  Plug 'https://github.com/tpope/vim-sensible'
+endif
 Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/tpope/vim-unimpaired.git'
 Plug 'https://github.com/tpope/vim-vinegar'
