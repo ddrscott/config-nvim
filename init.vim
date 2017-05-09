@@ -156,15 +156,18 @@ endif
 " Comment out the block if the benefits aren't worth the cost.
 " @see https://github.com/Shougo/deoplete.nvim
 " :help deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_camel_case = 1
-let g:deoplete#auto_complete_delay = 100
-let g:deoplete#complete_method = 'omnifunc'
-let g:deoplete#omni#functions = {}
-let g:deoplete#omni#functions.javascript = [
-  \ 'tern#Complete',
-  \ 'jspc#omni'
-  \]
+if exists('g:loaded_deoplete')
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#enable_camel_case = 1
+  let g:deoplete#auto_complete_delay = 100
+  let g:deoplete#complete_method = 'omnifunc'
+  let g:deoplete#omni#functions = {}
+  let g:deoplete#omni#functions.javascript = [
+    \ 'tern#Complete',
+    \ 'jspc#omni'
+    \]
+  nnoremap <Leader>dt :call deoplete#toggle()<CR>
+endif
 " }}}
 
 " Fuzzy Finder {{{
