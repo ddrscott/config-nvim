@@ -170,6 +170,13 @@ if exists('g:loaded_deoplete')
 endif
 " }}}
 
+" YouCompleteMe {{{
+if exists('g:loaded_youcompleteme')
+  let g:ycm_collect_identifiers_from_tags_files = 1
+  let g:ycm_add_preview_to_completeopt = 1
+end
+" }}}
+
 " Fuzzy Finder {{{
 set runtimepath+=~/.fzf
 let g:fzf_action = {
