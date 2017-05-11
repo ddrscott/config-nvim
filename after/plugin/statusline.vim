@@ -119,7 +119,7 @@ function! statusline#build(state) abort
   let line = line . '%='
   let line = line . ' %L:%3c'
   let line = line . '%1*%{TrailingSpaceWarning()}%*'
-  let line = line . ' #%-3{WindowNumber()}'
+  let line = line . " %{noscrollbar#statusline(20,'-','█',['▐'],['▌'])}"
   return line
 endfunction
 
