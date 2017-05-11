@@ -117,7 +117,7 @@ function! statusline#build(state) abort
   endif
   let line = line . ' %{&buftype == "" && &previewwindow == 0 ? statusline#buffers_next(2) : ""}'
   let line = line . '%='
-  let line = line . ' %Lg'
+  let line = line . ' %L:%3c'
   let line = line . '%1*%{TrailingSpaceWarning()}%*'
   let line = line . ' #%-3{WindowNumber()}'
   return line
@@ -128,7 +128,7 @@ set statusline=%!statusline#build('inactive')
 augroup ShowStats
   au!
   " Show file status when entering a buffer
-  autocmd BufEnter,WinEnter,CursorHold * exec "normal \<C-g>"
+  autocmd BufEnter,WinEnter * exec "normal \<C-g>"
     \ | setlocal statusline=%!statusline#build('active')
 
   " Set inactive statusline when leaving stuff
