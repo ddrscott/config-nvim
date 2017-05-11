@@ -175,10 +175,9 @@ let delimitMate_autoclose = 0
 " }}}
 
 " YouCompleteMe {{{
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_add_preview_to_completeopt = 1
-let g:ycm_min_num_identifier_candidate_chars = 999
 let g:ycm_auto_trigger = 0
+" let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
+" let g:ycm_key_invoke_completion = '<C-Space>'
 " }}}
 
 " Fuzzy Finder {{{
