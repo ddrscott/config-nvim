@@ -417,7 +417,7 @@ function! s:jump_till_next_buffer() abort
 endfunction
 " [x]-out the current buffer and jump out.
 " nnoremap <silent> <C-x> <C-o>:bdelete! #<CR>
-nnoremap <C-x> :call <SID>jump_till_next_buffer() <BAR>bd#<CR>
+nnoremap <silent> <C-x> :call <SID>jump_till_next_buffer() <BAR>silent! bd#<CR>
 " }}}
 
 " Populate QuickFix with branch changes
