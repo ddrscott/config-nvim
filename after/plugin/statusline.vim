@@ -109,7 +109,6 @@ function! statusline#build(state) abort
   let line = '%1*%([%M%H%W%R]%)%q%*'
   let line = line . '%='
   let line = line . '%{&buftype == "" && &previewwindow == 0 ? statusline#buffers_prev(2) : ""} '
-
   if a:state == 'active'
     let line = line . '%2*%{"[ ".statusline#buf_display_name("%")." ]"}%*'
   else
@@ -118,8 +117,10 @@ function! statusline#build(state) abort
   let line = line . ' %{&buftype == "" && &previewwindow == 0 ? statusline#buffers_next(2) : ""}'
   let line = line . '%='
   let line = line . ' %L:%3c'
-  let line = line . '%1*%{TrailingSpaceWarning()}%*'
-  let line = line . " %{noscrollbar#statusline(20,'-','█',['▐'],['▌'])}"
+  let line = line . '%1*%{TrailingSpaceWarning()}%* '
+  if a:state == 'active'
+    let line = line . "%{noscrollbar#statusline(20,'=','█',['▐'],['▌'])}"
+  endif
   return line
 endfunction
 
