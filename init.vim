@@ -431,11 +431,10 @@ command! QfBranch cgetexpr system("git diff --name-only  `git log --graph --onel
 
 " Fuzzy Finder FZF helpers {{{
 " Super charged File finder
-command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 let g:fzf_files_options="-d '/' --nth=-1"
-nnoremap <silent> <Leader>ff :Files<CR>
-
-nnoremap <silent> <Leader>fh :call fzf#vim#history({'options': g:fzf_files_options." --preview 'highlight -O ansi -l {} 2>/dev/null \|\| head -200 {}'"})<CR>
+let g:fzf_preview_source=" --preview 'pygmentize -g {} 2>/dev/null \|\| head -200 {}'"
+nnoremap <silent> <Leader>ff :call fzf#vim#files('.', {'options': g:fzf_preview_source })<CR>
+nnoremap <silent> <Leader>fh :call fzf#vim#history({'options': g:fzf_files_options . g:fzf_preview_source })<CR>
 nnoremap <silent> <Leader>fm :Marks<CR>
 nnoremap <silent> <Leader>fb :Buffers<CR>
 nnoremap <silent> <Leader>ls :Buffers<CR>
