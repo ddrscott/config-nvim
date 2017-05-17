@@ -430,8 +430,11 @@ command! QfBranch cgetexpr system("git diff --name-only  `git log --graph --onel
 " \) | copen
 
 " Fuzzy Finder FZF helpers {{{
-command! SinceDev call fzf#run({'source': 'git diff --name-only dev..', 'down': '33%', 'sink': 'edit', 'options': '-m'})
-nnoremap <silent> <Leader>ff :FZF  --preview-window=right<CR>
+" Super charged File finder
+command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+let g:fzf_files_options="-d '/' --nth=-1"
+nnoremap <silent> <Leader>ff :Files<CR>
+
 nnoremap <silent> <Leader>fh :Hist<CR>
 nnoremap <silent> <Leader>fm :Marks<CR>
 nnoremap <silent> <Leader>fb :Buffers<CR>
