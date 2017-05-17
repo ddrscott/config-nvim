@@ -439,6 +439,8 @@ nnoremap <silent> <Leader>fh :Hist<CR>
 nnoremap <silent> <Leader>fm :Marks<CR>
 nnoremap <silent> <Leader>fb :Buffers<CR>
 nnoremap <silent> <Leader>ls :Buffers<CR>
+
+command! SinceDev call fzf#run({'source': 'git diff --name-only dev..', 'down': '33%', 'sink': 'edit', 'options': '-m'})
 nnoremap <silent> <Leader>fd :SinceDev<CR>
 " }}
 
