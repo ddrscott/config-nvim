@@ -435,7 +435,7 @@ command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim
 let g:fzf_files_options="-d '/' --nth=-1"
 nnoremap <silent> <Leader>ff :Files<CR>
 
-nnoremap <silent> <Leader>fh :Hist<CR>
+nnoremap <silent> <Leader>fh :call fzf#vim#history({'options': g:fzf_files_options." --preview 'highlight -O ansi -l {} 2>/dev/null \|\| head -200 {}'"})<CR>
 nnoremap <silent> <Leader>fm :Marks<CR>
 nnoremap <silent> <Leader>fb :Buffers<CR>
 nnoremap <silent> <Leader>ls :Buffers<CR>
