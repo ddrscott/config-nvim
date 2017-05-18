@@ -170,10 +170,6 @@ if exists('g:loaded_deoplete')
 endif
 " }}}
 
-" DelimitMate {{{
-let delimitMate_autoclose = 0
-" }}}
-
 " YouCompleteMe {{{
 let g:ycm_auto_trigger = 0
 " let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
