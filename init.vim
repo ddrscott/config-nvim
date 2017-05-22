@@ -325,6 +325,8 @@ nnoremap <Leader>ta :TagbarOpenAutoClose<CR>
 
 " Easy Command Mode
 nnoremap <Leader>; :
+" `<CR>` in normal buffer sends `:`
+nnoremap <silent> <CR> :call feedkeys((&buftype == '' ? ':' : expand("\r")), 'n')<CR>
 
 " Paste mode, NeoVim might not need this.
 nnoremap <silent> <f5> :set paste!<CR>:set paste?<CR>
