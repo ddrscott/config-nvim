@@ -438,6 +438,11 @@ nnoremap <silent> <Leader>fh :call fzf#vim#history({'options': g:fzf_preview_sou
 nnoremap <silent> <Leader>fm :Marks<CR>
 nnoremap <silent> <Leader>fb :Buffers<CR>
 nnoremap <silent> <Leader>ls :Buffers<CR>
+inoremap <silent> <expr> <c-d> fzf#complete({
+  \ 'source':  'cat /usr/share/dict/words',
+  \ 'options': "--height 10 --preview 'wn {} -over \| fold'",
+  \ 'down': '~30%'
+  \ })
 
 command! SinceDev call fzf#run({'source': 'git diff --name-only dev..', 'down': '33%', 'sink': 'edit', 'options': '-m'})
 nnoremap <silent> <Leader>fd :SinceDev<CR>
