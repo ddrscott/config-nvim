@@ -438,7 +438,7 @@ nnoremap <silent> <Leader>fh :call fzf#vim#history({'options': g:fzf_preview_sou
 nnoremap <silent> <Leader>fm :Marks<CR>
 nnoremap <silent> <Leader>fb :Buffers<CR>
 nnoremap <silent> <Leader>ls :Buffers<CR>
-inoremap <silent> <expr> <c-d> fzf#complete({
+inoremap <silent> <expr> <c-k> fzf#complete({
   \ 'source':  'cat /usr/share/dict/words',
   \ 'options': "--height 10 --preview 'wn {} -over \| fold'",
   \ 'down': '~30%'
