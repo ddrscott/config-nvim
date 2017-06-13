@@ -590,7 +590,7 @@ let g:multi_cursor_quit_key='<Esc>'
 
 " Wildmenu completion {{{
 set wildmenu
-set wildmode=longest,list:longest
+set wildmode=list:longest,full
 set wildignore=
 set wildignore+=.hg,.git,.svn,*.pyc,*.spl,*.o,*.out,*.DS_Store,*.class,*.manifest
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,*.bak,*.exe,target,tags,gem.tags
