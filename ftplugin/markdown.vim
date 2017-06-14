@@ -1,6 +1,6 @@
 setlocal spell
-setlocal nonumber
-setlocal norelativenumber
+" setlocal nonumber
+" setlocal norelativenumber
 setlocal formatoptions=t1
 
 setlocal nofoldenable
