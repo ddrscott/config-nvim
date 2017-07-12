@@ -42,8 +42,7 @@ set clipboard+=unnamedplus
 set hidden
 " }}}
 
-" Look and Feel {{{
-set background=dark
+
 " Make sure to set iTerm to xterm-256color
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
@@ -73,7 +72,7 @@ highlight VertSplit cterm=bold ctermfg=11 ctermbg=NONE
 set textwidth=80
 set linebreak     " break at whitespace
 set nolist        " list disables linebreak
-set nowrap
+" set nowrap
 set lazyredraw    " reduced screen flicker
 set breakindent
 set breakindentopt=sbr,shift:4
@@ -1082,3 +1081,13 @@ function! BlockPaste(...)
   endfor
 endfunction
 command! BlockPaste call BlockPaste('+')
+
+" Look and Feel {{{
+set background=dark
+set cursorline
+set cursorcolumn
+hi CursorColumn cterm=NONE ctermbg=Black guibg=darkred guifg=white
+hi CursorLine ctermbg=Black cterm=bold guifg=white guibg=yellow gui=bold
+hi! Normal ctermbg=NONE guibg=NONE
+
+colorscheme solarized

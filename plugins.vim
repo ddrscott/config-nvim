@@ -72,4 +72,8 @@ Plug 'https://github.com/ddrscott/vim-side-search'
 Plug 'https://github.com/ddrscott/vim-sendtext'
 Plug 'https://github.com/ddrscott/vim-window'
 Plug 'https://github.com/ddrscott/vim-textobj-anyblock'
+
+" congwen
+Plug 'Yggdroot/indentLine'
+Plug 'ElmCast/elm-vim'
 call plug#end()
