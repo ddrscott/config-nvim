@@ -99,26 +99,7 @@ set sidescrolloff=3
 "   k scan the files given with the 'dictionary' option
 "   ] tag completion
 set complete=.,w,b,],k
-set completeopt=menuone,preview,longest
-" }}}
-
-" Airline {{{
-" Disable: no more airline. try a simple status line instead.
-" let g:airline#extensions#tabline#left_alt_sep = '|'
-" " no more top bar. lets see if we can live without it.
-" let g:airline#extensions#tabline#enabled = 0
-" let g:airline#extensions#tabline#formatter = 'unique_tail'
-" let g:airline#extensions#quickfix#quickfix_text = 'Quickfix'
-" let g:airline#extensions#quickfix#location_text = 'Location'
-" let g:airline#extensions#branch#enabled = 0
-" " removes full path from status line. just show the file name
-" let g:airline_section_c = '%<%t%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
-" let g:airline_left_sep = ''
-" let g:airline_right_sep = ''
-" let g:airline_powerline_fonts = 0
-" let g:airline_theme='solarized'
-" let g:airline_section_x=''
-" let g:airline_section_y=''
+set completeopt=menuone,preview
 " }}}
 
 " Markdown Settings {{{
