@@ -49,6 +49,7 @@ Plug 'https://github.com/tpope/vim-haml'
 Plug 'https://github.com/tpope/vim-obsession'
 Plug 'https://github.com/tpope/vim-projectionist'
 Plug 'https://github.com/tpope/vim-rails'
+Plug 'https://github.com/tpope/vim-ragtag'
 Plug 'https://github.com/tpope/vim-repeat'
 Plug 'https://github.com/tpope/vim-scriptease.git'
 if has('nvim') == 0
