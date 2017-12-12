@@ -555,6 +555,8 @@ inoremap <C-a> <C-o>^
 inoremap <C-e> <End>
 nnoremap <a-bs> a<C-w>
 inoremap <a-bs> <C-w>
+" Ctrl-C to quit insert mode with AfterInsert callbacks
+inoremap <C-c> <ESC>
 " No need for normal mode mappings.
 " use <S-i> to insert begining
 " use <S-a> to append at end
