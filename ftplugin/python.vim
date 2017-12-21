@@ -9,3 +9,6 @@ set smarttab
 set fileformat=unix
 
 iab pry from ptpython.repl import embed; embed(globals(), locals())
+
+" Linting is done by NeoMake
+let g:pymode_lint = 0
