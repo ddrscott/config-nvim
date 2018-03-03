@@ -165,6 +165,11 @@ let g:fzf_action = {
       \ 'ctrl-v': 'vsplit' }
 " }}}
 
+" Rust {{{
+let g:racer_cmd = "racer"
+let g:racer_experimental_completer = 1
+"}}}
+
 " Autocmds Settings  {{{
 augroup basics_autocmd
   au!
