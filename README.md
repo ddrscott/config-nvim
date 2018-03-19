@@ -1,3 +1,5 @@
+![Alt text](screenshot.png?raw=true "NeoVim screenshot")
+
 # My Personal Nvim Config
 Some peeps like my setup. So here's how do it. I use a Mac. This probably won't
 help too much on other systems.
