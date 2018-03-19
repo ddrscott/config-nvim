@@ -1,7 +1,6 @@
 source ~/.config/nvim/plugins.vim
 
 runtime macros/matchit.vim
-call arpeggio#load()
 
 " Basics Settings {{{
 scriptencoding utf-8
@@ -358,6 +357,8 @@ nmap <A-h> b
 " Warning: swapping k with gk and j with gj
 nnoremap k gk
 nnoremap j gj
+vnoremap k gk
+vnoremap j gj
 nnoremap gk k
 nnoremap gj j
 
@@ -830,16 +831,6 @@ call submode#map('g-changes', 'n', '', ',', 'g,')
 map b  <Plug>(smartword-b)
 map e  <Plug>(smartword-e)
 map ge <Plug>(smartword-ge)
-" }}}
-
-" Arpeggio Mappings {{{
-" Try [jl] since those fingers are closer in length :/
-Arpeggio imap kj <Esc>
-Arpeggio cmap kj <Esc>
-Arpeggio vmap kj <Esc>
-Arpeggio imap jl <Esc>
-Arpeggio cmap jl <Esc>
-Arpeggio vmap jl <Esc>
 " }}}
 
 " Git Functions {{{
