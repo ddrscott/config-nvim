@@ -425,6 +425,7 @@ nnoremap <silent> <Leader><Leader> :call fzf#vim#files('.', {'options': g:fzf_pr
 nnoremap <silent> <Leader>ff :call fzf#vim#files('.', {'options': g:fzf_preview_source })<CR>
 nnoremap <silent> <Leader>fh :call fzf#vim#history({'options': g:fzf_preview_source . g:fzf_file_name_only })<CR>
 nnoremap <silent> <Leader>fm :Marks<CR>
+nnoremap <silent> <Leader>ft :Tags<CR>
 nnoremap <silent> <Leader>fb :Buffers<CR>
 nnoremap <silent> <Leader>ls :Buffers<CR>
 inoremap <silent> <expr> <c-k> fzf#complete({
