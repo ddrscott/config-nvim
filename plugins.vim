@@ -76,4 +76,7 @@ Plug 'https://github.com/ddrscott/vim-textobj-anyblock'
 " congwen
 Plug 'Yggdroot/indentLine'
 Plug 'ElmCast/elm-vim'
+Plug 'prettier/vim-prettier'
+
+
 call plug#end()
