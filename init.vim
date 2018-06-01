@@ -1090,7 +1090,7 @@ hi CursorColumn cterm=NONE ctermbg=Black guibg=darkred guifg=white
 hi CursorLine ctermbg=Black cterm=bold guifg=white guibg=yellow gui=bold
 hi! Normal ctermbg=NONE guibg=NONE
 
-colorscheme solarized
+" colorscheme solarized " only needed outside of mac
 
 " Congwen
 nmap <Leader>py <Plug>(Prettier)
