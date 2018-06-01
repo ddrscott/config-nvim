@@ -1084,6 +1084,8 @@ command! BlockPaste call BlockPaste('+')
 
 " Look and Feel {{{
 set background=dark
+
+" Congwen
 set cursorline
 set cursorcolumn
 hi CursorColumn cterm=NONE ctermbg=Black guibg=darkred guifg=white
@@ -1091,11 +1093,4 @@ hi CursorLine ctermbg=Black cterm=bold guifg=white guibg=yellow gui=bold
 hi! Normal ctermbg=NONE guibg=NONE
 
 " colorscheme solarized " only needed outside of mac
-
-" Congwen
-nmap <Leader>py <Plug>(Prettier)
-let g:prettier#config#single_quote = 'false'
-let g:prettier#config#bracket_spacing = 'true'
-let g:prettier#config#trailing_comma = 'none'
-:au BufWrite *.* :Prettier 
 
