@@ -276,6 +276,7 @@ nnoremap <Leader>// /\v<<C-r><C-w>><CR><C-o>
 nnoremap <Leader>/w /\v<><left>
 nnoremap <Leader>/s :%s/\v<<C-r><C-w>>//gce<left><left><left>
 vnoremap <expr> // 'y/\V'.escape(@",'\').'<CR><C-o>'
+vnoremap s :s/\v//g<left><left><left>
 " }}}
 
 " easier @@
