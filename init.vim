@@ -172,11 +172,6 @@ let g:racer_experimental_completer = 1
 " Autocmds Settings  {{{
 augroup basics_autocmd
   au!
-  " sets special tag files to include gem.tags and look at parent dirs
-  autocmd FileType ruby set tags=gem.tags,tags;/
-        \ | setlocal makeprg=rubocop\ --format\ emacs\ %
-        \ | setlocal formatprg=rubocop\ -a\ --stdin\ %\ \|sed\ '1,/====================/d'
-
   autocmd FileType javascript,javascript.jxs set tags=.tags.jsx,tags
         \ | command! -buffer Reformat call SaveViewExecute('!eslint --fix %')
         " This doesn't work :( \ | setlocal formatprg=eslint\ --stdin\ --fix
