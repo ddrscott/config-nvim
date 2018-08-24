@@ -278,6 +278,9 @@ nnoremap <Leader>/s :%s/\v<<C-r><C-w>>//gce<left><left><left>
 vnoremap <expr> // 'y/\V'.escape(@",'\').'<CR><C-o>'
 " }}}
 
+" easier @@
+nnoremap \ @@
+
 " cut/copy/paste helpers {{{
 vnoremap <Leader>x d
 vnoremap <Leader>c ygv
