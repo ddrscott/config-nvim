@@ -1,7 +1,9 @@
 setlocal spell
 " setlocal nonumber
 " setlocal norelativenumber
-setlocal formatoptions=t1
+setlocal wrap
+setlocal tw=0
+setlocal colorcolumn=0
 
 setlocal nofoldenable
 let g:vim_markdown_frontmatter=1
