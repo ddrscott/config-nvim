@@ -1,5 +1,9 @@
 " Plugin manager provided by: https://github.com/junegunn/vim-plug
 call plug#begin('~/.config/nvim/plugged')
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 Plug 'https://github.com/rking/ag.vim'
 Plug 'https://github.com/chriskempson/base16-vim.git'
 Plug 'https://github.com/AndrewRadev/sideways.vim'
@@ -10,6 +14,7 @@ Plug 'https://github.com/airblade/vim-gitgutter.git'
 Plug 'https://github.com/altercation/vim-colors-solarized'
 Plug 'https://github.com/neomake/neomake'
 Plug 'https://github.com/ecomba/vim-ruby-refactoring'
+Plug 'https://github.com/vim-scripts/dbext.vim'
 Plug 'https://github.com/gcavallanti/vim-noscrollbar'
 Plug 'https://github.com/godlygeek/tabular'
 Plug 'https://github.com/haya14busa/incsearch.vim'

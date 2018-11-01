@@ -101,6 +101,13 @@ set complete=.,w,b,],k
 set completeopt=menuone,preview
 " }}}
 
+" Language Server Client {{{
+" https://github.com/autozimu/LanguageClient-neovim/blob/next/INSTALL.md
+" let g:LanguageClient_serverCommands = {
+"     \ 'ruby': ['solargraph', 'socket'],
+"     \ }
+" }}}
+
 " Markdown Settings {{{
 let g:vim_markdown_fenced_languages=['c++=cpp', 'viml=vim', 'bash=sh', 'ini=dosini', 'rb=ruby']
 " }}}
@@ -167,6 +174,7 @@ let g:fzf_action = {
 " Rust {{{
 let g:racer_cmd = "racer"
 let g:racer_experimental_completer = 1
+let g:autofmt_autosave = 1
 "}}}
 
 " Autocmds Settings  {{{
@@ -180,7 +188,7 @@ augroup basics_autocmd
     autocmd FileType sql setlocal formatprg=sqlformat\ -k\ upper\ -i\ lower\ --reindent_aligned\ -
   endif
   
-  autocmd FileType markdown,vim setlocal textwidth=80
+  autocmd FileType vim setlocal textwidth=80
   autocmd FileType java,go,hs set autoindent smartindent tabstop=4 shiftwidth=4  noexpandtab
 
   autocmd FileType markdown set makeprg=diction\ % errorformat=%f:%l:\ %m
@@ -827,10 +835,12 @@ call submode#map('g-changes', 'n', '', ',', 'g,')
 
 " Smart Word Mappings {{{
 " Warning: This overrides w/b/e/ge defaults
+" Update: No need for this anymore. Seems like 'B' and 'E' do what it intuitive
+"         for me already.
 " map w  <Plug>(smartword-w)
-map b  <Plug>(smartword-b)
-map e  <Plug>(smartword-e)
-map ge <Plug>(smartword-ge)
+" map b  <Plug>(smartword-b)
+" map e  <Plug>(smartword-e)
+" map ge <Plug>(smartword-ge)
 " }}}
 
 " Git Functions {{{
@@ -1093,6 +1103,42 @@ function! PsqlExecuteAndOpen(type, ...) abort
     let @z=z
   endtry
 endfunction
+
+if has('ruby')
+  function! PsqlExecuteAndOpenRuby(type, ...) abort
+    let sel_save = &selection
+    let &selection = "inclusive"
+    let z=@z
+    try
+      if a:0  " Invoked from Visual mode, use gv command.
+        silent exe "normal! gv\"zy"
+      elseif a:type == 'line'
+        silent exe "normal! '[V']\"zy"
+      else
+        silent exe "normal! `[v`]\"zy"
+      endif
+      ruby << RUBY
+        require 'open3'
+        started = Time.now.to_f
+        dst = "/tmp/#{Time.now.strftime('%Y-%m-%dT%H:%M:%S')}.csv"
+        sql = VIM::evaluate('@z').gsub(';', '')
+        sql_copy="COPY (#{sql}) TO STDOUT CSV HEADER"
+        VIM::message('running query...')
+        buffer = VIM::Buffer.current
+        first_line = buffer[1]
+        db_prg = first_line[/db_prg=(.*)$/, 1]
+        out, _status = Open3.capture2(db_prg, stdin_data: sql_copy)
+        File.open(dst, 'w') {|f| f.write(out)}
+        duration = Time.now.to_f - started
+        puts "duration: #{duration}"
+RUBY
+    finally
+      let &selection = sel_save
+      let @z=z
+    endtry
+  endfunction
+endif
+
 
 " Send text object to PSQL 
 nnoremap <silent> <Leader>ep :set opfunc=PsqlExecuteAndOpen<CR>g@
