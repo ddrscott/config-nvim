@@ -27,7 +27,11 @@ set noignorecase
 set smartcase
 set nocursorcolumn
 set cursorline
-set mouse=a
+
+" Mouse in all but command mode.
+set mouse=nvirh
+" Use right click as a menu, not extending selection.
+set mousemodel=popup_setpos
 
 " No tmp or swp files
 set nobackup
