@@ -113,15 +113,18 @@ let g:vim_markdown_fenced_languages=['c++=cpp', 'viml=vim', 'bash=sh', 'ini=dosi
 " }}}
 
 " NeoVim {{{
-if has('nvim')
-  let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+if exists(':term')
+  set shell=zsh
+  " let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
   tnoremap <Esc><Esc> <C-\><C-n>
   " tnoremap gf :pedit <cfile><cr>
   augroup neovim_stuff
     au!
     autocmd BufWinEnter,WinEnter term://*
-          \ setlocal nonumber norelativenumber
-    " autocmd WinEnter term://* startinsert
+          \ setlocal nonumber norelativenumber signcolumn=no
+
+    autocmd TermOpen * startinsert |
+          \ setlocal nonumber norelativenumber signcolumn=no
   augroup END
 
   function! TermGf()
@@ -132,6 +135,11 @@ if has('nvim')
     endif
   endfunction
   nnoremap gf :call TermGf()<CR>
+
+  command! -complete=file -nargs=+ Vterm vnew | setlocal winfixwidth winfixheight | terminal <args>
+  command! -complete=file -nargs=+ Sterm new | setlocal winfixwidth winfixheight | terminal <args>
+  nnoremap <Leader>tv :vnew <BAR>setlocal winfixwidth winfixheight <BAR> terminal<SPACE>
+  nnoremap <Leader>ts :new <BAR>setlocal winfixwidth winfixheight <BAR> terminal<SPACE>
 endif
 if exists('+inccommand')
   set inccommand=nosplit
@@ -946,13 +954,6 @@ command! SplitDot
       \ keepjumps normal! ``=']']
 
 nnoremap <Leader>sd :SplitDot<CR>
-" }}}
-
-" terminal in new split {{{
-command! -complete=file -nargs=+ Vterm vnew | setlocal winfixwidth winfixheight | terminal <args>
-command! -complete=file -nargs=+ Sterm new | setlocal winfixwidth winfixheight | terminal <args>
-nnoremap <Leader>tv :vnew <BAR>setlocal winfixwidth winfixheight <BAR> terminal<SPACE>
-nnoremap <Leader>ts :new <BAR>setlocal winfixwidth winfixheight <BAR> terminal<SPACE>
 " }}}
 
 " Side Search {{{
