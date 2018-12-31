@@ -110,7 +110,7 @@ function! statusline#build(state) abort
   let line = line . '%='
   let line = line . '%{&buftype == "" && &previewwindow == 0 ? statusline#buffers_prev(2) : ""} '
   if a:state == 'active'
-    let line = line . '%2*%{"[ ".statusline#buf_display_name("%")." ]"}%*'
+    let line = line . ' %2*%{" ".statusline#buf_display_name("%")." "}%* '
   else
     let line = line .    '%{"[ ".statusline#buf_display_name("%")." ]"}'
   endif
