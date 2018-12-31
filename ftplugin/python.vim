@@ -10,8 +10,9 @@ set fileformat=unix
 
 iab pry from ptpython.repl import embed; embed(globals(), locals())
 
-" Linting is done by NeoMake
-let g:neomake_python_enabled_makers = ['flake8']
-let g:pymode_lint = 0
-
-autocmd FileType python setlocal omnifunc=RopeCompleteFunc
+" Setup for ALE
+"nnoremap <buffer> <C-]> :exec "norm! m'" <bar> ALEGoToDefinition<cr>
+nnoremap <buffer> <C-]> :ALEGoToDefinition<cr>
+nnoremap <buffer> <Leader>r :ALEFindReferences<cr>
+let b:ale_fixers = ['black']
+let b:ale_linters = ['pyls']

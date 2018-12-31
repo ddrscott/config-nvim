@@ -1,9 +1,3 @@
-" Plugin manager provided by: https://github.com/junegunn/vim-plug
-call plug#begin('~/.config/nvim/plugged')
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
 Plug 'https://github.com/rking/ag.vim'
 Plug 'https://github.com/chriskempson/base16-vim.git'
 Plug 'https://github.com/AndrewRadev/sideways.vim'
@@ -39,7 +33,6 @@ Plug 'https://github.com/mxw/vim-jsx'
 Plug 'https://github.com/nelstrom/vim-textobj-rubyblock.git'
 Plug 'https://github.com/pangloss/vim-javascript'
 Plug 'https://github.com/plasticboy/vim-markdown'
-Plug 'https://github.com/python-mode/python-mode'
 Plug 'https://github.com/Quramy/vim-js-pretty-template'
 Plug 'https://github.com/rhysd/vim-crystal'
 Plug 'https://github.com/rust-lang/rust.vim.git'
@@ -65,6 +58,8 @@ Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/tpope/vim-unimpaired.git'
 Plug 'https://github.com/tpope/vim-vinegar'
 Plug 'https://github.com/tommcdo/vim-exchange'
+let g:ale_completion_enabled = 1
+Plug 'https://github.com/w0rp/ale'
 " Plug 'https://github.com/vim-airline/vim-airline'
 " Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/vim-ruby/vim-ruby'
@@ -80,4 +75,3 @@ Plug 'https://github.com/ddrscott/vim-side-search'
 Plug 'https://github.com/ddrscott/vim-sendtext'
 Plug 'https://github.com/ddrscott/vim-window'
 Plug 'https://github.com/ddrscott/vim-textobj-anyblock'
-call plug#end()

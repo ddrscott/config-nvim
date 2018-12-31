@@ -1,4 +1,7 @@
+" Plugin manager provided by: https://github.com/junegunn/vim-plug
+call plug#begin('~/.config/nvim/plugged')
 source ~/.config/nvim/plugins.vim
+call plug#end()
 
 runtime macros/matchit.vim
 
@@ -296,6 +299,10 @@ vnoremap s :s/\v//g<left><left><left>
 
 " easier @@
 nnoremap \ @@
+
+" Some terminals double hit C-o when only a single is typed.
+" So I need to bind C-o to another key.
+nnoremap <C-\> <C-o>
 
 " cut/copy/paste helpers {{{
 vnoremap <Leader>x d
