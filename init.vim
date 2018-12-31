@@ -195,10 +195,6 @@ let g:autofmt_autosave = 1
 " Autocmds Settings  {{{
 augroup basics_autocmd
   au!
-  autocmd FileType javascript,javascript.jxs set tags=.tags.jsx,tags
-        \ | command! -buffer Reformat call SaveViewExecute('!eslint --fix %')
-        " This doesn't work :( \ | setlocal formatprg=eslint\ --stdin\ --fix
-
   if executable('sqlformat') == 1
     autocmd FileType sql setlocal formatprg=sqlformat\ -k\ upper\ -i\ lower\ --reindent_aligned\ -
   endif
@@ -210,9 +206,6 @@ augroup basics_autocmd
 
   " set term title to current file
   autocmd BufEnter * let &titlestring=expand("%:t") | set title
-
-  " Use Neomake for syntax checking
-  autocmd BufWritePost * Neomake
 
   autocmd VimResized * let &previewheight=(winheight(0) * 1/3)
   autocmd BufEnter init.vim setlocal foldmethod=marker
@@ -748,18 +741,6 @@ nnoremap <Leader>gb :Gblame<cr>
 "nnoremap <Leader>gl :Shell git gl -18<cr>:wincmd \|<cr>
 " }}}
 
-" Neomake Stuff {{{
-augroup neomake_stuff
-  au!
-  " It must be required or filetype gets set to javascript.jxs
-  " which breaks how neomake detects the linter.
-  let g:jsx_ext_required = 1
-  let g:neomake_javascript_enabled_makers = ['eslint']
-  let g:neomake_jsx_enabled_makers = ['eslint']
-  " let g:neomake_open_list = 2
-  sign define neomake_err text=!
-  sign define neomake_warn text=W
-augroup END
 
 " Git Gutter {{{
 augroup gitgutter_stuff
