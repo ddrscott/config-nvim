@@ -2,8 +2,9 @@ setlocal spell
 " setlocal nonumber
 " setlocal norelativenumber
 setlocal wrap
-setlocal tw=0
-setlocal colorcolumn=0
+setlocal tw=100
+setlocal colorcolumn=+5
+" hi ColorColumn ctermbg=lightgrey guibg=lightgrey
 
 setlocal nofoldenable
 let g:vim_markdown_frontmatter=1
