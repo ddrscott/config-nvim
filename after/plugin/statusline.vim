@@ -111,6 +111,9 @@ function! statusline#build(state) abort
   let line = line . '%{&buftype == "" && &previewwindow == 0 ? statusline#buffers_prev(2) : ""} '
   if a:state == 'active'
     let line = line . ' %2*%{" ".statusline#buf_display_name("%")." "}%* '
+    if &buftype ==# "terminal"
+      return ''
+    endif
   else
     let line = line .    '%{"[ ".statusline#buf_display_name("%")." ]"}'
   endif
@@ -124,7 +127,7 @@ function! statusline#build(state) abort
   return line
 endfunction
 
-set statusline=%!statusline#build('inactive')
+setlocal statusline=%!statusline#build('inactive')
 
 augroup ShowStats
   au!
@@ -135,5 +138,4 @@ augroup ShowStats
   " Set inactive statusline when leaving stuff
   autocmd BufLeave,WinLeave * setlocal statusline=%!statusline#build('inactive')
 augroup END
-
 " }}}
