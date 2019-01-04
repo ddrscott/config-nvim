@@ -1141,3 +1141,8 @@ vnoremap <silent> <Leader>ep :<C-u>call PsqlExecuteAndOpen(visualmode(), 1)<CR>
 
 nmap <silent> <Leader>ee <Leader>epi;
 "}}}
+
+" ALE Plugin Settings {{{
+let g:ale_sign_error = 'E'
+let g:ale_sign_warning = 'w'
+" }}}
