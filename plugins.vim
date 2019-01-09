@@ -58,8 +58,8 @@ Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/tpope/vim-unimpaired.git'
 Plug 'https://github.com/tpope/vim-vinegar'
 Plug 'https://github.com/tommcdo/vim-exchange'
-let g:ale_completion_enabled = 1
 Plug 'https://github.com/w0rp/ale'
+
 " Plug 'https://github.com/vim-airline/vim-airline'
 " Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/vim-ruby/vim-ruby'
