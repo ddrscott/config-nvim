@@ -31,6 +31,7 @@ Plug 'https://github.com/majutsushi/tagbar.git'
 Plug 'https://github.com/mxw/vim-jsx'
 Plug 'https://github.com/nelstrom/vim-textobj-rubyblock.git'
 Plug 'https://github.com/pangloss/vim-javascript'
+Plug 'https://github.com/styled-components/vim-styled-components.git', { 'branch': 'main' }
 Plug 'https://github.com/plasticboy/vim-markdown'
 Plug 'https://github.com/Quramy/vim-js-pretty-template'
 Plug 'https://github.com/rhysd/vim-crystal'
