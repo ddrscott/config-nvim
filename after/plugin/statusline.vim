@@ -122,7 +122,10 @@ function! statusline#build(state) abort
   let line = line . ' %L:%3c'
   let line = line . '%1*%{TrailingSpaceWarning()}%* '
   if a:state == 'active'
-    let line = line . "%{noscrollbar#statusline(20,'=','█',['▐'],['▌'])}"
+    " Only add scrollbar if plugin is loaded
+    if exists('g:noscrollbar_loaded')
+      let line = line . "%{noscrollbar#statusline(20,'=','█',['▐'],['▌'])}"
+    endif
   endif
   return line
 endfunction

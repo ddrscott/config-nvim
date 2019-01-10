@@ -8,7 +8,8 @@ set smartindent
 set smarttab
 set fileformat=unix
 
-iab pry from ptpython.repl import embed; embed(globals(), locals())
+" `pry` will expand to Python's version of it.
+iab <buffer> pry from ptpython.repl import embed; embed(globals(), locals())
 
 " Setup for ALE
 "nnoremap <buffer> <C-]> :exec "norm! m'" <bar> ALEGoToDefinition<cr>

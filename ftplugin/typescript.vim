@@ -1,3 +1,5 @@
-autocmd FileType typescript JsPreTmpl markdown
-autocmd FileType typescript syn clear foldBraces
+if exists('JsPreTmpl') > 0
+  JsPreTmpl
+  syn clear foldBraces
+endif
 

@@ -54,7 +54,6 @@ set background=dark
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
-  colorscheme base16-default-dark
 endif
 
 " set fillchars=diff:⣿,vert:\│
@@ -108,112 +107,21 @@ set complete=.,w,b,],k
 set completeopt=menuone,preview
 " }}}
 
-" Language Server Client {{{
-" https://github.com/autozimu/LanguageClient-neovim/blob/next/INSTALL.md
-" let g:LanguageClient_serverCommands = {
-"     \ 'ruby': ['solargraph', 'socket'],
-"     \ }
-" }}}
-
 " Markdown Settings {{{
-let g:vim_markdown_fenced_languages=['c++=cpp', 'viml=vim', 'bash=sh', 'ini=dosini', 'rb=ruby']
 " }}}
 
-" NeoVim {{{
-if exists(':term')
-  set shell=zsh
-  " let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-  tnoremap <Esc><Esc> <C-\><C-n>
-  " tnoremap gf :pedit <cfile><cr>
-  augroup neovim_stuff
-    au!
-    autocmd BufWinEnter,WinEnter term://*
-          \ setlocal nonumber norelativenumber signcolumn=no
-
-    autocmd TermOpen * startinsert |
-          \ setlocal nonumber norelativenumber signcolumn=no
-  augroup END
-
-  function! TermGf()
-    if &buftype ==# "terminal"
-      :vertical pedit <cfile>
-    else
-      normal! gf
-    endif
-  endfunction
-  nnoremap gf :call TermGf()<CR>
-
-  command! -complete=file -nargs=+ Vterm vnew | setlocal winfixwidth winfixheight | terminal <args>
-  command! -complete=file -nargs=+ Sterm new | setlocal winfixwidth winfixheight | terminal <args>
-  nnoremap <Leader>tv :vnew <BAR>setlocal winfixwidth winfixheight <BAR> terminal<SPACE>
-  nnoremap <Leader>ts :new <BAR>setlocal winfixwidth winfixheight <BAR> terminal<SPACE>
-endif
 if exists('+inccommand')
   set inccommand=nosplit
 endif
 " }}}
 
-" Deoplete - disabled {{{
-" This might slow down individual keystrokes.
-" Comment out the block if the benefits aren't worth the cost.
-" @see https://github.com/Shougo/deoplete.nvim
-" :help deoplete
-if exists('g:loaded_deoplete')
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#enable_camel_case = 1
-  let g:deoplete#auto_complete_delay = 100
-  let g:deoplete#complete_method = 'omnifunc'
-  let g:deoplete#omni#functions = {}
-  let g:deoplete#omni#functions.javascript = [
-    \ 'tern#Complete',
-    \ 'jspc#omni'
-    \]
-  nnoremap <Leader>dt :call deoplete#toggle()<CR>
-endif
-" }}}
-
-" YouCompleteMe {{{
-let g:ycm_auto_trigger = 0
-" let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
-" let g:ycm_key_invoke_completion = '<C-Space>'
-" }}}
-
-" Fuzzy Finder {{{
-set runtimepath+=~/.fzf
-let g:fzf_action = {
-      \ 'ctrl-t': 'tab split',
-      \ 'ctrl-s': 'split',
-      \ 'ctrl-v': 'vsplit' }
-" }}}
-
-" Rust {{{
-let g:racer_cmd = "racer"
-let g:racer_experimental_completer = 1
-let g:autofmt_autosave = 1
-"}}}
-
 " Autocmds Settings  {{{
+" File specific commands should go into ftplugins.
 augroup basics_autocmd
   au!
-  if executable('sqlformat') == 1
-    autocmd FileType sql setlocal formatprg=sqlformat\ -k\ upper\ -i\ lower\ --reindent_aligned\ -
-  endif
-  
-  autocmd FileType vim setlocal textwidth=80
-  autocmd FileType java,go,hs set autoindent smartindent tabstop=4 shiftwidth=4  noexpandtab
-
-  autocmd FileType markdown set makeprg=diction\ % errorformat=%f:%l:\ %m
-
   " set term title to current file
   autocmd BufEnter * let &titlestring=expand("%:t") | set title
-
   autocmd VimResized * let &previewheight=(winheight(0) * 1/3)
-  autocmd BufEnter init.vim setlocal foldmethod=marker
-
-  autocmd FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
-
-  " Open help always to the right.
-  autocmd FileType help wincmd L
 augroup END
 " }}}
 
@@ -436,27 +344,6 @@ command! QfBranch cgetexpr system("git diff --name-only  `git log --graph --onel
 " \ . " sed -E 's~ ([^ \|]+)([ \|])+(.+)~\\1:0:0 Cats~'"
 " \) | copen
 
-" Fuzzy Finder FZF helpers {{{
-" Super charged File finder
-let g:fzf_file_name_only=" -d '/' --nth=-1"
-let g:fzf_preview_source=" --preview 'pygmentize -g {} 2>/dev/null \|\| head -200 {}'"
-nnoremap <silent> <Leader><Leader> :call fzf#vim#files('.', {'options': g:fzf_preview_source . g:fzf_file_name_only })<CR>
-nnoremap <silent> <Leader>ff :call fzf#vim#files('.', {'options': g:fzf_preview_source })<CR>
-nnoremap <silent> <Leader>fh :call fzf#vim#history({'options': g:fzf_preview_source . g:fzf_file_name_only })<CR>
-nnoremap <silent> <Leader>fm :Marks<CR>
-nnoremap <silent> <Leader>ft :Tags<CR>
-nnoremap <silent> <Leader>fb :Buffers<CR>
-nnoremap <silent> <Leader>ls :Buffers<CR>
-inoremap <silent> <expr> <c-k> fzf#complete({
-  \ 'source':  'cat /usr/share/dict/words',
-  \ 'options': "--height 10 --preview 'wn {} -over \| fold'",
-  \ 'down': '~30%'
-  \ })
-
-command! SinceDev call fzf#run({'source': 'git diff --name-only dev..', 'down': '33%', 'sink': 'edit', 'options': '-m'})
-nnoremap <silent> <Leader>fd :SinceDev<CR>
-" }}
-
 nnoremap <silent> <Leader>bb :b#<CR>
 
 " [b]uffer [o]nly - close all except my buffer
@@ -511,50 +398,7 @@ command! Notes Files ~/notes
 " Hit [v]im[r]c at the same time to open vimrc.
 nnoremap <silent> <Leader>vr :edit $MYVIMRC<CR>
 nnoremap <silent> <Leader>ve :edit $MYVIMRC<CR>
-nnoremap <silent> <Leader>vs :source $MYVIMRC<CR>:echo $MYVIMRC . ' sourced'<CR>
-
-" TODO why doesn't this work?
-augroup SourceVimrc
-  au!
-  autocmd BufWritePost $MYVIMRC source <afile> | echo v:statusmsg . ' and sourced'
-augroup END
-" }}}
-
-" Gsub {{{
-function! Gsub(a, b, re)
-  try
-    let z=@/
-    exe "'" . a:a . ",'" . a:b . a:re
-  finally
-    let @/=z
-  endtry
-endfunction
-" }}}
-
-" SymbolizeHash {{{
-func! SymbolizeHash(a, b)
-  call Gsub(a:a, a:b, 's/\v(''|")([^\1]+)\1\s*\=\>\s*/\2: /ge')
-endf
-
-func! SymbolizeHashOperation(type)
-  call SymbolizeHash('[', ']')
-endf
-
-nnoremap <Leader>zh <Esc>:set opfunc=SymbolizeHashOperation<CR>g@
-vnoremap <Leader>zh <Esc>:call SymbolizeHash('<','>')<CR>
-" }}}
-
-" DoubleToSingleQuote {{{
-func! DoubleToSingleQuote(a, b)
-  call Gsub(a:a, a:b, 's/\v"([^"#]+)"/''\1''/ge')
-endf
-
-func! DoubleToSingleQuoteOperation(type)
-  call DoubleToSingleQuote('[', ']')
-endf
-
-nnoremap <Leader>zq <Esc>:set opfunc=DoubleToSingleQuoteOperation<CR>g@
-vnoremap <Leader>zq <Esc>:call DoubleToSingleQuote('<','>')<CR>
+nnoremap <silent> <Leader>vs :w <bar> source $MYVIMRC<CR>
 " }}}
 
 " Emacs Editing {{{
@@ -571,36 +415,6 @@ inoremap <C-c> <ESC>
 " use <S-a> to append at end
 " }}}
 
-" BlackHole {{{
-" Performs a "_d against them motion or visual selection.
-func! BlackHoleDeleteOperator(type, ...)
-  if a:type ==# 'char'
-    execute 'normal! `[v`]"_d'
-  elseif a:type ==# 'line'
-    execute 'normal! `[V`]"_d'
-  else
-    execute 'normal! `<' . a:type . '`>"_d'
-  endif
-endf
-" Too intrusive to accidental BS use. Keep the visual mapping cause it's neat.
-" nnoremap <silent> <BS> :set opfunc=BlackHoleDeleteOperator<CR>g@
-vnoremap <silent> <BS> :<C-u>call BlackHoleDeleteOperator(visualmode(), 1)<CR>
-" }}}
-
-
-" Multicursor {{{
-" Warning: Slightly more intuitive mappings. Plus I already use the defaults
-"          <C-n/p> for buffer switching.
-let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_start_key='<Leader>m'
-let g:multi_cursor_next_key='m'
-let g:multi_cursor_prev_key='<S-m>'
-let g:multi_cursor_skip_key='<C-m>'
-let g:multi_cursor_quit_key='<Esc>'
-let g:multi_cursor_exit_from_visual_mode=0
-let g:multi_cursor_exit_from_insert_mode=0
-" }}}
-
 " Wildmenu completion {{{
 set wildmenu
 set wildmode=list:longest,full
@@ -612,163 +426,6 @@ set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.zip,*.xc*,*.pbxproj,*.xcodeproj/**,*.
 set wildignore+=*.js.map,ui/public/client/*,cassettes/**,node_modules/**
 " }}}
 
-" The Silver Searcher {{{
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --vimgrep\ --word-regexp
-        \\ --ignore='*.js.map'
-        \\ --ignore='*.csv'
-        \\ --ignore='ui/public/client'
-        \\ --ignore='cassettes/'
-endif
-" }}}
-
-" Abbreviations {{{
-iab deb debugger; // eslint-disable-line
-" }}}
-
-" Cursorline {{{
-" Only show cursorline in the current window and in normal mode.
-" Disabled: This makes Vim slow for some reason.
-" augroup cline
-"   au!
-"   au WinLeave,InsertEnter * set nocursorline
-"   au WinEnter,InsertLeave * set cursorline
-" augroup END
-" }}}
-
-" Line Return {{{
-" Make sure Vim returns to the same line when you reopen a file.
-" Thanks, Amit
-augroup line_return
-  au!
-  au BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \     execute 'normal! g''"zvzz' |
-        \ endif
-augroup END
-" }}}
-
-" Expand Region {{{
-" Warning: takes over visual mode. Get use to it! Totally Sweet!
-"          Defaults to `viw` which is usually what I want anyway.
-vmap v <Plug>(expand_region_expand)
-vmap V <Plug>(expand_region_shrink)
-
-call expand_region#custom_text_objects('ruby', {
-      \ 'ir' :0,
-      \ 'ar' :1,
-      \ })
-" }}}
-
-" Inc Search {{{
-" Warning: beat up all the search defaults.
-let g:incsearch#auto_nohlsearch = 1
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-map n  <Plug>(incsearch-nohl-n)
-map N  <Plug>(incsearch-nohl-N)
-map *  <Plug>(incsearch-nohl-*)
-map #  <Plug>(incsearch-nohl-#)
-map g* <Plug>(incsearch-nohl-g*)
-map g# <Plug>(incsearch-nohl-g#)
-" }}}
-
-" Foldtext and Mappings {{{
-" Fold mappings
-nmap <Leader>zi :set foldmethod=indent<CR>
-nmap <Leader>zs :set foldmethod=syntax<CR>
-nmap <Leader>zk :set foldmethod=marker<CR>
-nmap <Leader>zm :set foldmethod=manual<CR>
-nmap <Leader>zf :execute 'set foldlevel='.(foldlevel(line('.')) - 1)<CR>zzzO
-" Map <Leader>z0-9 to set a foldlevel directly
-for i in [0,1,2,3,4,5,6,7,8,9]
-  execute 'nmap <Leader>z' . i . ' :set foldlevel=' . i . '<CR>'
-endfor
-
-" http://www.gregsexton.org/2011/03/improving-the-text-displayed-in-a-fold/
-function! CustomFoldText()
-  "get first non-blank line
-  let fs = v:foldstart
-  while getline(fs) =~ '^\s*$' | let fs = nextnonblank(fs + 1)
-  endwhile
-  if fs > v:foldend
-    let line = getline(v:foldstart)
-  else
-    let line = substitute(getline(fs), '\t', repeat(' ', &tabstop), 'g')
-  endif
-  let w = winwidth(0) - &foldcolumn - (&number || &relativenumber ? 4 : 0)
-  let foldSize = 1 + v:foldend - v:foldstart
-  let foldSizeStr = " " . foldSize . " lines "
-  " let foldLevelStr = repeat(">", v:foldlevel)
-  let foldLevelStr = "" . v:foldlevel
-  let lineCount = line("$")
-  let foldPercentage = printf("[%.1f", (foldSize*1.0)/lineCount*100) . "%] "
-  let expansionString = repeat(" ", w - strwidth(foldSizeStr.line.foldLevelStr.foldPercentage))
-  return line . expansionString . foldSizeStr . foldPercentage . foldLevelStr
-endfunction
-set foldtext=CustomFoldText()
-" defaults to off
-" set foldcolumn=0
-highlight Folded  cterm=underline ctermfg=10 ctermbg=0
-" }}}
-
-" Quickfix Stuff {{{
-augroup quickfix_stuff
-  au!
-  autocmd BufReadPost quickfix  setlocal norelativenumber number
-augroup END
-" }}}
-
-" Fugitive Stuff {{{
-augroup fugitive_stuff
-  au!
-  autocmd BufEnter fugitive://* setlocal foldenable
-augroup END
-" }}}
-
-" Git Mappings {{{
-nnoremap <Leader>gd :Gvdiff<cr>
-nnoremap <Leader>gs :Gstatus<cr>
-nnoremap <Leader>ga :Gadd<cr>
-nnoremap <Leader>gb :Gblame<cr>
-"nnoremap <Leader>gco :Gcheckout<cr>
-"nnoremap <Leader>gci :Gcommit<cr>
-"nnoremap <Leader>gm :Gmove<cr>
-"nnoremap <Leader>gw :Gwrite<cr>
-"nnoremap <Leader>gr :Gremove<cr>
-"nnoremap <Leader>gl :Shell git gl -18<cr>:wincmd \|<cr>
-" }}}
-
-
-" Git Gutter {{{
-augroup gitgutter_stuff
-  au!
-  nmap [h <Plug>GitGutterPrevHunk
-  nmap ]h <Plug>GitGutterNextHunk
-  nmap <Leader>hs <Plug>GitGutterStageHunk
-  nmap <Leader>hr <Plug>GitGutterRevertHunk
-  nmap <Leader>hp <Plug>GitGutterPreviewHunk
-  nmap <Leader>hcc <Plug>GitGutterStageHunk:Gcommit<cr>
-  nmap <Leader>hca <Plug>GitGutterStageHunk:Gcommit --amend<cr>
-augroup END
-" }}}
-
-" ctag helpers {{{
-command! Ctag !ctags --verbose --languages=ruby --recurse -f tags .
-command! CtagBundle !ctags --verbose --languages=ruby --recurse -f gem.tags $(bundle list --paths | grep -v $(pwd))
-command! Rtag !ripper-tags -R -f tags .
-command! RtagBundle !ripper-tags -R -f gem.tags $(bundle list --paths | grep -v $(pwd))
-" }}}
-
-" Submode Plugins {{{
-" Exit submodes after a 2 seconds. Think fast!
-let g:submode_always_show_submode=1
-let g:submode_timeout=1
-let g:submode_timeoutlen=2000
-" }}}
-
 " Fieldtrip and Sideways {{{
 " Note: Sideways allows for switching of arguments.
 "       Fieldtrip provides a submode for doing so.
@@ -778,122 +435,10 @@ let g:submode_timeoutlen=2000
 let g:fieldtrip_start_map='ga'
 " }}}
 
-" Window Submode {{{
-call submode#enter_with('window', 'n', '', '<Leader>w')
-call submode#leave_with('window', 'n', '', '<Esc>')
-for key in ['a','b','c','d','e','f',
-      \ 'g','h','i','j','k','l',
-      \ 'm','n','o','p','r','s',
-      \ 't','u','v','w','x','y','z']
-  call submode#map('window', 'n', '', key, '<C-w>' . key)
-  call submode#map('window', 'n', '', toupper(key), '<C-w>' . toupper(key))
-  call submode#map('window', 'n', '', '<C-' . key . '>', '<C-w>' . '<C-'.key . '>')
-endfor
-call submode#map('window', 'n', '', 'q', '<C-w>c')
-call submode#map('window', 'n', '', '<C-q>', '<C-w>c')
-call submode#map('window', 'n', '', 'v', ':vnew<CR>')
-call submode#map('window', 'n', '', '<C-v>', ':vnew<CR>')
-call submode#map('window', 'n', '', '\', ':vertical resize 80<CR>')
-call submode#map('window', 'n', '', '+', '3<C-w>+')
-call submode#map('window', 'n', '', '-', '3<C-w>-')
-call submode#map('window', 'n', '', '<', '10<C-w><')
-call submode#map('window', 'n', '', '>', '10<C-w>>')
-call submode#map('window', 'n', '', '=', '<C-w>=')
-" }}}
-
-" 'z' submode {{{
-call submode#enter_with('Z', 'n', '', '<Leader>zz', 'zz')
-call submode#leave_with('Z', 'n', '', '<Esc>')
-call submode#map('Z', 'n', '', 't', 'zt')
-call submode#map('Z', 'n', '', 'b', 'zb')
-call submode#map('Z', 'n', '', 'l', 'zl')
-call submode#map('Z', 'n', '', 'h', 'zh')
-call submode#map('Z', 'n', '', 'L', 'zL')
-call submode#map('Z', 'n', '', 'H', 'zH')
-call submode#map('Z', 'n', '', 'j', 'zjzz')
-call submode#map('Z', 'n', '', 'k', 'zkzz')
-call submode#map('Z', 'n', '', 'z', 'zz')
-
-" folding
-call submode#map('Z', 'n', '', 'a', 'za')
-call submode#map('Z', 'n', '', 'm', 'zm')
-call submode#map('Z', 'n', '', 'o', 'zo')
-call submode#map('Z', 'n', '', 'r', 'zr')
-call submode#map('Z', 'n', '', 'A', 'zA')
-call submode#map('Z', 'n', '', 'M', 'zM')
-call submode#map('Z', 'n', '', 'O', 'zO')
-call submode#map('Z', 'n', '', 'R', 'zR')
-" }}}
-
-" g-changes submode {{{
-call submode#enter_with('g-changes', 'n', '', 'g;', 'g;')
-call submode#enter_with('g-changes', 'n', '', 'g,', 'g,')
-call submode#leave_with('g-changes', 'n', '', '<Esc>')
-call submode#map('g-changes', 'n', '', ';', 'g;')
-call submode#map('g-changes', 'n', '', ',', 'g,')
-" }}}
-
-" Smart Word Mappings {{{
-" Warning: This overrides w/b/e/ge defaults
-" Update: No need for this anymore. Seems like 'B' and 'E' do what it intuitive
-"         for me already.
-" map w  <Plug>(smartword-w)
-" map b  <Plug>(smartword-b)
-" map e  <Plug>(smartword-e)
-" map ge <Plug>(smartword-ge)
-" }}}
-
-" Git Functions {{{
-function! GitBranchPoint()
-  return system('git log --graph --oneline -99 | grep -A 1 -E ''^\* [0-9a-f]{7}'' | cut -c 5-11 | tail -1')
-endfunction
-command! DiffBranchPoint execute(':Gvdiff ' . GitBranchPoint())
-" [d]iff [v]isually, same as fugitives mapping
-nnoremap <Leader>dv :DiffBranchPoint<CR>
-" }}}
-
-" Inspired by some ajh17's save view routine
-" Thanks: https://github.com/ajh17/dotfiles/blob/master/.vim/autoload/format.vim
-function! SaveViewNormal(cmd)
-  let winview = winsaveview()
-  execute 'keepjumps normal! ' . a:cmd
-  call winrestview(winview)
-endfunction
-
-function! SaveViewExecute(cmd)
-  let winview = winsaveview()
-  execute 'keepjumps ' . a:cmd
-  call winrestview(winview)
-endfunction
-
-" Indent all lines without changing jumps or cursor position.
-nnoremap <silent> g= :call SaveViewExecute('normal! gg=G')<CR>
-command! Reformat call SaveViewExecute('normal! gggqG')
-
 " Re-indent last change and move cursor to end of change
 nnoremap =. :normal! =````<CR>
 " }}}
 
-" Split Join {{{
-let g:splitjoin_split_mapping = ''
-let g:splitjoin_join_mapping = ''
-" [jo]in and [sp]lit
-nmap <Leader>jo :SplitjoinJoin<cr>
-nmap <Leader>sp :SplitjoinSplit<cr>
-" }}}
-
-" Better Behavior with PUM menu {{{
-function! WhenPum(pum_map, other)
-  if pumvisible()
-    return a:pum_map
-  endif
-  return a:other
-endfunction
-" Don't do these mappings until `expr` with pumvisible works on first boot.
-" inoremap <silent> <expr> <Enter> WhenPum("\<C-y>", "\<Enter>")
-" inoremap <silent> <expr> <C-j> WhenPum("\<C-n>", "\<C-j>")
-" inoremap <silent> <expr> <C-k> WhenPum("\<C-p>", "\<C-k>")
-"}}}
 
 " Sneak Plugin Settings {{{
 " Help: :help sneak-defaults
@@ -906,92 +451,9 @@ endfunction
 let g:sneak#s_next = 1
 " }}}
 
-" Side Toggle {{{
-" Toggles a window with `a:src` file
-" Example:  nnoremap <silent> <Leader>f0 :call <SID>side_toggle('~/notes/vim.md', 0.25)<CR><C-w>p
-"           <C-w>p focuses on previous window.
-" Params: a:src - the file to open
-"         a:width - the width of the split as a percentage of screen width
-function! s:side_toggle(src, width) abort
-  if exists('s:side_bufnr') && s:side_bufnr > -1 && bufname(s:side_bufnr) != ''
-    silent execute 'bwipeout ' . s:side_bufnr
-    let s:side_bufnr = -1
-    return
-  endif
-  let width = printf('%.f', &columns * a:width)
-  silent execute 'keepalt botright vertical ' . width . 'split ' . a:src
-  setlocal nobuflisted nolist nonumber norelativenumber noswapfile nowrap
-  setlocal bufhidden=hide foldcolumn=0 textwidth=0 winfixheight winfixwidth
-  let s:side_bufnr = bufnr('%')
-endfunction
-
-" [f]ile toggle 0 to view file, <Shift-0> to edit it
-" repeat the f, command to close the buffer
-nnoremap <silent> <Leader>f0 :call <SID>side_toggle('~/notes/vim.md', 0.25)<CR><C-w>p
-nnoremap <silent> <Leader>f) :call <SID>side_toggle('~/notes/vim.md', 0.25)<CR>
-nnoremap <silent> <Leader>fs :e ~/code/cen/scratch/spierce/scratch.rb<CR>
-nnoremap <silent> <Leader>fz :e ~/.zshrc<CR>
-" }}}
-
 " Startify {{{
 let g:startify_change_to_dir=0
 let g:startify_change_to_vcs_root=1
-" }}}
-
-" Split Dot {{{
-command! SplitDot
-      \ let _s=@/                               <bar>
-      \ s/\v\.\w+%(\([^)]+\)|\{[^}]+})*/\r\0/g  <bar>
-      \ let @/=_s                               <bar>
-      \ keepjumps normal! ``=']']
-
-nnoremap <Leader>sd :SplitDot<CR>
-" }}}
-
-" Side Search {{{
-let g:side_search_prg = 'ag --word-regexp'
-      \. " --ignore='*.js.map'"
-      \. " --ignore='*.csv'"
-			\. " --ignore='*tags'"
-      \. " --ignore='ui/public/client'"
-      \. " --ignore='cassettes/'"
-      \. " --ignore='components/help'"
-      \. " --heading --stats -C 2 --group"
-let g:side_search_splitter = 'vnew'
-let g:side_search_split_pct = 0.4
-
-" SideSearch current word and return to original window
-nnoremap <Leader>ss :SideSearch <C-r><C-w><CR> | wincmd p
-
-" SS shortcut and return to original window
-command! -complete=file -nargs=+ SS execute 'SideSearch <args>'
-" }}}
-
-" Window Mappings for improved layout commands {{{
-" Important: `:<C-U>` is required the function doesn't get called multiple times.
-nnoremap ]r :<C-u>call window#rotate(-1 * v:count1)<cr>
-nnoremap [r :<C-u>call window#rotate(1 * v:count1)<cr>
-
-nmap <C-w>r ]r
-nmap <C-w><C-r> ]r
-
-nnoremap <C-w>x :<C-u>call window#exchange(v:count)<cr>
-nnoremap <C-w><c-x> :<C-u>call window#exchange(v:count)<cr>
-
-nnoremap <C-w>o :call window#only()<cr>
-nnoremap <C-w><c-o> :call window#only()<cr>
-
-nnoremap <C-w>gl :<C-u>call window#join('rightbelow vsplit', v:count) <BAR>normal 100zh<CR>
-nnoremap <C-w>gh :<C-u>call window#join('leftabove vsplit', v:count)  <BAR>normal 100zh<CR>
-nnoremap <C-w>gj :<C-u>call window#join('belowright split', v:count)  <BAR>normal 100zh<CR>
-nnoremap <C-w>gk :<C-u>call window#join('aboveleft split', v:count)   <BAR>normal 100zh<CR>
-
-command! -nargs=* LayoutH call window#layout('ball', 'H', <args>)
-command! -nargs=* LayoutJ call window#layout('vertical ball', 'J', <args>) 
-command! -nargs=* LayoutK call window#layout('vertical ball', 'K', <args>) 
-command! -nargs=* LayoutL call window#layout('ball', 'L', <args>)
-
-command! -nargs=* WinH call window#layout('windo wincmd J', 'H', <args>)
 " }}}
 
 " Simple commands to open external tools {{{
@@ -1010,143 +472,9 @@ command! StashOpen
   \ let _cmd='open "https://stash.centro.net/projects/CEN/repos/centro-media-manager/browse/' . _file . '?at=refs/heads/' . _branch . '#' . line('.') . '"'<bar>
   \ echo _cmd . system(_cmd)
 
-" SendText Mappings {{{
-" Send current line
-nnoremap <silent> <Leader>i<CR> :SendTextCurrentLine<CR>
-
-" Send in/around text object
-nnoremap <silent> <Leader>i :set opfunc=sendtext#iTermSendOperator<CR>g@
-
-" Send visual selection
-vnoremap <silent> <Leader>i :<C-u>call sendtext#iTermSendOperator(visualmode(), 1)<CR>
-" }}}
-
 " Identify syntax group at current cursor position {{{
 " Thanks: http://vim.wikia.com/wiki/Identify_the_syntax_highlighting_group_used_at_the_cursor
 map <F9> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
       \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
       \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
-" }}}
-
-" Any character {{{
-" Thanks: https://github.com/rhysd/vim-textobj-anyblock/blob/master/plugin/textobj/anyblock.vim
-call textobj#user#plugin('anyblock', {
-    \ '-' : {
-    \      'select-a' : 'a.', '*select-a-function*' : 'textobj#anyblock#select_a',
-    \      'select-i' : 'i.', '*select-i-function*' : 'textobj#anyblock#select_i',
-    \   },
-    \ })
-" }}}
-
-" This is a work around for using clipboard+=unnamedplus and block paste
-" Thanks: https://github.com/neovim/neovim/issues/1822#issuecomment-70386284
-" I modified slighty to accept different registers
-function! BlockPaste(...)
-  " Default to '+' system register
-  let reg = '+'
-  if a:0 > 0
-    let l:reg = a:1
-  endif
-  let c = split(getreg(l:reg), '\n', 1)
-  let lenght =  len(c)
-  let start = line('.')
-  let end = start + lenght -1
-  let col = col('.') - 1
-  let op_lines = range(start, end)
-  let idx = 0
-  for line in op_lines
-    let line_orig = getline(line)
-    let head = line_orig[:col-1]
-    exe "let tail = line_orig[".col.":]"
-    if len(head) < col
-      let spaces = col - len(head)
-      let head = head.repeat(' ', spaces)
-    endif
-    let new_line = head . c[idx] . tail
-    call setline(line, new_line)
-    let idx += 1
-  endfor
-endfunction
-command! BlockPaste call BlockPaste('+')
-
-" Execute SQL and open resulting CSV file {{{
-let g:psql_prg='psql -X -A --pset footer'
-
-function! PsqlExecuteAndOpen(type, ...) abort
-  let sel_save = &selection
-  let &selection = "inclusive"
-  let z=@z
-  try
-    if a:0  " Invoked from Visual mode, use gv command.
-      silent exe "normal! gv\"zy"
-    elseif a:type == 'line'
-      silent exe "normal! '[V']\"zy"
-    else
-      silent exe "normal! `[v`]\"zy"
-    endif
-    let dst="/tmp/" . strftime("%Y-%m-%dT%H:%M:%S") . ".csv"
-    let sql = substitute(@z, ';', '', '')
-    let sql_copy="COPY (" . sql . ") TO STDOUT CSV HEADER"
-    echo "running query..."
-    call system(g:psql_prg . " > " . dst, sql_copy)
-    echo "opening: " . dst
-    call system("open " . dst)
-  finally
-    let &selection = sel_save
-    let @z=z
-  endtry
-endfunction
-
-if has('ruby')
-  function! PsqlExecuteAndOpenRuby(type, ...) abort
-    let sel_save = &selection
-    let &selection = "inclusive"
-    let z=@z
-    try
-      if a:0  " Invoked from Visual mode, use gv command.
-        silent exe "normal! gv\"zy"
-      elseif a:type == 'line'
-        silent exe "normal! '[V']\"zy"
-      else
-        silent exe "normal! `[v`]\"zy"
-      endif
-      ruby << RUBY
-        require 'open3'
-        started = Time.now.to_f
-        dst = "/tmp/#{Time.now.strftime('%Y-%m-%dT%H:%M:%S')}.csv"
-        sql = VIM::evaluate('@z').gsub(';', '')
-        sql_copy="COPY (#{sql}) TO STDOUT CSV HEADER"
-        VIM::message('running query...')
-        buffer = VIM::Buffer.current
-        first_line = buffer[1]
-        db_prg = first_line[/db_prg=(.*)$/, 1]
-        out, _status = Open3.capture2(db_prg, stdin_data: sql_copy)
-        File.open(dst, 'w') {|f| f.write(out)}
-        duration = Time.now.to_f - started
-        puts "duration: #{duration}"
-RUBY
-    finally
-      let &selection = sel_save
-      let @z=z
-    endtry
-  endfunction
-endif
-
-
-" Send text object to PSQL 
-nnoremap <silent> <Leader>ep :set opfunc=PsqlExecuteAndOpen<CR>g@
-
-" Send visual selection to PSQL
-vnoremap <silent> <Leader>ep :<C-u>call PsqlExecuteAndOpen(visualmode(), 1)<CR>
-
-nmap <silent> <Leader>ee <Leader>epi;
-"}}}
-
-" ALE Plugin Settings {{{
-let g:ale_completion_enabled = 1
-let g:ale_fix_on_save = 1
-let g:ale_lint_delay = 0
-let g:ale_sign_error = 'E'
-let g:ale_sign_warning = 'w'
-let g:ale_set_highlights = 0
 " }}}
