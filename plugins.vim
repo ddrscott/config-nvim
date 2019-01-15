@@ -81,3 +81,5 @@ Plug 'https://github.com/neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#in
 " Linting
 Plug 'https://github.com/w0rp/ale'
 
+" Python text objects
+Plug 'https://github.com/jeetsukumaran/vim-pythonsense.git'
