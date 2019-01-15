@@ -1,3 +1,6 @@
+source ~/.config/nvim/after/plugin/multiple_cursors.vim
+source ~/.config/nvim/after/plugin/linter_fixer.vim
+
 " Plugin manager provided by: https://github.com/junegunn/vim-plug
 call plug#begin('~/.config/nvim/plugged')
 source ~/.config/nvim/plugins.vim

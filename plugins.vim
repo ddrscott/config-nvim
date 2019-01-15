@@ -59,7 +59,6 @@ Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/tpope/vim-unimpaired.git'
 Plug 'https://github.com/tpope/vim-vinegar'
 Plug 'https://github.com/tommcdo/vim-exchange'
-Plug 'https://github.com/w0rp/ale'
 
 " Plug 'https://github.com/vim-airline/vim-airline'
 " Plug 'https://github.com/vim-airline/vim-airline-themes'
@@ -76,3 +75,9 @@ Plug 'https://github.com/ddrscott/vim-side-search'
 Plug 'https://github.com/ddrscott/vim-sendtext'
 Plug 'https://github.com/ddrscott/vim-window'
 Plug 'https://github.com/ddrscott/vim-textobj-anyblock'
+
+" Code Completion
+Plug 'https://github.com/neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+" Linting
+Plug 'https://github.com/w0rp/ale'
+

@@ -1,0 +1,7 @@
+{
+    "coc.preferences.diagnostic.enable": false,
+    "coc.preferences.diagnostic.errorSign": "E",
+    "coc.preferences.diagnostic.warningSign": "w",
+    "coc.preferences.diagnostic.infoSign": "i",
+    "coc.preferences.diagnostic.hintSign": "*"
+}

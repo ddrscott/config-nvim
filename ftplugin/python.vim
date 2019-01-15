@@ -12,8 +12,7 @@ set fileformat=unix
 iab <buffer> pry from ptpython.repl import embed; embed(globals(), locals())
 
 " Setup for ALE
-"nnoremap <buffer> <C-]> :exec "norm! m'" <bar> ALEGoToDefinition<cr>
-nnoremap <buffer> <C-]> :ALEGoToDefinition<cr>
-nnoremap <buffer> <Leader>r :ALEFindReferences<cr>
 let b:ale_fixers = ['black']
 let b:ale_linters = ['pyls']
+call ale#Set('python_black_options', '--line-length=120')
+
