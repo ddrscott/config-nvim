@@ -125,6 +125,8 @@ augroup basics_autocmd
   " set term title to current file
   autocmd BufEnter * let &titlestring=expand("%:t") | set title
   autocmd VimResized * let &previewheight=(winheight(0) * 1/3)
+
+  autocmd WinEnter * if &previewwindow | setlocal nonumber norelativenumber colorcolumn=0 statusline='' | endif
 augroup END
 " }}}
 
