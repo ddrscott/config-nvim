@@ -20,6 +20,9 @@
 " If nothing is listening on the port the `TextYankPost` autocmd is
 " removed after the first call and an `echom` is printed.
 " 
+" Disable: X11 Clipboard fowarding "Just Works"
+" No need for this anymore
+finish
 
 " Set default program
 if !exists('g:yank_to_port_prg')
