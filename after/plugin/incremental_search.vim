@@ -1,9 +1,8 @@
-" Inc Search {{{
-" Warning: beat up all the search defaults.
-if !hasmapto('<Plug>(incsearch-forward)')
+if !exists('g:loaded_incsearch')
   finish
-end
+endif
 
+" Warning: beat up all the search defaults.
 let g:incsearch#auto_nohlsearch = 1
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
@@ -14,4 +13,3 @@ map *  <Plug>(incsearch-nohl-*)
 map #  <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
-" }}}

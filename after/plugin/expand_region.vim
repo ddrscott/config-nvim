@@ -1,8 +1,9 @@
-" Warning: takes over visual mode. Get use to it! Totally Sweet!
-"          Defaults to `viw` which is usually what I want anyway.
-if !hasmapto('<Plug>(expand_region_expand)')
+if !exists('*expand_region#custom_text_objects')
   finish
 endif
+
+" Warning: takes over visual mode. Get use to it! Totally Sweet!
+"          Defaults to `viw` which is usually what I want anyway.
 vmap v <Plug>(expand_region_expand)
 vmap V <Plug>(expand_region_shrink)
 
