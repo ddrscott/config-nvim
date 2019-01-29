@@ -8,6 +8,7 @@ setlocal colorcolumn=+5
 
 setlocal nofoldenable
 let g:vim_markdown_frontmatter=1
+let g:vim_markdown_fenced_languages=['c++=cpp', 'viml=vim', 'bash=sh', 'ini=dosini', 'rb=ruby']
 
 " augroup prose
 "   au!
@@ -18,3 +19,4 @@ let g:vim_markdown_frontmatter=1
 " htmlH1         xxx links to Title
 highlight link htmlH1 Label
 
+setlocal makeprg=diction\ % errorformat=%f:%l:\ %m

@@ -110,7 +110,10 @@ function! statusline#build(state) abort
   let line = line . '%='
   let line = line . '%{&buftype == "" && &previewwindow == 0 ? statusline#buffers_prev(2) : ""} '
   if a:state == 'active'
-    let line = line . '%2*%{"[ ".statusline#buf_display_name("%")." ]"}%*'
+    let line = line . ' %2*%{" ".statusline#buf_display_name("%")." "}%* '
+    if &buftype ==# "terminal"
+      return ''
+    endif
   else
     let line = line .    '%{"[ ".statusline#buf_display_name("%")." ]"}'
   endif
@@ -119,12 +122,15 @@ function! statusline#build(state) abort
   let line = line . ' %L:%3c'
   let line = line . '%1*%{TrailingSpaceWarning()}%* '
   if a:state == 'active'
-    let line = line . "%{noscrollbar#statusline(20,'=','█',['▐'],['▌'])}"
+    " Only add scrollbar if plugin is loaded
+    if exists('g:noscrollbar_loaded')
+      let line = line . "%{noscrollbar#statusline(20,'=','█',['▐'],['▌'])}"
+    endif
   endif
   return line
 endfunction
 
-set statusline=%!statusline#build('inactive')
+setlocal statusline=%!statusline#build('inactive')
 
 augroup ShowStats
   au!
@@ -135,5 +141,4 @@ augroup ShowStats
   " Set inactive statusline when leaving stuff
   autocmd BufLeave,WinLeave * setlocal statusline=%!statusline#build('inactive')
 augroup END
-
 " }}}

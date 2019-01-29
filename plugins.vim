@@ -1,9 +1,3 @@
-" Plugin manager provided by: https://github.com/junegunn/vim-plug
-call plug#begin('~/.config/nvim/plugged')
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
 Plug 'https://github.com/rking/ag.vim'
 Plug 'https://github.com/chriskempson/base16-vim.git'
 Plug 'https://github.com/AndrewRadev/sideways.vim'
@@ -12,7 +6,6 @@ Plug 'https://github.com/AndrewRadev/splitjoin.vim'
 " Plug 'https://github.com/Raimondi/delimitMate'
 Plug 'https://github.com/airblade/vim-gitgutter.git'
 Plug 'https://github.com/altercation/vim-colors-solarized'
-Plug 'https://github.com/neomake/neomake'
 Plug 'https://github.com/ecomba/vim-ruby-refactoring'
 Plug 'https://github.com/vim-scripts/dbext.vim'
 Plug 'https://github.com/gcavallanti/vim-noscrollbar'
@@ -38,12 +31,13 @@ Plug 'https://github.com/majutsushi/tagbar.git'
 Plug 'https://github.com/mxw/vim-jsx'
 Plug 'https://github.com/nelstrom/vim-textobj-rubyblock.git'
 Plug 'https://github.com/pangloss/vim-javascript'
+Plug 'https://github.com/styled-components/vim-styled-components.git', { 'branch': 'main' }
 Plug 'https://github.com/plasticboy/vim-markdown'
-Plug 'https://github.com/python-mode/python-mode'
 Plug 'https://github.com/Quramy/vim-js-pretty-template'
 Plug 'https://github.com/rhysd/vim-crystal'
 Plug 'https://github.com/rust-lang/rust.vim.git'
 Plug 'https://github.com/racer-rust/vim-racer'
+Plug 'https://github.com/roxma/vim-tmux-clipboard'
 Plug 'https://github.com/scrooloose/nerdtree'
 Plug 'https://github.com/terryma/vim-expand-region'
 Plug 'https://github.com/terryma/vim-multiple-cursors'
@@ -65,6 +59,7 @@ Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/tpope/vim-unimpaired.git'
 Plug 'https://github.com/tpope/vim-vinegar'
 Plug 'https://github.com/tommcdo/vim-exchange'
+
 " Plug 'https://github.com/vim-airline/vim-airline'
 " Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/vim-ruby/vim-ruby'
@@ -80,4 +75,11 @@ Plug 'https://github.com/ddrscott/vim-side-search'
 Plug 'https://github.com/ddrscott/vim-sendtext'
 Plug 'https://github.com/ddrscott/vim-window'
 Plug 'https://github.com/ddrscott/vim-textobj-anyblock'
-call plug#end()
+
+" Code Completion
+Plug 'https://github.com/neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+" Linting
+Plug 'https://github.com/w0rp/ale'
+
+" Python text objects
+Plug 'https://github.com/jeetsukumaran/vim-pythonsense.git'

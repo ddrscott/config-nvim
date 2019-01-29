@@ -8,10 +8,11 @@ set smartindent
 set smarttab
 set fileformat=unix
 
-iab pry from ptpython.repl import embed; embed(globals(), locals())
+" `pry` will expand to Python's version of it.
+iab <buffer> pry from ptpython.repl import embed; embed(globals(), locals())
 
-" Linting is done by NeoMake
-let g:neomake_python_enabled_makers = ['flake8']
-let g:pymode_lint = 0
+" Setup for ALE
+let b:ale_fixers = ['black']
+let b:ale_linters = ['pyls']
+call ale#Set('python_black_options', '--line-length=120')
 
-autocmd FileType python setlocal omnifunc=RopeCompleteFunc

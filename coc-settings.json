@@ -1,0 +1,10 @@
+{
+    "coc.preferences.noselect": true,
+    "coc.preferences.codeLens.enable": true,
+    "coc.preferences.snippetIndicator": "~",
+    "coc.preferences.diagnostic.enable": false,
+    "coc.preferences.diagnostic.errorSign": "E",
+    "coc.preferences.diagnostic.warningSign": "w",
+    "coc.preferences.diagnostic.infoSign": "i",
+    "coc.preferences.diagnostic.hintSign": "*"
+}
