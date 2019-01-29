@@ -5,6 +5,8 @@ augroup git_vim
 augroup END
 " }}}
 
+let g:fugitive_replace_status_on_commit=1
+
 " Git Mappings {{{
 nnoremap <Leader>gd :Gvdiff<cr>
 nnoremap <Leader>gs :Gstatus<cr>
