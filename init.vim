@@ -247,8 +247,8 @@ nnoremap <Leader>; :
 " command mode.
 "    nnoremap <silent> <CR> :call feedkeys((&buftype == '' ? ':' : expand("\r")), 'n')<CR>
 
-" Paste mode, NeoVim might not need this.
-nnoremap <silent> <f5> :set paste!<CR>:set paste?<CR>
+" Turn on paste mode, paste, turn off paste mode.
+nnoremap <silent> <f5> :set paste <bar> exec('norm! p') <bar> set nopaste<cr>
 
 " Better use :tjump instead of :tag
 " Warning: swapping <C-]> and g<C-]>
