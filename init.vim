@@ -365,14 +365,14 @@ vnoremap <expr>y 'my"'.v:register.'y`y'
 vnoremap <expr>Y 'my"'.v:register.'Y`y'
 
 " Warning: Marks last yank position.
-nnoremap <expr>y 'my"'.v:register.'y'
+nnoremap <expr>y 'my'.v:count.'"'.v:register.'y'
 nnoremap <expr>Y 'my"'.v:register.'y$'
 
 " Warning: Paste moves to end of change. As if you typed in the change.
 " This paste also maintains indent level with line above it.
 " Also re-indents what ever was pasted.
-nnoremap <expr>p '"'.v:register.']p`]mp=`[`p'
-nnoremap <expr>P '"'.v:register.']P`]mp=`[`p'
+nnoremap <expr>p ''.v:count.'"'.v:register.']p`]mp=`[`p'
+nnoremap <expr>P ''.v:count.'"'.v:register.']P`]mp=`[`p'
 
 " Visual Paste Override {{{
 " Warning: overrides `p` and `P` behavior by preserving the "" register and
