@@ -6,6 +6,8 @@ call plug#begin('~/.config/nvim/plugged')
 source ~/.config/nvim/plugins.vim
 call plug#end()
 
+let g:python_highlight_all = 1
+
 runtime macros/matchit.vim
 
 " Basics Settings {{{
@@ -193,8 +195,8 @@ nnoremap <C-y> 3<C-y>3gk
 
 " Search Replace Helpers {{{
 " Allows use of '.' to change the next occurance of the same work. Totally Sweet!
-nnoremap c* *<C-o>cgn
-nnoremap c# #<C-o>cgn
+nnoremap c* #*cgn
+nnoremap c# *#cgn
 nnoremap <Leader>*  /\v<<C-r><C-w>><CR><C-o>
 nnoremap <Leader>// /\v<<C-r><C-w>><CR><C-o>
 nnoremap <Leader>/w /\v<><left>
@@ -370,9 +372,8 @@ nnoremap <expr>Y 'my"'.v:register.'y$'
 
 " Warning: Paste moves to end of change. As if you typed in the change.
 " This paste also maintains indent level with line above it.
-" Also re-indents what ever was pasted.
-nnoremap <expr>p '"'.v:register.']p`]mp=`[`p'
-nnoremap <expr>P '"'.v:register.']P`]mp=`[`p'
+nnoremap <expr>p '"'.v:register.']p`]mp'
+nnoremap <expr>P '"'.v:register.']P`]mp'
 
 " Visual Paste Override {{{
 " Warning: overrides `p` and `P` behavior by preserving the "" register and
