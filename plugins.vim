@@ -81,7 +81,7 @@ Plug 'https://github.com/ddrscott/vim-window'
 Plug 'https://github.com/ddrscott/vim-textobj-anyblock'
 
 " Code Completion
-Plug 'https://github.com/neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'https://github.com/neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': { -> coc#util#install()}}
 " Linting
 Plug 'https://github.com/w0rp/ale'
 
