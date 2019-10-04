@@ -108,7 +108,7 @@ endfunction
 function! statusline#build(state) abort
   let line = '%1*%([%M%H%W%R]%)%q%*'
   let line = line . '%='
-  let line = line . '%{&buftype == "" && &previewwindow == 0 ? statusline#buffers_prev(2) : ""} '
+  let line = line . '%{&buftype == "" && &previewwindow == 0 ? statusline#buffers_prev(3) : ""} '
   if a:state == 'active'
     let line = line . ' %2*%{" ".statusline#buf_display_name("%")." "}%* '
     if &buftype ==# "terminal"
@@ -117,7 +117,7 @@ function! statusline#build(state) abort
   else
     let line = line .    '%{"[ ".statusline#buf_display_name("%")." ]"}'
   endif
-  let line = line . ' %{&buftype == "" && &previewwindow == 0 ? statusline#buffers_next(2) : ""}'
+  let line = line . ' %{&buftype == "" && &previewwindow == 0 ? statusline#buffers_next(3) : ""}'
   let line = line . '%='
   let line = line . ' %L:%3c'
   let line = line . '%1*%{TrailingSpaceWarning()}%* '
