@@ -10,6 +10,7 @@ set fileformat=unix
 
 " `pry` will expand to Python's version of it.
 iab <buffer> pry from ptpython.repl import embed; embed(globals(), locals())
+iab <buffer> ipdb import ipdb; ipdb.set_trace()
 
 " Setup for ALE
 let b:ale_fixers = ['black']
