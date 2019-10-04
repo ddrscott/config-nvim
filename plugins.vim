@@ -75,6 +75,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'tek/vim-fieldtrip'
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'https://github.com/mhinz/vim-startify'
+Plug 'https://github.com/vito-c/jq.vim.git'
+
+
 Plug 'https://github.com/ddrscott/vim-side-search'
 Plug 'https://github.com/ddrscott/vim-sendtext'
 Plug 'https://github.com/ddrscott/vim-window'
@@ -87,3 +90,5 @@ Plug 'https://github.com/w0rp/ale'
 
 " Python text objects
 Plug 'https://github.com/jeetsukumaran/vim-pythonsense.git'
+
+Plug 'https://github.com/vim-python/python-syntax.git'
