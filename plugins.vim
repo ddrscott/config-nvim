@@ -1,3 +1,5 @@
+" Plugin manager provided by: https://github.com/junegunn/vim-plug
+call plug#begin('~/.config/nvim/plugged')
 Plug 'https://github.com/rking/ag.vim'
 Plug 'https://github.com/chriskempson/base16-vim.git'
 Plug 'https://github.com/AndrewRadev/sideways.vim'
@@ -90,5 +92,7 @@ Plug 'https://github.com/w0rp/ale'
 
 " Python text objects
 Plug 'https://github.com/jeetsukumaran/vim-pythonsense.git'
-
 Plug 'https://github.com/vim-python/python-syntax.git'
+
+" Keep this at the end!
+call plug#end()
