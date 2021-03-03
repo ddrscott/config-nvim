@@ -368,8 +368,8 @@ nnoremap <expr>Y 'my"'.v:register.'y$'
 
 " Warning: Paste moves to end of change. As if you typed in the change.
 " This paste also maintains indent level with line above it.
-nnoremap <expr>p ''.v:count.'"'.v:register.']p`]mp'
-nnoremap <expr>P ''.v:count.'"'.v:register.']P`]mp'
+" FIXME nnoremap <expr>p ''.v:count.'"'.v:register.']p`]mp'
+" FIXME nnoremap <expr>P ''.v:count.'"'.v:register.']P`]mp'
 
 " Visual Paste Override {{{
 " Warning: overrides `p` and `P` behavior by preserving the "" register and
