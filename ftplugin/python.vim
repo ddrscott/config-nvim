@@ -15,5 +15,4 @@ iab <buffer> ipdb import ipdb; ipdb.set_trace()
 " Setup for ALE
 let b:ale_fixers = ['black']
 let b:ale_linters = ['pyls']
-call ale#Set('python_black_options', '--line-length=120')
-
+"call ale#Set('python_black_options', '--line-length=120')
