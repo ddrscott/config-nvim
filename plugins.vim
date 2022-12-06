@@ -57,9 +57,9 @@ Plug 'https://github.com/whatyouhide/vim-textobj-xmlattr.git'
 Plug 'https://github.com/zeekay/vimtips.git'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'tek/vim-fieldtrip'
+" Plug 'tek/vim-fieldtrip'
 Plug 'https://github.com/mhinz/vim-startify'
-Plug 'https://github.com/vito-c/jq.vim.git'
+" Plug 'https://github.com/vito-c/jq.vim.git'
 
 
 Plug 'https://github.com/ddrscott/vim-side-search'
@@ -67,13 +67,12 @@ Plug 'https://github.com/ddrscott/vim-sendtext'
 Plug 'https://github.com/ddrscott/vim-window'
 Plug 'https://github.com/ddrscott/vim-textobj-anyblock'
 
+" The new world of IDE features
 " Code Completion
-" Plug 'https://github.com/neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': { -> coc#util#install()}}
 Plug 'neovim/nvim-lspconfig'
-Plug 'anott03/nvim-lspinstall'
-
+"Plug 'anott03/nvim-lspinstall'
+Plug 'williamboman/mason.nvim'
 Plug 'https://github.com/github/copilot.vim', {'branch': 'release'}
-
 Plug 'https://github.com/sheerun/vim-polyglot'
 
 " Keep this at the end!
