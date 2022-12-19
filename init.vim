@@ -42,6 +42,12 @@ set nobackup
 set nowritebackup
 set noswapfile
 
+if executable("pbpaste")
+  " Only change this on Mac.
+  " Breaks everywhere else.
+  set clipboard+=unnamedplus
+endif
+
 " allow unsaved buffers to be hidden
 set hidden
 " }}}
