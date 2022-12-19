@@ -42,9 +42,6 @@ set nobackup
 set nowritebackup
 set noswapfile
 
-" System clipboard
-set clipboard+=unnamedplus
-
 " allow unsaved buffers to be hidden
 set hidden
 " }}}
