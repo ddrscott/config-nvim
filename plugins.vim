@@ -36,7 +36,7 @@ Plug 'https://github.com/timcharper/wordnet.vim'
 Plug 'https://github.com/tpope/vim-commentary'
 Plug 'https://github.com/tpope/vim-endwise'
 " Use my personal version until changes are accepted by @tpope
-Plug 'https://github.com/ddrscott/vim-fugitive'
+Plug 'https://github.com/tpope/vim-fugitive'
 Plug 'https://github.com/tpope/vim-haml'
 Plug 'https://github.com/tpope/vim-obsession'
 Plug 'https://github.com/tpope/vim-projectionist'
