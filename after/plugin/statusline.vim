@@ -87,6 +87,15 @@ function! statusline#buffers_for(type) abort
   return result
 endfunction
 
+" Click handler for buffer labels
+function! statusline#switch_buf(minwid, clicks, btn, mods) abort
+  if a:btn ==# 'l'
+    execute 'buffer ' . a:minwid
+  elseif a:btn ==# 'r'
+    execute 'bdelete ' . a:minwid
+  endif
+endfunction
+
 function! statusline#buffers_prev(max) abort
   let i = bufnr('$')
   let result = ''
@@ -95,7 +104,9 @@ function! statusline#buffers_prev(max) abort
     if buflisted(i)
       let current = bufnr('%')
       if i < current
-        let result = ' '. i . ':' . fnamemodify(bufname(i), ':t') . ' ' . result
+        " %{bufnr}@Function@ makes it clickable, %X ends clickable region
+        let label = i . ':' . fnamemodify(bufname(i), ':t')
+        let result = '%' . i . '@statusline#switch_buf@ ' . label . ' %X' . result
         let found += 1
         if found >= a:max
           return result
@@ -116,7 +127,8 @@ function! statusline#buffers_next(max) abort
     if buflisted(i)
       let current = bufnr('%')
       if i > current
-        let result = result . ' '. i . ':' . fnamemodify(bufname(i), ':t') . ' '
+        let label = i . ':' . fnamemodify(bufname(i), ':t')
+        let result = result . '%' . i . '@statusline#switch_buf@ ' . label . ' %X'
         let found += 1
         if found >= a:max
           return result
@@ -145,7 +157,12 @@ endfunction
 function! statusline#build(state) abort
   let line = '%1*%([%M%H%W%R]%)%q%*'
   let line = line . '%='
-  let line = line . '%{&buftype == "" && &previewwindow == 0 ? statusline#buffers_prev(3) : ""} '
+  " Embed buffer labels directly so clickable %@...@ syntax works
+  if &buftype == '' && &previewwindow == 0
+    let line = line . statusline#buffers_prev(3) . ' '
+  else
+    let line = line . ' '
+  endif
   if a:state == 'active'
     let line = line . ' %2*%{" ".statusline#buf_display_name("%")." "}%* '
     if &buftype ==# "terminal"
@@ -154,7 +171,9 @@ function! statusline#build(state) abort
   else
     let line = line .    '%{"[ ".statusline#buf_display_name("%")." ]"}'
   endif
-  let line = line . ' %{&buftype == "" && &previewwindow == 0 ? statusline#buffers_next(3) : ""}'
+  if &buftype == '' && &previewwindow == 0
+    let line = line . ' ' . statusline#buffers_next(3)
+  endif
   let line = line . '%='
   let line = line . '%3* %L:%3c'
   let line = line . '%1*%{TrailingSpaceWarning()}%* '
