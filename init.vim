@@ -56,7 +56,7 @@ set hidden
 set background=dark
 " Make sure to set iTerm to xterm-256color
 if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
+  let tinted_colorspace=256
   source ~/.vimrc_background
 endif
 

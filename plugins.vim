@@ -1,7 +1,7 @@
 " Plugin manager provided by: https://github.com/junegunn/vim-plug
 call plug#begin('~/.config/nvim/plugged')
 Plug 'https://github.com/rking/ag.vim'
-Plug 'https://github.com/chriskempson/base16-vim.git'
+Plug 'https://github.com/tinted-theming/tinted-vim.git'
 Plug 'https://github.com/AndrewRadev/sideways.vim'
 Plug 'https://github.com/AndrewRadev/splitjoin.vim'
 Plug 'https://github.com/airblade/vim-gitgutter.git'
@@ -84,7 +84,7 @@ Plug 'MunifTanjim/nui.nvim',
 Plug 'nvim-lua/plenary.nvim',
 Plug 'nvim-telescope/telescope.nvim'
 "Plug 'https://github.com/jackMort/ChatGPT.nvim'
-Plug 'https://github.com/CopilotC-Nvim/CopilotChat.nvim'
+Plug 'https://github.com/CopilotC-Nvim/CopilotChat.nvim', { 'branch': 'main' }
 
 "Plug 'https://github.com/David-Kunz/gen.nvim'
 "Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
