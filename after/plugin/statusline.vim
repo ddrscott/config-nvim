@@ -27,6 +27,9 @@ function! statusline#setup_highlights() abort
   exec 'hi User2 guifg=' . bg_dark . ' guibg=' . yellow . ' gui=bold'
   " User3: stats and scrollbar - yellow foreground
   exec 'hi User3 guifg=' . yellow . ' guibg=' . bg_mid . ' gui=NONE'
+  " User4: LSP/Copilot indicators - cyan/teal
+  let cyan = '#96b5b4'
+  exec 'hi User4 guifg=' . cyan . ' guibg=' . bg_mid . ' gui=NONE'
 
   " Gutter highlights - distinct from code area
   let gutter_bg = bg_mid
@@ -175,6 +178,11 @@ function! statusline#build(state) abort
     let line = line . ' ' . statusline#buffers_next(3)
   endif
   let line = line . '%='
+  if a:state == 'active'
+    " LSP and Copilot status indicators (cyan)
+    let line = line . '%4*%{statusline#lsp_status()}'
+    let line = line . '%{statusline#copilot_status()}%* '
+  endif
   let line = line . '%3* %L:%3c'
   let line = line . '%1*%{TrailingSpaceWarning()}%* '
   if a:state == 'active'
@@ -184,6 +192,41 @@ function! statusline#build(state) abort
     endif
   endif
   return line
+endfunction
+
+" LSP status indicator
+function! statusline#lsp_status() abort
+  if !has('nvim')
+    return ''
+  endif
+  let status = luaeval('vim.lsp.status()')
+  if status != ''
+    return '[LSP:' . status . ']'
+  endif
+  " Show attached LSP clients
+  let clients = luaeval('#vim.lsp.get_clients({bufnr = 0})')
+  if clients > 0
+    return '[LSP]'
+  endif
+  return ''
+endfunction
+
+" Copilot status indicator
+function! statusline#copilot_status() abort
+  if !exists('g:loaded_copilot')
+    return ''
+  endif
+  try
+    let status = copilot#GetDisplayedSuggestion()
+    if !empty(get(status, 'text', ''))
+      return '[CP*]'  " Copilot has suggestion
+    endif
+    if copilot#Enabled()
+      return '[CP]'  " Copilot active but no suggestion
+    endif
+  catch
+  endtry
+  return '[cp]'  " Copilot not active
 endfunction
 
 setlocal statusline=%!statusline#build('inactive')
