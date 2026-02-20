@@ -1,17 +1,17 @@
 " Plugin manager provided by: https://github.com/junegunn/vim-plug
 call plug#begin('~/.config/nvim/plugged')
-Plug 'https://github.com/rking/ag.vim'
+" Removed: ag.vim (using ripgrep via Telescope)
 Plug 'https://github.com/tinted-theming/tinted-vim.git'
 Plug 'https://github.com/AndrewRadev/sideways.vim'
 Plug 'https://github.com/AndrewRadev/splitjoin.vim'
-Plug 'https://github.com/airblade/vim-gitgutter.git'
+" Replaced: vim-gitgutter -> gitsigns.nvim (see below)
 Plug 'https://github.com/alampros/vim-styled-jsx'
 " Plug 'https://github.com/altercation/vim-colors-solarized'
 Plug 'https://github.com/vim-scripts/dbext.vim'
 Plug 'https://github.com/gcavallanti/vim-noscrollbar'
 Plug 'https://github.com/godlygeek/tabular'
 Plug 'https://github.com/Glench/Vim-Jinja2-Syntax.git'
-Plug 'https://github.com/haya14busa/incsearch.vim'
+" Removed: incsearch.vim (using built-in incsearch + inccommand)
 Plug 'https://github.com/jeetsukumaran/vim-indentwise'
 Plug 'https://github.com/joker1007/vim-ruby-heredoc-syntax'
 Plug 'https://github.com/justinmk/vim-sneak'
@@ -25,16 +25,16 @@ Plug 'https://github.com/kana/vim-submode'
 "Plug 'https://github.com/kana/vim-textobj-user.git'
 "Plug 'https://github.com/tek/vim-textobj-ruby.git'
 Plug 'https://github.com/kshenoy/vim-signature.git'
-Plug 'https://github.com/majutsushi/tagbar.git'
+" Removed: tagbar (using LSP symbols via Telescope)
 "Plug 'https://github.com/nelstrom/vim-textobj-rubyblock.git'
 "Plug 'https://github.com/whatyouhide/vim-textobj-xmlattr.git'
 Plug 'https://github.com/styled-components/vim-styled-components.git', { 'branch': 'main' }
 Plug 'https://github.com/roxma/vim-tmux-clipboard'
-Plug 'https://github.com/scrooloose/nerdtree'
+" Replaced: nerdtree -> nvim-tree.lua (see below)
 Plug 'https://github.com/terryma/vim-expand-region'
-Plug 'https://github.com/terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi'  " Replaced: vim-multiple-cursors (deprecated)
 Plug 'https://github.com/timcharper/wordnet.vim'
-Plug 'https://github.com/tpope/vim-commentary'
+" Removed: vim-commentary (using built-in gc commenting)
 Plug 'https://github.com/tpope/vim-endwise'
 " Use my personal version until changes are accepted by @tpope
 Plug 'https://github.com/tpope/vim-fugitive'
@@ -55,8 +55,7 @@ Plug 'https://github.com/tommcdo/vim-exchange'
 
 Plug 'https://github.com/wellle/targets.vim.git'
 Plug 'https://github.com/zeekay/vimtips.git'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+" Removed: fzf, fzf.vim (using Telescope instead)
 " Plug 'tek/vim-fieldtrip'
 Plug 'https://github.com/mhinz/vim-startify'
 " Plug 'https://github.com/vito-c/jq.vim.git'
@@ -83,6 +82,10 @@ Plug 'https://github.com/github/copilot.vim', {'branch': 'release'}
 Plug 'MunifTanjim/nui.nvim',
 Plug 'nvim-lua/plenary.nvim',
 Plug 'nvim-telescope/telescope.nvim'
+
+" Modern Lua replacements
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'nvim-tree/nvim-tree.lua'
 "Plug 'https://github.com/jackMort/ChatGPT.nvim'
 Plug 'https://github.com/CopilotC-Nvim/CopilotChat.nvim', { 'branch': 'main' }
 

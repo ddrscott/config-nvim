@@ -21,15 +21,7 @@ nnoremap <Leader>gb :Git blame<cr>
 " }}}
 
 
-" Git Gutter {{{
-nmap [h <Plug>GitGutterPrevHunk
-nmap ]h <Plug>GitGutterNextHunk
-nmap <Leader>hs <Plug>GitGutterStageHunk
-nmap <Leader>hr <Plug>GitGutterRevertHunk
-nmap <Leader>hp <Plug>GitGutterPreviewHunk
-nmap <Leader>hcc <Plug>GitGutterStageHunk:Gcommit<cr>
-nmap <Leader>hca <Plug>GitGutterStageHunk:Gcommit --amend<cr>
-" }}}
+" Git Gutter mappings moved to after/plugin/gitsigns.lua
 
 " Git Functions {{{
 function! GitBranchPoint()

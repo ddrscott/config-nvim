@@ -118,7 +118,7 @@ set completeopt=menuone,preview
 " }}}
 
 if exists('+inccommand')
-  set inccommand=nosplit
+  set inccommand=split
 endif
 " }}}
 
@@ -224,19 +224,10 @@ nnoremap <Leader>p mp"_diwP`p
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 " }}}
 
-" Nerd Tree / Netrw {{{
-let g:netrw_liststyle=3
-let g:netrw_altfile=1
-let g:netrw_winsize=25
-" nnoremap <Leader>n :Lexplore<CR>
-" nnoremap - :exe 'Lexplore' expand('%:h')<CR>
-nnoremap <Leader>n :NERDTreeToggle<CR>
-nnoremap - :NERDTreeFind<CR>
+" File Explorer mappings moved to after/plugin/nvim_tree.lua
 " }}}
 
-" Tagbar {{{
-nnoremap <Leader>tb :Tagbar<CR>
-nnoremap <Leader>ta :TagbarOpenAutoClose<CR>
+" Tagbar removed - using LSP symbols via Telescope (<Leader>fs)
 " }}}
 
 " Neoterm mappings {{{
