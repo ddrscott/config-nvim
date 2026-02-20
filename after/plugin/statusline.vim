@@ -34,6 +34,11 @@ function! statusline#setup_highlights() abort
   exec 'hi CursorLineNr guifg=' . yellow . ' guibg=' . gutter_bg
   exec 'hi SignColumn   guifg=' . fg . ' guibg=' . gutter_bg
   exec 'hi FoldColumn   guifg=' . gray . ' guibg=' . gutter_bg
+
+  " Subtle highlights - between bg_dark and bg_mid, matching ocean tint
+  let bg_subtle = '#313a44'
+  exec 'hi ColorColumn guibg=' . bg_subtle
+  exec 'hi CursorLine  guibg=' . bg_subtle . ' gui=NONE'
 endfunction
 
 " Apply highlights now and after any colorscheme change
