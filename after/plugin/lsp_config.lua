@@ -28,7 +28,7 @@ local on_attach = function(client, bufnr)
 end
 
 -- List of LSP servers to configure
-local servers = { 'pyright', 'rust_analyzer', 'ts_ls', 'jdtls', 'solargraph', 'intelephense' }
+local servers = { 'pyright', 'rust_analyzer', 'ts_ls', 'solargraph', 'intelephense' }
 
 -- Configure each server using native vim.lsp.config
 for _, server in ipairs(servers) do
