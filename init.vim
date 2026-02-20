@@ -1,3 +1,6 @@
+" Disable markdown in Java syntax (avoids highlight group conflicts with vim-polyglot)
+let g:java_ignore_markdown = 1
+
 source ~/.config/nvim/after/plugin/multiple_cursors.vim
 source ~/.config/nvim/after/plugin/linter_fixer.vim
 source ~/.config/nvim/plugins.vim
