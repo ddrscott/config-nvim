@@ -1,6 +1,18 @@
 -- Native Neovim 0.11+ LSP configuration
 -- Uses vim.lsp.config() and vim.lsp.enable() instead of deprecated lspconfig setup
 
+-- Configure diagnostic display (virtual text at end of lines)
+vim.diagnostic.config({
+  virtual_text = {
+    spacing = 4,
+    prefix = '●',
+  },
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+})
+
 -- on_attach function to set up keymaps when LSP attaches
 local on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
