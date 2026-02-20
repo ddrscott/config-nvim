@@ -1,15 +1,16 @@
 " Statusline {{{
 " Thanks: https://github.com/airblade/dotvim/blob/master/vimrc
 let s:bg=19
-hi clear StatusLine
-hi clear StatusLineNC
-exec 'hi StatusLine   ctermfg=3 ctermbg=' . s:bg
-exec 'hi StatusLineNC ctermfg=3 ctermbg=' . s:bg . ' cterm=italic'
-
-" highlight values in terminal vim, colorscheme solarized
-" Identifier
-exec 'hi User1  ctermfg=9   ctermbg=' . s:bg . ' cterm=bold'
-exec 'hi User2  ctermfg=3   ctermbg=' . s:bg . ' cterm=bold,reverse'
+" 2025-05-22 - temp fix for status color
+"hi clear StatusLine
+"hi clear StatusLineNC
+"exec 'hi StatusLine   ctermfg=3 ctermbg=' . s:bg
+"exec 'hi StatusLineNC ctermfg=3 ctermbg=' . s:bg . ' cterm=italic'
+"
+"" highlight values in terminal vim, colorscheme solarized
+"" Identifier
+"exec 'hi User1  ctermfg=9   ctermbg=' . s:bg . ' cterm=bold'
+"exec 'hi User2  ctermfg=3   ctermbg=' . s:bg . ' cterm=bold,reverse'
 
 function! WindowNumber()
   return tabpagewinnr(tabpagenr())

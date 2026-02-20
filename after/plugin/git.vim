@@ -10,8 +10,8 @@ let g:fugitive_replace_status_on_commit=1
 " Git Mappings {{{
 nnoremap <Leader>gd :Gvdiff<cr>
 nnoremap <Leader>gs :Git<cr>
-nnoremap <Leader>ga :Gadd<cr>
-nnoremap <Leader>gb :Gblame<cr>
+nnoremap <Leader>ga :Git add %<cr>
+nnoremap <Leader>gb :Git blame<cr>
 "nnoremap <Leader>gco :Gcheckout<cr>
 "nnoremap <Leader>gci :Gcommit<cr>
 "nnoremap <Leader>gm :Gmove<cr>

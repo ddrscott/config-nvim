@@ -3,14 +3,17 @@ if !exists(':SideSearch')
 endif
 
 " Side Search {{{
-let g:side_search_prg = 'ag --word-regexp'
+let g:side_search_prg__ = 'rg --word-regexp'
       \. " --ignore='*.js.map'"
       \. " --ignore='*.csv'"
       \. " --ignore='*tags'"
       \. " --ignore='ui/public/client'"
       \. " --ignore='cassettes/'"
       \. " --ignore='components/help'"
-      \. " --heading --stats -C 2 --group"
+      \. " --heading"
+      \. " --stats -C 2"
+      \. " --case-sensitive"
+      \. " --line-number"
 let g:side_search_splitter = 'vnew'
 let g:side_search_split_pct = 0.4
 
