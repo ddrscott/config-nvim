@@ -1,16 +1,47 @@
 " Statusline {{{
 " Thanks: https://github.com/airblade/dotvim/blob/master/vimrc
 let s:bg=19
-" 2025-05-22 - temp fix for status color
-"hi clear StatusLine
-"hi clear StatusLineNC
-"exec 'hi StatusLine   ctermfg=3 ctermbg=' . s:bg
-"exec 'hi StatusLineNC ctermfg=3 ctermbg=' . s:bg . ' cterm=italic'
-"
-"" highlight values in terminal vim, colorscheme solarized
-"" Identifier
-"exec 'hi User1  ctermfg=9   ctermbg=' . s:bg . ' cterm=bold'
-"exec 'hi User2  ctermfg=3   ctermbg=' . s:bg . ' cterm=bold,reverse'
+
+" Custom statusline highlights for base16-ocean
+" User1: Warning/error color (red, bold)
+" User2: Active buffer name (yellow background for contrast)
+function! statusline#setup_highlights() abort
+  " base16-ocean colors
+  let bg_dark = '#2b303b'
+  let bg_mid  = '#343d46'
+  let gray    = '#65737e'
+  let yellow  = '#ebcb8b'
+  let red     = '#bf616a'
+  let fg      = '#c0c5ce'
+
+  hi clear StatusLine
+  hi clear StatusLineNC
+
+  " Active statusline
+  exec 'hi StatusLine   guifg=' . fg . ' guibg=' . bg_mid . ' gui=NONE'
+  " Inactive statusline (dimmed)
+  exec 'hi StatusLineNC guifg=' . gray . ' guibg=' . bg_dark . ' gui=italic'
+  " User1: warnings/errors (red)
+  exec 'hi User1 guifg=' . red . ' guibg=' . bg_mid . ' gui=bold'
+  " User2: active buffer name - yellow bg, dark text for contrast
+  exec 'hi User2 guifg=' . bg_dark . ' guibg=' . yellow . ' gui=bold'
+  " User3: stats and scrollbar - yellow foreground
+  exec 'hi User3 guifg=' . yellow . ' guibg=' . bg_mid . ' gui=NONE'
+
+  " Gutter highlights - distinct from code area
+  let gutter_bg = bg_mid
+  exec 'hi LineNr       guifg=' . gray . ' guibg=' . gutter_bg
+  exec 'hi CursorLineNr guifg=' . yellow . ' guibg=' . gutter_bg
+  exec 'hi SignColumn   guifg=' . fg . ' guibg=' . gutter_bg
+  exec 'hi FoldColumn   guifg=' . gray . ' guibg=' . gutter_bg
+endfunction
+
+" Apply highlights now and after any colorscheme change
+call statusline#setup_highlights()
+augroup statusline_colors
+  autocmd!
+  autocmd ColorScheme * call statusline#setup_highlights()
+augroup END
 
 function! WindowNumber()
   return tabpagewinnr(tabpagenr())
@@ -120,12 +151,12 @@ function! statusline#build(state) abort
   endif
   let line = line . ' %{&buftype == "" && &previewwindow == 0 ? statusline#buffers_next(3) : ""}'
   let line = line . '%='
-  let line = line . ' %L:%3c'
+  let line = line . '%3* %L:%3c'
   let line = line . '%1*%{TrailingSpaceWarning()}%* '
   if a:state == 'active'
     " Only add scrollbar if plugin is loaded
     if exists('g:noscrollbar_loaded')
-      let line = line . "%{noscrollbar#statusline(20,'=','█',['▐'],['▌'])}"
+      let line = line . "%3*%{noscrollbar#statusline(20,'=','█',['▐'],['▌'])}%*"
     endif
   endif
   return line
